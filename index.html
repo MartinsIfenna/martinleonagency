@@ -739,7 +739,7 @@
   <p class="section-sub">Book a free 30-minute strategy call. No commitment, no pressure — just a clear plan for what's possible.</p>
   <div class="cta-actions">
     <a href="#contact" class="btn-primary">Book Free Strategy Call</a>
-    <a href="mailto:hello@martinleonagency.com" class="btn-ghost" style="color: var(--ink); border-color: rgba(0,0,0,0.2);">hello@martinleonagency.com</a>
+    <a href="/cdn-cgi/l/email-protection#84ece1e8e8ebc4e9e5f6f0edeae8e1ebeae5e3e1eae7fdaae7ebe9" class="btn-ghost" style="color: var(--ink); border-color: rgba(0,0,0,0.2);"><span class="__cf_email__" data-cfemail="0d65686161624d606c7f796463616862636c6a68636e74236e6260">[email&#160;protected]</span></a>
   </div>
 </section>
 
@@ -755,7 +755,7 @@
         </div>
         <div>
           <p class="contact-detail-label">Email</p>
-          <p class="contact-detail-value">hello@martinleonagency.com</p>
+          <p class="contact-detail-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="553d3039393a15383427213c3b39303a3b3432303b362c7b363a38">[email&#160;protected]</a></p>
         </div>
       </div>
       <div class="contact-info-item">
@@ -787,38 +787,61 @@
       </div>
     </div>
     <div class="contact-form-wrap">
-      <div class="form-row">
-        <label>Full Name</label>
-        <input type="text" placeholder="Your full name">
-      </div>
-      <div class="form-row">
-        <label>Email Address</label>
-        <input type="email" placeholder="you@example.com">
-      </div>
-      <div class="form-row">
-        <label>Service Interested In</label>
-        <select>
-          <option>Social Media Management</option>
-          <option>Graphic Design</option>
-          <option>Web Design & Development</option>
-          <option>Full Package (All Services)</option>
-          <option>Not sure yet — let's talk</option>
-        </select>
-      </div>
-      <div class="form-row">
-        <label>Budget Range</label>
-        <select>
-          <option>$499 – $999 / month</option>
-          <option>$1,000 – $2,499 / month</option>
-          <option>$2,500+ / month</option>
-          <option>One-time project</option>
-        </select>
-      </div>
-      <div class="form-row">
-        <label>Tell Us About Your Project</label>
-        <textarea placeholder="What does your business do? What are you looking to achieve?"></textarea>
-      </div>
-      <button class="form-submit">Send Message →</button>
+      <form id="contact-form" novalidate>
+        <div class="form-row">
+          <label for="name">Full Name <span style="color:var(--gold)">*</span></label>
+          <input type="text" id="name" name="name" placeholder="Your full name" required>
+          <span class="field-error" id="name-error"></span>
+        </div>
+        <div class="form-row">
+          <label for="email">Email Address <span style="color:var(--gold)">*</span></label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          <span class="field-error" id="email-error"></span>
+        </div>
+        <div class="form-row">
+          <label for="service">Service Interested In</label>
+          <select id="service" name="service">
+            <option value="">— Select a service —</option>
+            <option>Social Media Management</option>
+            <option>Graphic Design</option>
+            <option>Web Design &amp; Development</option>
+            <option>Full Package (All Services)</option>
+            <option>Not sure yet — let's talk</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="budget">Budget Range</label>
+          <select id="budget" name="budget">
+            <option value="">— Select a budget —</option>
+            <option>$499 – $999 / month</option>
+            <option>$1,000 – $2,499 / month</option>
+            <option>$2,500+ / month</option>
+            <option>One-time project</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="message">Tell Us About Your Project <span style="color:var(--gold)">*</span></label>
+          <textarea id="message" name="message" placeholder="What does your business do? What are you looking to achieve?" required></textarea>
+          <span class="field-error" id="message-error"></span>
+        </div>
+
+        <!-- Success banner (hidden by default) -->
+        <div id="form-success" style="display:none; background:#e6f7ee; border:1px solid #1D9E75; padding:1rem 1.25rem; margin-bottom:1.25rem; color:#0F6E56; font-size:0.9rem; line-height:1.6;">
+          ✓ <strong>Message sent!</strong> We'll get back to you within 24 hours.
+        </div>
+
+        <!-- Error banner (hidden by default) -->
+        <div id="form-error-banner" style="display:none; background:#fceaea; border:1px solid #E24B4A; padding:1rem 1.25rem; margin-bottom:1.25rem; color:#A32D2D; font-size:0.9rem; line-height:1.6;">
+          ✗ Something went wrong. Please try again or email us directly.
+        </div>
+
+        <button type="submit" class="form-submit" id="submit-btn">Send Message →</button>
+      </form>
+
+      <style>
+        .field-error { display:block; font-size:0.78rem; color:#E24B4A; margin-top:4px; min-height:1rem; }
+        input.invalid, select.invalid, textarea.invalid { border-color:#E24B4A !important; }
+      </style>
     </div>
   </div>
 </section>
@@ -878,20 +901,93 @@
 </footer>
 
 <script>
+  /* ── Scroll reveal ── */
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  document.querySelector('.form-submit').addEventListener('click', function() {
-    this.textContent = 'Message Sent! ✓';
-    this.style.background = 'var(--gold)';
-    this.style.color = 'var(--black)';
-    setTimeout(() => {
-      this.textContent = 'Send Message →';
-      this.style.background = '';
-      this.style.color = '';
-    }, 3000);
+  /* ── Contact form ── */
+  const form      = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const successEl = document.getElementById('form-success');
+  const errorEl   = document.getElementById('form-error-banner');
+
+  function setFieldError(fieldId, errorId, msg) {
+    const field = document.getElementById(fieldId);
+    const err   = document.getElementById(errorId);
+    if (msg) { field.classList.add('invalid');    err.textContent = msg; }
+    else     { field.classList.remove('invalid'); err.textContent = ''; }
+  }
+
+  function validateForm() {
+    let valid = true;
+    const name    = document.getElementById('name').value.trim();
+    const email   = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!name)              { setFieldError('name',    'name-error',    'Please enter your name.');          valid = false; }
+    else                    { setFieldError('name',    'name-error',    ''); }
+
+    if (!email)             { setFieldError('email',   'email-error',   'Please enter your email.');         valid = false; }
+    else if (!emailRe.test(email)) { setFieldError('email', 'email-error', 'Please enter a valid email address.'); valid = false; }
+    else                    { setFieldError('email',   'email-error',   ''); }
+
+    if (!message)           { setFieldError('message', 'message-error', 'Please tell us about your project.'); valid = false; }
+    else                    { setFieldError('message', 'message-error', ''); }
+
+    return valid;
+  }
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    successEl.style.display  = 'none';
+    errorEl.style.display    = 'none';
+
+    if (!validateForm()) return;
+
+    submitBtn.textContent = 'Sending…';
+    submitBtn.disabled    = true;
+
+    const data = {
+      name:    document.getElementById('name').value.trim(),
+      email:   document.getElementById('email').value.trim(),
+      service: document.getElementById('service').value,
+      budget:  document.getElementById('budget').value,
+      message: document.getElementById('message').value.trim()
+    };
+
+    try {
+      const res = await fetch('https://formspree.io/f/xkopkoov', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body:    JSON.stringify(data)
+      });
+
+      if (res.ok) {
+        successEl.style.display = 'block';
+        form.reset();
+        ['name','email','message'].forEach(id => {
+          document.getElementById(id).classList.remove('invalid');
+        });
+      } else {
+        errorEl.style.display = 'block';
+      }
+    } catch (err) {
+      errorEl.style.display = 'block';
+    }
+
+    submitBtn.textContent = 'Send Message →';
+    submitBtn.disabled    = false;
+  });
+
+  /* Clear field errors on input */
+  ['name','email','message'].forEach(id => {
+    document.getElementById(id).addEventListener('input', () => {
+      document.getElementById(id).classList.remove('invalid');
+      document.getElementById(id + '-error').textContent = '';
+    });
   });
 </script>
 </body>
