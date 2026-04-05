@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Strategy Call — Martin Leon Agency</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C; --gold-light: #E8D08A; --gold-pale: #FAF4E1;
+    --black: #0D0C0A; --charcoal: #1C1A16; --ink: #2E2B24;
+    --smoke: #6B6760; --mist: #B5B1A9; --cream: #F7F4EE; --white: #FDFCFA;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--ink); }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 5vw;
+    background: rgba(253,252,250,0.92); backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 700; color: var(--black); text-decoration: none; }
+  .nav-logo span { color: var(--gold); }
+  .nav-back { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: var(--smoke); display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s; }
+  .nav-back:hover { color: var(--gold); }
+
+  /* HERO */
+  .page-hero {
+    background: var(--black); padding: 10rem 5vw 5rem;
+    position: relative; overflow: hidden;
+  }
+  .page-hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(201,168,76,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-tag { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 1rem; }
+  .page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 1rem; }
+  .page-hero h1 em { font-style: italic; color: var(--gold); }
+  .page-hero p { font-size: 1rem; color: var(--mist); max-width: 500px; line-height: 1.75; }
+
+  /* MAIN LAYOUT */
+  .booking-layout {
+    display: grid; grid-template-columns: 1fr 1.4fr;
+    gap: 0; min-height: 70vh;
+  }
+
+  /* LEFT PANEL */
+  .booking-info {
+    background: var(--cream); padding: 4rem 3rem;
+    border-right: 1px solid rgba(201,168,76,0.15);
+  }
+  .info-section { margin-bottom: 2.5rem; }
+  .info-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; display: block; }
+  .info-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--black); margin-bottom: 0.5rem; }
+  .info-text { font-size: 0.9rem; line-height: 1.7; color: var(--smoke); }
+
+  .what-to-expect { list-style: none; margin-top: 1.5rem; }
+  .what-to-expect li {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 0.9rem 0; border-bottom: 1px solid rgba(201,168,76,0.12);
+    font-size: 0.9rem; color: var(--ink); line-height: 1.5;
+  }
+  .what-to-expect li:last-child { border-bottom: none; }
+  .expect-icon {
+    width: 28px; height: 28px; background: var(--gold); flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.7rem; font-weight: 700; color: var(--black); margin-top: 1px;
+  }
+
+  .call-meta { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem; }
+  .meta-item { display: flex; align-items: center; gap: 0.75rem; font-size: 0.88rem; color: var(--smoke); }
+  .meta-dot { width: 8px; height: 8px; background: var(--gold); flex-shrink: 0; }
+
+  /* RIGHT PANEL — FORM */
+  .booking-form-wrap { background: var(--white); padding: 4rem 3rem; }
+  .form-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--black); margin-bottom: 0.4rem; }
+  .form-subtitle { font-size: 0.88rem; color: var(--smoke); margin-bottom: 2rem; line-height: 1.6; }
+
+  .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-row { margin-bottom: 1.1rem; }
+  .form-row label { display: block; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--smoke); margin-bottom: 0.35rem; }
+  .form-row input, .form-row select, .form-row textarea {
+    width: 100%; padding: 0.8rem 1rem;
+    border: 1px solid rgba(201,168,76,0.25); background: var(--cream);
+    color: var(--ink); font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+    outline: none; transition: border-color 0.2s; appearance: none;
+  }
+  .form-row input:focus, .form-row select:focus, .form-row textarea:focus { border-color: var(--gold); background: var(--white); }
+  .form-row textarea { resize: vertical; min-height: 100px; }
+  .field-error { display: block; font-size: 0.75rem; color: #E24B4A; margin-top: 3px; min-height: 1rem; }
+  input.invalid, select.invalid, textarea.invalid { border-color: #E24B4A !important; }
+
+  /* Time slot picker */
+  .slot-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; margin-top: 0.4rem; }
+  .slot-btn {
+    padding: 0.6rem 0.5rem; font-size: 0.8rem; font-weight: 500;
+    border: 1px solid rgba(201,168,76,0.3); background: var(--cream);
+    color: var(--smoke); cursor: pointer; transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif; text-align: center;
+  }
+  .slot-btn:hover { border-color: var(--gold); color: var(--gold); }
+  .slot-btn.selected { background: var(--gold); border-color: var(--gold); color: var(--black); font-weight: 600; }
+
+  .req-note { font-size: 0.75rem; color: var(--smoke); margin-bottom: 1.5rem; }
+  .req-note span { color: var(--gold); }
+
+  .submit-btn {
+    width: 100%; background: var(--black); color: var(--gold);
+    padding: 1rem; font-size: 0.85rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid var(--gold); cursor: pointer;
+    transition: all 0.25s; font-family: 'DM Sans', sans-serif;
+    margin-top: 0.5rem;
+  }
+  .submit-btn:hover:not(:disabled) { background: var(--gold); color: var(--black); }
+  .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+  .success-banner { display: none; background: #e6f7ee; border: 1px solid #1D9E75; padding: 1.25rem; margin-bottom: 1rem; color: #0F6E56; font-size: 0.9rem; line-height: 1.6; }
+  .error-banner { display: none; background: #fceaea; border: 1px solid #E24B4A; padding: 1.25rem; margin-bottom: 1rem; color: #A32D2D; font-size: 0.9rem; line-height: 1.6; }
+
+  /* FOOTER STRIP */
+  .page-footer {
+    background: var(--charcoal); padding: 2rem 5vw;
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px solid rgba(201,168,76,0.1);
+  }
+  .footer-copy { font-size: 0.78rem; color: var(--smoke); }
+  .footer-home { font-size: 0.78rem; color: var(--gold); text-decoration: none; letter-spacing: 0.08em; }
+  .footer-home:hover { text-decoration: underline; }
+
+  @media (max-width: 800px) {
+    .booking-layout { grid-template-columns: 1fr; }
+    .booking-info { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.15); padding: 3rem 1.5rem; }
+    .booking-form-wrap { padding: 3rem 1.5rem; }
+    .form-grid-2 { grid-template-columns: 1fr; }
+    .slot-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Martin <span>Leon</span></a>
+  <a href="index.html" class="nav-back">← Back to Home</a>
+</nav>
+
+<div class="page-hero">
+  <span class="hero-tag">Free Strategy Call</span>
+  <h1>Let's Talk About<br>Your <em>Digital Growth.</em></h1>
+  <p>30 minutes. No commitment. Walk away with a clear picture of what's possible for your brand.</p>
+</div>
+
+<div class="booking-layout">
+
+  <!-- LEFT: Info panel -->
+  <div class="booking-info">
+    <div class="info-section">
+      <span class="info-label">What to Expect</span>
+      <h2 class="info-title">Your Free 30-Minute Strategy Call</h2>
+      <p class="info-text">This isn't a sales pitch — it's a working session. We'll review your current digital presence and map out exactly what needs to happen to achieve your goals.</p>
+      <ul class="what-to-expect">
+        <li>
+          <span class="expect-icon">01</span>
+          <span>We audit your current social media, website, and brand presence</span>
+        </li>
+        <li>
+          <span class="expect-icon">02</span>
+          <span>We identify your biggest growth opportunities and quick wins</span>
+        </li>
+        <li>
+          <span class="expect-icon">03</span>
+          <span>We walk you through the services that match your goals and budget</span>
+        </li>
+        <li>
+          <span class="expect-icon">04</span>
+          <span>You leave with a clear action plan — whether you hire us or not</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="info-section">
+      <span class="info-label">Call Details</span>
+      <div class="call-meta">
+        <div class="meta-item"><span class="meta-dot"></span> 30 minutes via Zoom or Google Meet</div>
+        <div class="meta-item"><span class="meta-dot"></span> 100% free — no credit card required</div>
+        <div class="meta-item"><span class="meta-dot"></span> Available Mon–Fri, 9am–6pm (WAT)</div>
+        <div class="meta-item"><span class="meta-dot"></span> Confirmation sent to your email instantly</div>
+        <div class="meta-item"><span class="meta-dot"></span> Reschedule anytime, no penalty</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: Booking form -->
+  <div class="booking-form-wrap">
+    <h2 class="form-title">Reserve Your Spot</h2>
+    <p class="form-subtitle">Fill in your details and preferred time. We'll confirm within 2 hours.</p>
+
+    <div class="success-banner" id="book-success">
+      ✓ <strong>Booking request received!</strong> We'll send a calendar invite and Zoom link to your email within 2 hours.
+    </div>
+    <div class="error-banner" id="book-error">
+      ✗ Something went wrong. Please try again or reach us on WhatsApp directly.
+    </div>
+
+    <form id="booking-form" novalidate>
+      <div class="form-grid-2">
+        <div class="form-row">
+          <label>First Name <span style="color:var(--gold)">*</span></label>
+          <input type="text" id="b-fname" name="first_name" placeholder="First name" required>
+          <span class="field-error" id="b-fname-err"></span>
+        </div>
+        <div class="form-row">
+          <label>Last Name <span style="color:var(--gold)">*</span></label>
+          <input type="text" id="b-lname" name="last_name" placeholder="Last name" required>
+          <span class="field-error" id="b-lname-err"></span>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label>Email Address <span style="color:var(--gold)">*</span></label>
+        <input type="email" id="b-email" name="email" placeholder="you@example.com" required>
+        <span class="field-error" id="b-email-err"></span>
+      </div>
+
+      <div class="form-row">
+        <label>WhatsApp / Phone Number</label>
+        <input type="tel" id="b-phone" name="phone" placeholder="+234 800 000 0000">
+      </div>
+
+      <div class="form-row">
+        <label>Business / Brand Name <span style="color:var(--gold)">*</span></label>
+        <input type="text" id="b-biz" name="business" placeholder="Your business name" required>
+        <span class="field-error" id="b-biz-err"></span>
+      </div>
+
+      <div class="form-row">
+        <label>Primary Service You Need</label>
+        <select id="b-service" name="service">
+          <option value="">— Select one —</option>
+          <option>Social Media Management</option>
+          <option>Graphic Design</option>
+          <option>Web Design &amp; Development</option>
+          <option>Full Package (All Services)</option>
+          <option>Not sure yet</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label>Preferred Call Date <span style="color:var(--gold)">*</span></label>
+        <input type="date" id="b-date" name="preferred_date" required>
+        <span class="field-error" id="b-date-err"></span>
+      </div>
+
+      <div class="form-row">
+        <label>Preferred Time Slot <span style="color:var(--gold)">*</span></label>
+        <div class="slot-grid" id="slot-grid">
+          <button type="button" class="slot-btn" data-time="9:00 AM">9:00 AM</button>
+          <button type="button" class="slot-btn" data-time="10:00 AM">10:00 AM</button>
+          <button type="button" class="slot-btn" data-time="11:00 AM">11:00 AM</button>
+          <button type="button" class="slot-btn" data-time="12:00 PM">12:00 PM</button>
+          <button type="button" class="slot-btn" data-time="2:00 PM">2:00 PM</button>
+          <button type="button" class="slot-btn" data-time="3:00 PM">3:00 PM</button>
+          <button type="button" class="slot-btn" data-time="4:00 PM">4:00 PM</button>
+          <button type="button" class="slot-btn" data-time="5:00 PM">5:00 PM</button>
+          <button type="button" class="slot-btn" data-time="6:00 PM">6:00 PM</button>
+        </div>
+        <input type="hidden" id="b-time" name="preferred_time">
+        <span class="field-error" id="b-time-err"></span>
+      </div>
+
+      <div class="form-row">
+        <label>Anything we should know before the call?</label>
+        <textarea id="b-notes" name="notes" placeholder="Your current challenges, goals, or questions..."></textarea>
+      </div>
+
+      <p class="req-note"><span>*</span> Required fields</p>
+
+      <button type="submit" class="submit-btn" id="book-btn">Confirm Booking →</button>
+    </form>
+  </div>
+
+</div>
+
+<div class="page-footer">
+  <span class="footer-copy">© 2025 Martin Leon Agency</span>
+  <a href="index.html" class="footer-home">← Back to Home</a>
+</div>
+
+<script>
+  /* Time slot selection */
+  const slots = document.querySelectorAll('.slot-btn');
+  const timeInput = document.getElementById('b-time');
+  slots.forEach(btn => {
+    btn.addEventListener('click', () => {
+      slots.forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      timeInput.value = btn.dataset.time;
+      document.getElementById('b-time-err').textContent = '';
+    });
+  });
+
+  /* Set min date to today */
+  const dateInput = document.getElementById('b-date');
+  const today = new Date().toISOString().split('T')[0];
+  dateInput.setAttribute('min', today);
+
+  /* Validation */
+  function setErr(fieldId, errId, msg) {
+    const f = document.getElementById(fieldId);
+    const e = document.getElementById(errId);
+    if (msg) { f && f.classList.add('invalid'); if (e) e.textContent = msg; }
+    else     { f && f.classList.remove('invalid'); if (e) e.textContent = ''; }
+  }
+
+  function validate() {
+    let ok = true;
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!document.getElementById('b-fname').value.trim()) { setErr('b-fname','b-fname-err','Required'); ok=false; } else setErr('b-fname','b-fname-err','');
+    if (!document.getElementById('b-lname').value.trim()) { setErr('b-lname','b-lname-err','Required'); ok=false; } else setErr('b-lname','b-lname-err','');
+    const em = document.getElementById('b-email').value.trim();
+    if (!em) { setErr('b-email','b-email-err','Required'); ok=false; }
+    else if (!emailRe.test(em)) { setErr('b-email','b-email-err','Enter a valid email'); ok=false; }
+    else setErr('b-email','b-email-err','');
+    if (!document.getElementById('b-biz').value.trim()) { setErr('b-biz','b-biz-err','Required'); ok=false; } else setErr('b-biz','b-biz-err','');
+    if (!document.getElementById('b-date').value) { setErr('b-date','b-date-err','Please pick a date'); ok=false; } else setErr('b-date','b-date-err','');
+    if (!timeInput.value) { document.getElementById('b-time-err').textContent = 'Please select a time slot'; ok=false; } else document.getElementById('b-time-err').textContent = '';
+    return ok;
+  }
+
+  /* Clear errors on input */
+  ['b-fname','b-lname','b-email','b-biz','b-date'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('input', () => { el.classList.remove('invalid'); const errEl = document.getElementById(id+'-err'); if(errEl) errEl.textContent=''; });
+  });
+
+  /* Submit */
+  document.getElementById('booking-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    document.getElementById('book-success').style.display = 'none';
+    document.getElementById('book-error').style.display   = 'none';
+    if (!validate()) return;
+
+    const btn = document.getElementById('book-btn');
+    btn.textContent = 'Sending…'; btn.disabled = true;
+
+    const data = {
+      _subject: 'New Strategy Call Booking — Martin Leon Agency',
+      first_name:     document.getElementById('b-fname').value.trim(),
+      last_name:      document.getElementById('b-lname').value.trim(),
+      email:          document.getElementById('b-email').value.trim(),
+      phone:          document.getElementById('b-phone').value.trim(),
+      business:       document.getElementById('b-biz').value.trim(),
+      service:        document.getElementById('b-service').value,
+      preferred_date: document.getElementById('b-date').value,
+      preferred_time: timeInput.value,
+      notes:          document.getElementById('b-notes').value.trim()
+    };
+
+    try {
+      const res = await fetch('https://formspree.io/f/xkopkoov', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (res.ok) {
+        document.getElementById('book-success').style.display = 'block';
+        document.getElementById('booking-form').reset();
+        slots.forEach(b => b.classList.remove('selected'));
+        timeInput.value = '';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else { document.getElementById('book-error').style.display = 'block'; }
+    } catch { document.getElementById('book-error').style.display = 'block'; }
+
+    btn.textContent = 'Confirm Booking →'; btn.disabled = false;
+  });
+</script>
+</body>
+</html>
