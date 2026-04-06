@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Services — Martin Leon Agency</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #B8922A; --gold-light: #D4AE58; --gold-pale: #FBF6EC; --gold-soft: #F5EDD8;
+  --black: #141210; --charcoal: #1E1C18; --ink: #2A2724; --smoke: #6B6760;
+  --mist: #A8A39C; --cream: #F8F5F0; --slate: #EDF1F7; --white: #FEFCFA;
+  --teal: #0F7B6C; --teal-soft: #E6F4F2; --nav-h: 70px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 5vw;background:rgba(254,252,250,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(184,146,42,0.1);box-shadow:0 1px 24px rgba(0,0,0,0.05);}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--black);text-decoration:none;display:flex;align-items:center;gap:0.6rem;}
+.nav-logo span{color:var(--gold);}
+.logo-placeholder{width:34px;height:34px;border:1.5px dashed rgba(184,146,42,0.45);background:var(--gold-soft);display:flex;align-items:center;justify-content:center;font-size:0.5rem;color:var(--gold);letter-spacing:0.05em;text-transform:uppercase;font-weight:600;flex-shrink:0;border-radius:4px;}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{font-size:0.78rem;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;color:var(--smoke);transition:color 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);}
+.nav-right{display:flex;align-items:center;}
+.nav-cta{background:var(--gold);color:#fff;padding:0.55rem 1.3rem;font-size:0.76rem;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;border-radius:5px;transition:all 0.22s;white-space:nowrap;}
+.nav-cta:hover{background:var(--gold-light);transform:translateY(-1px);}
+.ham{display:none;background:none;border:none;cursor:pointer;padding:4px;flex-direction:column;gap:5px;}
+.ham span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all 0.28s;}
+.ham.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.ham.open span:nth-child(2){opacity:0;}
+.ham.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+.mob-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;z-index:190;background:var(--white);border-bottom:1px solid rgba(184,146,42,0.12);padding:1rem 5vw 2rem;flex-direction:column;box-shadow:0 12px 32px rgba(0,0,0,0.08);}
+.mob-menu.open{display:flex;}
+.mob-menu a{font-size:1rem;font-weight:500;text-decoration:none;color:var(--ink);padding:0.85rem 0;border-bottom:1px solid rgba(184,146,42,0.09);display:block;}
+.mob-cta{margin-top:1rem;background:var(--gold);color:#fff !important;text-align:center;border-radius:5px;font-size:0.88rem;letter-spacing:0.07em;text-transform:uppercase;border-bottom:none !important;padding:0.9rem !important;}
+
+.page-hero{background:var(--charcoal);padding:9rem 5vw 5rem;position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;top:-120px;right:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(184,146,42,0.08) 0%,transparent 70%);}
+.page-hero::after{content:'';position:absolute;bottom:-80px;left:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(15,123,108,0.06) 0%,transparent 70%);}
+.hero-tag{font-size:0.68rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:0.85rem;}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:1rem;max-width:700px;position:relative;z-index:1;}
+.page-hero h1 em{font-style:italic;color:var(--gold);}
+.page-hero p{font-size:1rem;color:var(--mist);max-width:560px;line-height:1.8;position:relative;z-index:1;}
+
+.service-tabs{background:var(--white);padding:0 5vw;border-bottom:1px solid rgba(184,146,42,0.1);position:sticky;top:var(--nav-h);z-index:100;display:flex;gap:0;overflow-x:auto;scrollbar-width:none;}
+.service-tabs::-webkit-scrollbar{display:none;}
+.tab-link{display:flex;align-items:center;gap:0.5rem;padding:1.1rem 1.6rem;font-size:0.78rem;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;color:var(--smoke);border-bottom:2px solid transparent;transition:color 0.2s,border-color 0.2s;white-space:nowrap;flex-shrink:0;}
+.tab-link:hover{color:var(--gold);}
+.tab-link.active{color:var(--gold);border-bottom-color:var(--gold);}
+.tab-link svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.5;flex-shrink:0;}
+
+.service-block{padding:6rem 5vw;scroll-margin-top:calc(var(--nav-h) + 54px);}
+.service-block:nth-child(odd){background:var(--white);}
+.service-block:nth-child(even){background:var(--cream);}
+.block-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.block-layout.reverse{direction:rtl;}
+.block-layout.reverse>*{direction:ltr;}
+
+.svc-num{font-family:'Playfair Display',serif;font-size:4.5rem;font-weight:900;color:rgba(184,146,42,0.1);line-height:1;margin-bottom:-0.5rem;display:block;}
+.svc-tag{font-size:0.68rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;display:block;}
+.svc-title{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3vw,2.4rem);font-weight:700;color:var(--black);line-height:1.2;margin-bottom:1rem;}
+.svc-desc{font-size:0.97rem;line-height:1.82;color:var(--smoke);margin-bottom:1.75rem;}
+.svc-sub-heading{font-size:0.75rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);border-top:1px solid rgba(184,146,42,0.18);padding-top:1.5rem;margin:1.75rem 0 0.85rem;display:block;}
+.svc-pills{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:2rem;}
+.pill{background:var(--gold-soft);border:1px solid rgba(184,146,42,0.25);color:var(--ink);font-size:0.78rem;font-weight:500;padding:0.35rem 0.85rem;border-radius:100px;}
+.svc-features{list-style:none;margin-bottom:2rem;}
+.svc-features li{display:flex;align-items:flex-start;gap:0.85rem;padding:0.65rem 0;border-bottom:1px solid rgba(184,146,42,0.1);font-size:0.92rem;color:var(--ink);}
+.svc-features li:last-child{border-bottom:none;}
+.svc-features li::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0;margin-top:1px;}
+
+.svc-visual-dark{background:var(--charcoal);min-height:360px;border-radius:14px;display:flex;flex-direction:column;justify-content:center;padding:3rem;position:relative;overflow:hidden;}
+.svc-visual-dark::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(184,146,42,0.1) 0%,transparent 70%);}
+.dark-num{font-family:'Playfair Display',serif;font-size:5rem;font-weight:900;color:rgba(184,146,42,0.08);line-height:1;}
+.dark-label{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#fff;margin:0.5rem 0;}
+.dark-sub{font-size:0.88rem;color:var(--mist);line-height:1.7;}
+.dark-stats{display:flex;gap:2rem;margin-top:2rem;}
+.dstat-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:var(--gold);display:block;}
+.dstat-label{font-size:0.68rem;color:var(--mist);letter-spacing:0.1em;text-transform:uppercase;}
+
+.task-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;}
+.task-cat{background:var(--white);border:1px solid rgba(184,146,42,0.15);border-radius:10px;padding:1.25rem;transition:border-color 0.2s,box-shadow 0.2s;}
+.task-cat:hover{border-color:rgba(184,146,42,0.4);box-shadow:0 4px 16px rgba(0,0,0,0.05);}
+.task-cat-icon{font-size:1.4rem;margin-bottom:0.5rem;display:block;}
+.task-cat-name{font-size:0.88rem;font-weight:500;color:var(--black);margin-bottom:0.35rem;}
+.task-cat-items{font-size:0.78rem;color:var(--smoke);line-height:1.6;}
+
+.svc-cta-strip{background:var(--charcoal);padding:1.75rem 2rem;border-radius:12px;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;margin-top:0.5rem;}
+.svc-cta-strip p{font-size:0.92rem;color:var(--mist);max-width:340px;line-height:1.6;}
+.svc-cta-strip p strong{color:#fff;display:block;margin-bottom:3px;font-size:1rem;}
+.btn-cta{background:var(--gold);color:#fff;padding:0.78rem 1.6rem;font-size:0.8rem;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;border-radius:5px;white-space:nowrap;transition:all 0.22s;box-shadow:0 4px 14px rgba(184,146,42,0.3);}
+.btn-cta:hover{background:var(--gold-light);transform:translateY(-1px);}
+
+.page-cta{background:linear-gradient(135deg,var(--charcoal) 0%,#252118 100%);padding:7rem 5vw;text-align:center;position:relative;overflow:hidden;}
+.page-cta::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(184,146,42,0.1) 0%,transparent 70%);}
+.page-cta .hero-tag{color:var(--gold-light);}
+.page-cta h2{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,3rem);font-weight:900;color:#fff;margin-bottom:1rem;position:relative;z-index:1;}
+.page-cta p{font-size:1rem;color:var(--mist);max-width:480px;margin:0 auto 2.5rem;line-height:1.75;}
+.cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.btn-white{background:#fff;color:var(--black);padding:0.9rem 2rem;font-size:0.84rem;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;border-radius:5px;transition:all 0.22s;}
+.btn-white:hover{background:var(--gold-pale);}
+.btn-outline-w{background:transparent;color:rgba(255,255,255,0.8);padding:0.9rem 2rem;font-size:0.84rem;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;border:1.5px solid rgba(255,255,255,0.22);border-radius:5px;transition:all 0.22s;}
+.btn-outline-w:hover{border-color:rgba(255,255,255,0.5);color:#fff;}
+
+.page-footer{background:var(--charcoal);padding:2rem 5vw;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(184,146,42,0.08);flex-wrap:wrap;gap:1rem;}
+.footer-copy{font-size:0.76rem;color:var(--smoke);}
+.footer-links{display:flex;gap:1.5rem;}
+.footer-links a{font-size:0.78rem;color:var(--smoke);text-decoration:none;transition:color 0.2s;}
+.footer-links a:hover{color:var(--gold);}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.reveal.visible{opacity:1;transform:none;}
+.reveal-delay-1{transition-delay:0.1s;}
+
+@media(max-width:900px){
+  .nav-links,.nav-right{display:none;} .ham{display:flex;}
+  .block-layout,.block-layout.reverse{grid-template-columns:1fr;direction:ltr;gap:2.5rem;}
+  .task-grid{grid-template-columns:1fr;} .service-block{padding:4rem 5vw;}
+  .svc-cta-strip{flex-direction:column;align-items:flex-start;}
+}
+@media(max-width:480px){.tab-link{padding:1rem 0.9rem;font-size:0.72rem;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="martin-leon-agency.html" class="nav-logo">
+    <div class="logo-placeholder">LOGO</div>
+    Martin <span>Leon</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="booking.html">Book a Call</a></li>
+    <li><a href="martin-leon-agency.html#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right"><a href="booking.html" class="nav-cta">Get Started</a></div>
+  <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mob-menu" id="mob-menu">
+  <a href="services.html">Services</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="booking.html">Book a Call</a>
+  <a href="martin-leon-agency.html#contact">Contact</a>
+  <a href="booking.html" class="mob-cta">Get Started →</a>
+</div>
+
+<div class="page-hero">
+  <span class="hero-tag">Everything We Offer</span>
+  <h1>Three Core Services.<br><em>One Focused Agency.</em></h1>
+  <p>Social media growth with graphic design built in. Virtual assistant and admin support. And web design that converts. Every service is built to save you time and grow your brand.</p>
+</div>
+
+<div class="service-tabs" id="service-tabs">
+  <a href="#social" class="tab-link active" data-tab="social">
+    <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+    Social Media Management
+  </a>
+  <a href="#va" class="tab-link" data-tab="va">
+    <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    Virtual Assistant & Admin
+  </a>
+  <a href="#web" class="tab-link" data-tab="web">
+    <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+    Web Design & Development
+  </a>
+</div>
+
+<!-- 01 SOCIAL MEDIA -->
+<section class="service-block" id="social">
+  <div class="block-layout">
+    <div class="reveal">
+      <span class="svc-num">01</span>
+      <span class="svc-tag">Social Media Management</span>
+      <h2 class="svc-title">Your Brand, Active & Growing — Every Single Day.</h2>
+      <p class="svc-desc">We take over your entire social media presence — from strategy and content creation to scheduling, posting, community management, and monthly analytics. You focus on your business; we make sure your audience keeps growing.</p>
+      <div class="svc-pills">
+        <span class="pill">Instagram</span><span class="pill">Facebook</span><span class="pill">TikTok</span>
+        <span class="pill">X / Twitter</span><span class="pill">LinkedIn</span><span class="pill">Pinterest</span>
+        <span class="pill">YouTube Shorts</span><span class="pill">WhatsApp Channel</span>
+      </div>
+      <ul class="svc-features">
+        <li>Full content strategy & monthly content calendar</li>
+        <li>Copywriting for every post — captions, hooks, CTAs</li>
+        <li>Custom branded graphics for every post</li>
+        <li>Daily/weekly scheduling & publishing</li>
+        <li>Community management — comments, DMs, replies</li>
+        <li>Hashtag research & growth strategy</li>
+        <li>Paid social ad campaign creation & management</li>
+        <li>Monthly analytics report with insights & recommendations</li>
+        <li>Competitor benchmarking & trend monitoring</li>
+      </ul>
+
+      <span class="svc-sub-heading">Included: Graphic Design & Visual Content</span>
+      <p class="svc-desc" style="margin-bottom:1rem;">Every post we manage comes with custom-designed visuals — no stock templates, no recycled graphics. We build a full visual identity and keep it consistent across every platform.</p>
+      <div class="svc-pills">
+        <span class="pill">Logo & Brand Identity</span><span class="pill">Social Graphics</span>
+        <span class="pill">Ad Creatives</span><span class="pill">Reels Covers</span>
+        <span class="pill">Flyers & Banners</span><span class="pill">Email Templates</span>
+        <span class="pill">Pitch Decks</span><span class="pill">Packaging Design</span>
+      </div>
+      <ul class="svc-features">
+        <li>Brand identity — logo, colours, typography & style guide</li>
+        <li>Branded social media graphic templates (editable)</li>
+        <li>Static & animated ad creatives (Facebook, Google, TikTok)</li>
+        <li>Flyers, posters, banners & print-ready files</li>
+        <li>Pitch decks, company profiles & presentations</li>
+        <li>All files delivered in multiple formats (PNG, PDF, SVG)</li>
+        <li>Up to 3 revision rounds on every design project</li>
+      </ul>
+
+      <div class="svc-cta-strip">
+        <p><strong>Ready to grow your audience?</strong>We'll audit your profiles and launch a tailored strategy in week one.</p>
+        <a href="booking.html" class="btn-cta">Book a Free Call →</a>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <div class="svc-visual-dark">
+        <span class="dark-num">01</span>
+        <p class="dark-label">Social Media That Sells</p>
+        <p class="dark-sub">We don't just post — we build communities and brand visuals that convert followers into loyal customers.</p>
+        <div class="dark-stats">
+          <div class="dstat"><span class="dstat-num">3x</span><span class="dstat-label">Avg. Engagement Increase</span></div>
+          <div class="dstat"><span class="dstat-num">60d</span><span class="dstat-label">Avg. Time to See Growth</span></div>
+        </div>
+      </div>
+      <div style="margin-top:1.5rem;background:var(--gold-pale);border:1px solid rgba(184,146,42,0.2);border-radius:10px;padding:1.5rem;">
+        <p style="font-size:0.82rem;font-weight:500;color:var(--black);margin-bottom:0.75rem;">Platforms We Manage</p>
+        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+          <span style="background:#fff;border:1px solid rgba(184,146,42,0.2);border-radius:6px;padding:0.4rem 0.8rem;font-size:0.78rem;color:var(--ink);">📸 Instagram</span>
+          <span style="background:#fff;border:1px solid rgba(184,146,42,0.2);border-radius:6px;padding:0.4rem 0.8rem;font-size:0.78rem;color:var(--ink);">👍 Facebook</span>
+          <span style="background:#fff;border:1px solid rgba(184,146,42,0.2);border-radius:6px;padding:0.4rem 0.8rem;font-size:0.78rem;color:var(--ink);">🎵 TikTok</span>
+          <span style="background:#fff;border:1px solid rgba(184,146,42,0.2);border-radius:6px;padding:0.4rem 0.8rem;font-size:0.78rem;color:var(--ink);">💼 LinkedIn</span>
+          <span style="background:#fff;border:1px solid rgba(184,146,42,0.2);border-radius:6px;padding:0.4rem 0.8rem;font-size:0.78rem;color:var(--ink);">🐦 Twitter/X</span>
+          <span style="background:#fff;border:1px solid rgba(184,146,42,0.2);border-radius:6px;padding:0.4rem 0.8rem;font-size:0.78rem;color:var(--ink);">📌 Pinterest</span>
+        </div>
+      </div>
+      <div style="margin-top:1rem;display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
+        <div style="background:var(--gold-soft);border-radius:10px;padding:1.1rem;text-align:center;">
+          <p style="font-size:1.4rem;margin-bottom:4px;">🎨</p>
+          <p style="font-size:0.8rem;font-weight:500;color:var(--black);">Brand Identity</p>
+          <p style="font-size:0.72rem;color:var(--smoke);">Logo, colours & style guide</p>
+        </div>
+        <div style="background:var(--teal-soft);border-radius:10px;padding:1.1rem;text-align:center;">
+          <p style="font-size:1.4rem;margin-bottom:4px;">📱</p>
+          <p style="font-size:0.8rem;font-weight:500;color:var(--black);">Social Graphics</p>
+          <p style="font-size:0.72rem;color:var(--smoke);">Posts, stories & reels covers</p>
+        </div>
+        <div style="background:var(--slate);border-radius:10px;padding:1.1rem;text-align:center;">
+          <p style="font-size:1.4rem;margin-bottom:4px;">📊</p>
+          <p style="font-size:0.8rem;font-weight:500;color:var(--black);">Pitch Decks</p>
+          <p style="font-size:0.72rem;color:var(--smoke);">Investor-ready presentations</p>
+        </div>
+        <div style="background:var(--cream);border-radius:10px;padding:1.1rem;text-align:center;border:1px solid rgba(184,146,42,0.12);">
+          <p style="font-size:1.4rem;margin-bottom:4px;">🖨️</p>
+          <p style="font-size:0.8rem;font-weight:500;color:var(--black);">Print Design</p>
+          <p style="font-size:0.72rem;color:var(--smoke);">Flyers, banners & packaging</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 VIRTUAL ASSISTANT & ADMIN -->
+<section class="service-block" id="va">
+  <div class="block-layout reverse">
+    <div class="reveal">
+      <span class="svc-num">02</span>
+      <span class="svc-tag">Virtual Assistant & Admin Services</span>
+      <h2 class="svc-title">The Right Support, Right When You Need It.</h2>
+      <p class="svc-desc">Stop spending your most valuable hours on tasks that pull you away from growing your business. We match you with a skilled, pre-vetted Virtual Assistant and back that with full admin task support — so your day-to-day runs itself.</p>
+
+      <span class="svc-sub-heading">Virtual Assistant Matching</span>
+      <p style="font-size:0.88rem;font-weight:500;color:var(--black);margin-bottom:1rem;">How the Matching Process Works</p>
+      <ul style="list-style:none;margin-bottom:1.5rem;">
+        <li style="display:flex;gap:1rem;align-items:flex-start;padding:1rem 0;border-bottom:1px solid rgba(184,146,42,0.1);">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--gold);color:#fff;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:700;">1</div>
+          <div><strong style="display:block;font-size:0.92rem;color:var(--black);margin-bottom:2px;">You tell us what you need</strong><span style="font-size:0.84rem;color:var(--smoke);line-height:1.5;">Fill out a quick brief — tasks, hours per week, time zone, communication style, and tools you use.</span></div>
+        </li>
+        <li style="display:flex;gap:1rem;align-items:flex-start;padding:1rem 0;border-bottom:1px solid rgba(184,146,42,0.1);">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--gold);color:#fff;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:700;">2</div>
+          <div><strong style="display:block;font-size:0.92rem;color:var(--black);margin-bottom:2px;">We source & vet your match</strong><span style="font-size:0.84rem;color:var(--smoke);line-height:1.5;">We screen our network and shortlist 2–3 VAs who fit your brief — skills, availability, and personality.</span></div>
+        </li>
+        <li style="display:flex;gap:1rem;align-items:flex-start;padding:1rem 0;border-bottom:1px solid rgba(184,146,42,0.1);">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--gold);color:#fff;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:700;">3</div>
+          <div><strong style="display:block;font-size:0.92rem;color:var(--black);margin-bottom:2px;">You meet and approve your VA</strong><span style="font-size:0.84rem;color:var(--smoke);line-height:1.5;">A quick intro call. You decide who you want to work with — no pressure, no obligation.</span></div>
+        </li>
+        <li style="display:flex;gap:1rem;align-items:flex-start;padding:1rem 0;">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--gold);color:#fff;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:700;">4</div>
+          <div><strong style="display:block;font-size:0.92rem;color:var(--black);margin-bottom:2px;">They start within 48 hours</strong><span style="font-size:0.84rem;color:var(--smoke);line-height:1.5;">Onboarding, tool access, and your first task list — all handled through Martin Leon Agency.</span></div>
+        </li>
+      </ul>
+
+      <span class="svc-sub-heading">Admin Task Support</span>
+      <p style="font-size:0.88rem;font-weight:500;color:var(--black);margin-bottom:1rem;">Task Categories We Cover</p>
+      <div class="task-grid">
+        <div class="task-cat"><span class="task-cat-icon">📬</span><p class="task-cat-name">Inbox & Communication</p><p class="task-cat-items">Email management, drafting replies, follow-ups, client communication, spam filtering</p></div>
+        <div class="task-cat"><span class="task-cat-icon">📅</span><p class="task-cat-name">Scheduling & Calendars</p><p class="task-cat-items">Meeting booking, calendar management, appointment reminders, time zone coordination</p></div>
+        <div class="task-cat"><span class="task-cat-icon">📊</span><p class="task-cat-name">Data & Reporting</p><p class="task-cat-items">Data entry, spreadsheet management, report formatting, database updates, CRM management</p></div>
+        <div class="task-cat"><span class="task-cat-icon">🔍</span><p class="task-cat-name">Research & Sourcing</p><p class="task-cat-items">Market research, competitor analysis, supplier sourcing, product research, fact-checking</p></div>
+        <div class="task-cat"><span class="task-cat-icon">📄</span><p class="task-cat-name">Documents & Files</p><p class="task-cat-items">Document creation, formatting, filing systems, PDF management, contract drafting support</p></div>
+        <div class="task-cat"><span class="task-cat-icon">🤝</span><p class="task-cat-name">Project Coordination</p><p class="task-cat-items">Task tracking, team follow-ups, Trello/Asana management, vendor coordination, invoicing</p></div>
+      </div>
+
+      <div class="svc-cta-strip">
+        <p><strong>Ready to reclaim your time?</strong>Tell us what's on your plate and we'll handle it reliably and on time.</p>
+        <a href="booking.html" class="btn-cta">Get Matched →</a>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <div class="svc-visual-dark">
+        <span class="dark-num">02</span>
+        <p class="dark-label">VA & Admin Support</p>
+        <p class="dark-sub">Pre-vetted VAs plus comprehensive admin coverage — your business runs even when you're not watching.</p>
+        <div class="dark-stats">
+          <div class="dstat"><span class="dstat-num">48hr</span><span class="dstat-label">Matching Guarantee</span></div>
+          <div class="dstat"><span class="dstat-num">100%</span><span class="dstat-label">Pre-vetted VAs</span></div>
+        </div>
+      </div>
+      <div style="margin-top:1.5rem;background:var(--teal-soft);border:1px solid rgba(15,123,108,0.15);border-radius:10px;padding:1.5rem;">
+        <p style="font-size:0.82rem;font-weight:500;color:var(--black);margin-bottom:0.85rem;">What Your VA Can Handle</p>
+        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+          <span style="background:#fff;border:1px solid rgba(15,123,108,0.2);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.78rem;color:var(--ink);">Email management</span>
+          <span style="background:#fff;border:1px solid rgba(15,123,108,0.2);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.78rem;color:var(--ink);">Calendar management</span>
+          <span style="background:#fff;border:1px solid rgba(15,123,108,0.2);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.78rem;color:var(--ink);">Customer support</span>
+          <span style="background:#fff;border:1px solid rgba(15,123,108,0.2);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.78rem;color:var(--ink);">Research tasks</span>
+          <span style="background:#fff;border:1px solid rgba(15,123,108,0.2);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.78rem;color:var(--ink);">Travel booking</span>
+          <span style="background:#fff;border:1px solid rgba(15,123,108,0.2);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.78rem;color:var(--ink);">Project coordination</span>
+          <span style="background:#fff;border:1px solid rgba(15,123,108,0.2);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.78rem;color:var(--ink);">Social media posting</span>
+        </div>
+      </div>
+      <div style="margin-top:1rem;background:var(--gold-pale);border:1px solid rgba(184,146,42,0.2);border-radius:10px;padding:1.5rem;">
+        <p style="font-size:0.82rem;font-weight:500;color:var(--black);margin-bottom:0.75rem;">Tools We Work With</p>
+        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+          <span style="background:#fff;border:1px solid rgba(184,146,42,0.18);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.78rem;color:var(--ink);">Google Workspace</span>
+          <span style="background:#fff;border:1px solid rgba(184,146,42,0.18);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.78rem;color:var(--ink);">Microsoft 365</span>
+          <span style="background:#fff;border:1px solid rgba(184,146,42,0.18);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.78rem;color:var(--ink);">Trello</span>
+          <span style="background:#fff;border:1px solid rgba(184,146,42,0.18);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.78rem;color:var(--ink);">Asana</span>
+          <span style="background:#fff;border:1px solid rgba(184,146,42,0.18);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.78rem;color:var(--ink);">Notion</span>
+          <span style="background:#fff;border:1px solid rgba(184,146,42,0.18);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.78rem;color:var(--ink);">HubSpot</span>
+          <span style="background:#fff;border:1px solid rgba(184,146,42,0.18);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.78rem;color:var(--ink);">Slack</span>
+          <span style="background:#fff;border:1px solid rgba(184,146,42,0.18);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.78rem;color:var(--ink);">Airtable</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 WEB DESIGN -->
+<section class="service-block" id="web">
+  <div class="block-layout">
+    <div class="reveal">
+      <span class="svc-num">03</span>
+      <span class="svc-tag">Web Design & Development</span>
+      <h2 class="svc-title">Websites That Work as Hard as You Do.</h2>
+      <p class="svc-desc">Your website is your most powerful sales tool — or your biggest missed opportunity. We design, build, and manage websites that are beautiful, fast, and built to convert visitors into paying customers.</p>
+      <div class="svc-pills">
+        <span class="pill">WordPress</span><span class="pill">Webflow</span><span class="pill">Shopify</span>
+        <span class="pill">Custom HTML/CSS</span><span class="pill">Landing Pages</span>
+        <span class="pill">E-commerce</span><span class="pill">SEO</span><span class="pill">Maintenance</span>
+      </div>
+      <ul class="svc-features">
+        <li>Custom website design — mobile-first, pixel-perfect</li>
+        <li>WordPress, Webflow & Shopify development</li>
+        <li>E-commerce store setup, products & payment integration</li>
+        <li>Landing pages & sales funnels</li>
+        <li>On-page SEO setup (meta tags, schema, speed optimisation)</li>
+        <li>Website copywriting (optional add-on)</li>
+        <li>Hosting setup & domain configuration</li>
+        <li>Ongoing website maintenance & security updates</li>
+        <li>Analytics setup (Google Analytics, Search Console)</li>
+      </ul>
+      <div class="svc-cta-strip">
+        <p><strong>Get a site that sells.</strong>Standard websites designed and launched within 7–14 business days.</p>
+        <a href="booking.html" class="btn-cta">Discuss Your Website →</a>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <div class="svc-visual-dark">
+        <span class="dark-num">03</span>
+        <p class="dark-label">Websites Built to Convert</p>
+        <p class="dark-sub">Fast, responsive, and designed to turn visitors into customers — from first click to checkout.</p>
+        <div class="dark-stats">
+          <div class="dstat"><span class="dstat-num">7–14</span><span class="dstat-label">Days to Launch</span></div>
+          <div class="dstat"><span class="dstat-num">100%</span><span class="dstat-label">Mobile Responsive</span></div>
+        </div>
+      </div>
+      <div style="margin-top:1.5rem;background:var(--gold-pale);border:1px solid rgba(184,146,42,0.18);border-radius:10px;padding:1.5rem;">
+        <p style="font-size:0.82rem;font-weight:500;color:var(--black);margin-bottom:1rem;">Our Build Process</p>
+        <div style="display:flex;flex-direction:column;gap:0.7rem;">
+          <div style="display:flex;align-items:center;gap:0.75rem;"><div style="width:28px;height:28px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;color:#fff;flex-shrink:0;">1</div><span style="font-size:0.84rem;color:var(--ink);">Discovery & wireframe</span></div>
+          <div style="display:flex;align-items:center;gap:0.75rem;"><div style="width:28px;height:28px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;color:#fff;flex-shrink:0;">2</div><span style="font-size:0.84rem;color:var(--ink);">Design mockup (Figma)</span></div>
+          <div style="display:flex;align-items:center;gap:0.75rem;"><div style="width:28px;height:28px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;color:#fff;flex-shrink:0;">3</div><span style="font-size:0.84rem;color:var(--ink);">Build & client review</span></div>
+          <div style="display:flex;align-items:center;gap:0.75rem;"><div style="width:28px;height:28px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;color:#fff;flex-shrink:0;">4</div><span style="font-size:0.84rem;color:var(--ink);">QA, launch & handover</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="page-cta">
+  <span class="hero-tag">Ready to Get Started?</span>
+  <h2>Not Sure Which Service You Need?</h2>
+  <p>Book a free 30-minute strategy call. We'll review your business, identify your biggest opportunities, and recommend the right combination of services.</p>
+  <div class="cta-row">
+    <a href="booking.html" class="btn-white">Book a Free Strategy Call</a>
+    <a href="onboarding.html" class="btn-outline-w">Start Onboarding</a>
+  </div>
+</div>
+
+<div class="page-footer">
+  <p class="footer-copy">© 2026 Martin Leon Agency. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="martin-leon-agency.html">Home</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="booking.html">Book a Call</a>
+    <a href="martin-leon-agency.html#contact">Contact</a>
+  </div>
+</div>
+
+<script>
+const ham = document.getElementById('ham');
+const mob = document.getElementById('mob-menu');
+ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+const sections = ['social','va','web'];
+const tabLinks = document.querySelectorAll('.tab-link');
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY + 200;
+  let current = 'social';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.offsetTop <= scrollY) current = id;
+  });
+  tabLinks.forEach(t => t.classList.toggle('active', t.dataset.tab === current));
+}, { passive: true });
+</script>
+</body>
+</html>
