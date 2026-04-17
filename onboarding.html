@@ -4,167 +4,198 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Client Onboarding — Martin Leon Agency</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --gold: #C9A84C; --gold-light: #E8D08A; --gold-pale: #FAF4E1;
-    --black: #0D0C0A; --charcoal: #1C1A16; --ink: #2E2B24;
-    --smoke: #6B6760; --mist: #B5B1A9; --cream: #F7F4EE; --white: #FDFCFA;
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--ink); }
+:root {
+  --navy:      #0A1628;
+  --blue:      #004AAD;
+  --blue-lt:   #1A6AD4;
+  --blue-pale: #EEF1FB;
+  --blue-soft: #D6DCF7;
+  --electric:  #4A6FE8;
+  --red:       #DB1C19;
+  --white:     #FAFAFA;
+  --light-bg:  #F0F4FF;
+  --ink:       #0D1117;
+  --smoke:     #4B5563;
+  --mist:      #9CA3AF;
+  --cream:     #F8FAFF;
+  --nav-h:     78px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);}
 
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1.25rem 5vw;
-    background: rgba(253,252,250,0.92); backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(201,168,76,0.15);
-  }
-  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 700; color: var(--black); text-decoration: none; }
-  .nav-logo span { color: var(--gold); }
-  .nav-back { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: var(--smoke); transition: color 0.2s; }
-  .nav-back:hover { color: var(--gold); }
+/* TOP BAR */
+.top-bar{background:var(--navy);padding:0.55rem 5vw;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;}
+.tb-left{display:flex;align-items:center;gap:1.75rem;}
+.tb-item{display:flex;align-items:center;gap:0.4rem;font-size:0.74rem;color:rgba(255,255,255,0.75);}
+.tb-item svg{width:13px;height:13px;stroke:var(--electric);fill:none;stroke-width:2;flex-shrink:0;}
+.tb-socials{display:flex;gap:0.5rem;}
+.tb-socials a{width:26px;height:26px;border-radius:4px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:background 0.2s;}
+.tb-socials a:hover{background:var(--blue);}
+.tb-socials svg{width:12px;height:12px;stroke:rgba(255,255,255,0.8);fill:none;stroke-width:2;}
 
-  .page-hero {
-    background: var(--black); padding: 10rem 5vw 5rem; position: relative; overflow: hidden;
-  }
-  .page-hero::before {
-    content: ''; position: absolute; inset: 0;
-    background: radial-gradient(ellipse 70% 80% at 80% 50%, rgba(201,168,76,0.07) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero-tag { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 1rem; }
-  .page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 1rem; }
-  .page-hero h1 em { font-style: italic; color: var(--gold); }
-  .page-hero p { font-size: 1rem; color: var(--mist); max-width: 540px; line-height: 1.75; }
+/* NAV */
+nav{position:sticky;top:0;z-index:200;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 5vw;background:rgba(250,250,250,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,74,173,0.1);box-shadow:0 2px 20px rgba(0,74,173,0.06);}
+.nav-logo{text-decoration:none;display:flex;align-items:center;}
+.nav-logo-img{height:54px;width:auto;display:block;}
+.nav-back{font-size:0.78rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;color:var(--smoke);display:flex;align-items:center;gap:0.4rem;transition:color 0.2s;}
+.nav-back:hover{color:var(--blue);}
+.nav-back svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;}
 
-  /* PROGRESS STEPPER */
-  .stepper-wrap { background: var(--cream); padding: 2.5rem 5vw; border-bottom: 1px solid rgba(201,168,76,0.15); position: sticky; top: 72px; z-index: 50; }
-  .stepper { display: flex; align-items: center; gap: 0; max-width: 900px; margin: 0 auto; }
-  .step-item { display: flex; align-items: center; flex: 1; }
-  .step-circle {
-    width: 36px; height: 36px; border: 2px solid rgba(201,168,76,0.3);
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-    font-size: 0.8rem; font-weight: 600; color: var(--mist);
-    background: var(--white); transition: all 0.3s; cursor: pointer;
-  }
-  .step-item.active .step-circle { border-color: var(--gold); color: var(--gold); }
-  .step-item.done .step-circle { background: var(--gold); border-color: var(--gold); color: var(--black); }
-  .step-label { font-size: 0.72rem; font-weight: 500; color: var(--smoke); margin-left: 0.6rem; white-space: nowrap; }
-  .step-item.active .step-label { color: var(--gold); }
-  .step-item.done .step-label { color: var(--ink); }
-  .step-line { flex: 1; height: 1px; background: rgba(201,168,76,0.2); margin: 0 0.5rem; min-width: 20px; }
-  .step-line.done { background: var(--gold); }
+/* PAGE HERO */
+.page-hero{background:var(--navy);padding:5.5rem 5vw 4.5rem;position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;top:-100px;right:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,74,173,0.2) 0%,transparent 70%);}
+.page-hero::after{content:'';position:absolute;bottom:-60px;left:-60px;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(74,111,232,0.08) 0%,transparent 70%);}
+.hero-tag{display:flex;align-items:center;gap:0.45rem;font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:0.75rem;}
+.tag-dots{display:flex;gap:3px;}
+.tag-dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.6);}
+.tag-dot.r{background:var(--red);}
+.page-hero h1{font-family:'Syne',sans-serif;font-size:clamp(2.2rem,5vw,3.4rem);font-weight:800;color:#fff;line-height:1.1;margin-bottom:0.85rem;position:relative;z-index:1;}
+.page-hero h1 em{font-style:italic;color:var(--electric);}
+.page-hero p{font-size:0.97rem;color:rgba(255,255,255,0.58);max-width:560px;line-height:1.8;position:relative;z-index:1;}
 
-  /* FORM PANELS */
-  .form-main { max-width: 820px; margin: 0 auto; padding: 4rem 5vw; }
-  .panel { display: none; }
-  .panel.active { display: block; }
+/* PROGRESS STEPPER */
+.stepper-wrap{background:var(--white);padding:1.75rem 5vw;border-bottom:1px solid rgba(0,74,173,0.1);position:sticky;top:var(--nav-h);z-index:100;box-shadow:0 2px 12px rgba(0,74,173,0.05);}
+.stepper{display:flex;align-items:center;max-width:860px;margin:0 auto;}
+.step-item{display:flex;align-items:center;flex:1;}
+.step-circle{width:36px;height:36px;border:2px solid rgba(0,74,173,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Syne',sans-serif;font-size:0.82rem;font-weight:700;color:var(--mist);background:var(--white);transition:all 0.3s;cursor:pointer;}
+.step-item.active .step-circle{border-color:var(--blue);color:var(--blue);box-shadow:0 0 0 3px rgba(0,74,173,0.1);}
+.step-item.done .step-circle{background:var(--blue);border-color:var(--blue);color:#fff;}
+.step-label{font-size:0.7rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--mist);margin-left:0.6rem;white-space:nowrap;}
+.step-item.active .step-label{color:var(--blue);}
+.step-item.done .step-label{color:var(--ink);}
+.step-line{flex:1;height:2px;background:rgba(0,74,173,0.1);margin:0 0.5rem;min-width:16px;border-radius:2px;}
+.step-line.done{background:var(--blue);}
 
-  .panel-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--black); margin-bottom: 0.4rem; }
-  .panel-sub { font-size: 0.92rem; color: var(--smoke); line-height: 1.7; margin-bottom: 2.5rem; max-width: 560px; }
+/* FORM MAIN */
+.form-main{max-width:820px;margin:0 auto;padding:4rem 5vw;}
+.panel{display:none;}
+.panel.active{display:block;animation:fadeIn 0.3s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
-  .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .form-row { margin-bottom: 1.1rem; }
-  .form-row label { display: block; font-size: 0.73rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--smoke); margin-bottom: 0.35rem; }
-  .form-row input, .form-row select, .form-row textarea {
-    width: 100%; padding: 0.8rem 1rem;
-    border: 1px solid rgba(201,168,76,0.25); background: var(--cream);
-    color: var(--ink); font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
-    outline: none; transition: border-color 0.2s; appearance: none;
-  }
-  .form-row input:focus, .form-row select:focus, .form-row textarea:focus { border-color: var(--gold); background: var(--white); }
-  .form-row textarea { resize: vertical; min-height: 90px; }
-  .field-error { display: block; font-size: 0.75rem; color: #E24B4A; margin-top: 3px; min-height: 1rem; }
-  input.invalid, select.invalid, textarea.invalid { border-color: #E24B4A !important; }
+.panel-title{font-family:'Syne',sans-serif;font-size:1.75rem;font-weight:800;color:var(--navy);margin-bottom:0.4rem;}
+.panel-sub{font-size:0.92rem;color:var(--smoke);line-height:1.7;margin-bottom:2.5rem;max-width:560px;}
 
-  /* Checkbox group */
-  .check-group { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.6rem; margin-top: 0.4rem; }
-  .check-item { display: flex; align-items: center; gap: 0.6rem; padding: 0.65rem 0.85rem; border: 1px solid rgba(201,168,76,0.25); background: var(--cream); cursor: pointer; transition: all 0.2s; font-size: 0.85rem; color: var(--ink); }
-  .check-item:hover { border-color: var(--gold); }
-  .check-item.checked { background: var(--gold-pale); border-color: var(--gold); color: var(--black); font-weight: 500; }
-  .check-item input[type="checkbox"] { display: none; }
-  .check-box { width: 14px; height: 14px; border: 1.5px solid rgba(201,168,76,0.5); flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
-  .check-item.checked .check-box { background: var(--gold); border-color: var(--gold); }
-  .check-item.checked .check-box::after { content: '✓'; font-size: 9px; color: var(--black); font-weight: 700; }
+/* FORM ELEMENTS */
+.form-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.form-row{margin-bottom:1.15rem;}
+.form-row label{display:block;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--smoke);margin-bottom:0.35rem;}
+.form-row input,.form-row select,.form-row textarea{width:100%;padding:0.8rem 1rem;border:1.5px solid rgba(0,74,173,0.15);background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s,box-shadow 0.2s;appearance:none;border-radius:6px;}
+.form-row input:focus,.form-row select:focus,.form-row textarea:focus{border-color:var(--blue);background:var(--white);box-shadow:0 0 0 3px rgba(0,74,173,0.08);}
+.form-row textarea{resize:vertical;min-height:90px;}
+.field-error{display:block;font-size:0.74rem;color:#DC2626;margin-top:3px;min-height:1rem;}
+input.invalid,select.invalid,textarea.invalid{border-color:#DC2626!important;}
 
-  /* Color swatches */
-  .swatch-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.5rem; }
-  .swatch {
-    width: 36px; height: 36px; border: 2px solid transparent; cursor: pointer;
-    transition: transform 0.15s, border-color 0.15s; border-radius: 2px;
-  }
-  .swatch:hover { transform: scale(1.15); }
-  .swatch.selected { border-color: var(--gold); transform: scale(1.15); }
-  .swatch-custom { padding: 0 0.75rem; height: 36px; border: 1px dashed rgba(201,168,76,0.4); background: var(--cream); font-size: 0.75rem; color: var(--smoke); cursor: pointer; display: flex; align-items: center; white-space: nowrap; }
+/* CHECKBOX GROUP */
+.check-group{display:grid;grid-template-columns:repeat(2,1fr);gap:0.6rem;margin-top:0.4rem;}
+.check-item{display:flex;align-items:center;gap:0.65rem;padding:0.7rem 0.9rem;border:1.5px solid rgba(0,74,173,0.12);background:var(--cream);cursor:pointer;transition:all 0.2s;font-size:0.85rem;color:var(--ink);border-radius:6px;}
+.check-item:hover{border-color:var(--blue);background:var(--blue-pale);}
+.check-item.checked{background:var(--blue-pale);border-color:var(--blue);color:var(--navy);font-weight:500;}
+.check-item input[type="checkbox"]{display:none;}
+.check-box{width:16px;height:16px;border:1.5px solid rgba(0,74,173,0.3);border-radius:3px;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+.check-item.checked .check-box{background:var(--blue);border-color:var(--blue);}
+.check-item.checked .check-box::after{content:'✓';font-size:10px;color:#fff;font-weight:700;}
 
-  /* Platform toggles */
-  .platform-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; margin-top: 0.4rem; }
-  .platform-btn {
-    padding: 0.7rem 0.5rem; font-size: 0.8rem; font-weight: 500; text-align: center;
-    border: 1px solid rgba(201,168,76,0.25); background: var(--cream); color: var(--smoke);
-    cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif;
-  }
-  .platform-btn:hover { border-color: var(--gold); color: var(--ink); }
-  .platform-btn.on { background: var(--gold-pale); border-color: var(--gold); color: var(--black); font-weight: 600; }
+/* COLOUR SWATCHES */
+.swatch-row{display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:0.5rem;}
+.swatch{width:38px;height:38px;border:2px solid transparent;cursor:pointer;transition:transform 0.15s,border-color 0.15s;border-radius:6px;}
+.swatch:hover{transform:scale(1.12);}
+.swatch.selected{border-color:var(--blue);transform:scale(1.12);box-shadow:0 0 0 2px rgba(0,74,173,0.2);}
 
-  /* File upload */
-  .upload-area {
-    border: 1.5px dashed rgba(201,168,76,0.4); padding: 2rem;
-    text-align: center; background: var(--cream); cursor: pointer;
-    transition: border-color 0.2s; margin-top: 0.4rem;
-  }
-  .upload-area:hover { border-color: var(--gold); }
-  .upload-area input[type="file"] { display: none; }
-  .upload-label { font-size: 0.85rem; color: var(--smoke); line-height: 1.6; }
-  .upload-label strong { color: var(--gold); }
-  .file-list { margin-top: 0.75rem; font-size: 0.8rem; color: var(--ink); }
+/* PLATFORM TOGGLES */
+.platform-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.6rem;margin-top:0.4rem;}
+.platform-btn{padding:0.75rem 0.5rem;font-size:0.82rem;font-weight:500;text-align:center;border:1.5px solid rgba(0,74,173,0.12);background:var(--cream);color:var(--smoke);cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif;border-radius:6px;}
+.platform-btn:hover{border-color:var(--blue);color:var(--navy);background:var(--blue-pale);}
+.platform-btn.on{background:var(--blue);border-color:var(--blue);color:#fff;font-weight:600;}
 
-  /* Nav buttons */
-  .panel-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(201,168,76,0.15); }
-  .btn-back { background: transparent; color: var(--smoke); padding: 0.8rem 1.75rem; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid rgba(201,168,76,0.2); cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
-  .btn-back:hover { color: var(--ink); border-color: var(--gold); }
-  .btn-next { background: var(--black); color: var(--gold); padding: 0.8rem 2rem; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid var(--gold); cursor: pointer; transition: all 0.25s; font-family: 'DM Sans', sans-serif; }
-  .btn-next:hover { background: var(--gold); color: var(--black); }
-  .btn-submit { background: var(--gold); color: var(--black); padding: 0.8rem 2.5rem; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid var(--gold); cursor: pointer; transition: all 0.25s; font-family: 'DM Sans', sans-serif; }
-  .btn-submit:hover { background: var(--gold-light); }
+/* FILE UPLOAD */
+.upload-area{border:2px dashed rgba(0,74,173,0.25);padding:2rem;text-align:center;background:var(--cream);cursor:pointer;transition:all 0.2s;margin-top:0.4rem;border-radius:8px;}
+.upload-area:hover{border-color:var(--blue);background:var(--blue-pale);}
+.upload-area input[type="file"]{display:none;}
+.upload-label{font-size:0.85rem;color:var(--smoke);line-height:1.6;}
+.upload-label strong{color:var(--blue);}
+.file-list{margin-top:0.75rem;font-size:0.8rem;color:var(--ink);}
 
-  /* SUCCESS screen */
-  .success-screen { display: none; text-align: center; padding: 5rem 2rem; }
-  .success-icon { width: 72px; height: 72px; background: var(--gold); margin: 0 auto 2rem; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
-  .success-screen h2 { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--black); margin-bottom: 1rem; }
-  .success-screen p { font-size: 0.95rem; color: var(--smoke); line-height: 1.75; max-width: 480px; margin: 0 auto 2rem; }
-  .success-steps { text-align: left; background: var(--cream); border: 1px solid rgba(201,168,76,0.2); padding: 1.5rem 2rem; max-width: 440px; margin: 0 auto 2rem; }
-  .success-steps h4 { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
-  .success-steps li { font-size: 0.88rem; color: var(--ink); padding: 0.4rem 0; border-bottom: 1px solid rgba(201,168,76,0.1); list-style: none; display: flex; gap: 0.75rem; }
-  .success-steps li::before { content: '→'; color: var(--gold); flex-shrink: 0; }
-  .btn-home { display: inline-block; text-decoration: none; background: var(--black); color: var(--gold); padding: 0.85rem 2rem; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid var(--gold); transition: all 0.25s; }
-  .btn-home:hover { background: var(--gold); color: var(--black); }
+/* NAV BUTTONS */
+.panel-nav{display:flex;justify-content:space-between;align-items:center;margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(0,74,173,0.1);}
+.btn-back{background:transparent;color:var(--smoke);padding:0.8rem 1.75rem;font-size:0.8rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;border:1.5px solid rgba(0,74,173,0.15);cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif;border-radius:6px;}
+.btn-back:hover{color:var(--navy);border-color:var(--blue);}
+.btn-next{background:var(--blue);color:#fff;padding:0.8rem 2rem;font-size:0.8rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.25s;font-family:'DM Sans',sans-serif;border-radius:6px;box-shadow:0 4px 14px rgba(0,74,173,0.3);display:flex;align-items:center;gap:0.5rem;}
+.btn-next:hover{background:var(--blue-lt);transform:translateY(-1px);}
+.btn-submit{background:var(--blue);color:#fff;padding:0.8rem 2.5rem;font-size:0.82rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.25s;font-family:'DM Sans',sans-serif;border-radius:6px;box-shadow:0 4px 14px rgba(0,74,173,0.3);}
+.btn-submit:hover{background:var(--blue-lt);transform:translateY(-1px);}
 
-  .error-banner { display: none; background: #fceaea; border: 1px solid #E24B4A; padding: 1rem 1.25rem; margin-bottom: 1rem; color: #A32D2D; font-size: 0.88rem; line-height: 1.6; }
+/* REVIEW BOX */
+.review-box{background:var(--light-bg);border:1.5px solid rgba(0,74,173,0.12);padding:2rem;margin-bottom:2rem;font-size:0.88rem;line-height:2;border-radius:10px;}
+.review-label{color:var(--blue);display:block;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;margin-bottom:4px;font-family:'Syne',sans-serif;}
+.what-next{background:var(--blue-pale);border:1.5px solid rgba(0,74,173,0.15);border-left:4px solid var(--blue);padding:1.25rem 1.5rem;margin-bottom:2rem;font-size:0.88rem;color:var(--ink);line-height:1.7;border-radius:0 8px 8px 0;}
+.what-next strong{display:block;margin-bottom:0.25rem;color:var(--navy);font-family:'Syne',sans-serif;font-size:0.95rem;}
 
-  .page-footer { background: var(--charcoal); padding: 2rem 5vw; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(201,168,76,0.1); }
-  .footer-copy { font-size: 0.78rem; color: var(--smoke); }
-  .footer-home { font-size: 0.78rem; color: var(--gold); text-decoration: none; }
-  .footer-home:hover { text-decoration: underline; }
+/* SUCCESS */
+.success-screen{display:none;text-align:center;padding:5rem 2rem;}
+.success-icon{width:72px;height:72px;background:var(--blue);border-radius:50%;margin:0 auto 2rem;display:flex;align-items:center;justify-content:center;font-size:1.8rem;color:#fff;box-shadow:0 8px 24px rgba(0,74,173,0.3);}
+.success-screen h2{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:var(--navy);margin-bottom:1rem;}
+.success-screen p{font-size:0.96rem;color:var(--smoke);line-height:1.75;max-width:480px;margin:0 auto 2rem;}
+.success-steps{text-align:left;background:var(--light-bg);border:1.5px solid rgba(0,74,173,0.12);padding:1.75rem 2rem;max-width:460px;margin:0 auto 2rem;border-radius:10px;}
+.success-steps h4{font-family:'Syne',sans-serif;font-size:0.76rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);margin-bottom:1rem;font-weight:700;}
+.success-steps li{font-size:0.88rem;color:var(--ink);padding:0.5rem 0;border-bottom:1px solid rgba(0,74,173,0.08);list-style:none;display:flex;gap:0.75rem;}
+.success-steps li:last-child{border-bottom:none;}
+.success-steps li::before{content:'→';color:var(--blue);flex-shrink:0;font-weight:700;}
+.btn-home{display:inline-block;text-decoration:none;background:var(--blue);color:#fff;padding:0.88rem 2rem;font-size:0.82rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;border-radius:6px;transition:all 0.25s;box-shadow:0 4px 14px rgba(0,74,173,0.3);}
+.btn-home:hover{background:var(--blue-lt);transform:translateY(-2px);}
 
-  @media (max-width: 700px) {
-    .form-grid-2 { grid-template-columns: 1fr; }
-    .check-group, .platform-grid { grid-template-columns: 1fr 1fr; }
-    .step-label { display: none; }
-  }
+.error-banner{display:none;background:#FEF2F2;border:1px solid #DC2626;padding:1rem 1.25rem;margin-bottom:1rem;color:#7F1D1D;font-size:0.88rem;line-height:1.6;border-radius:6px;}
+.secure-note{font-size:0.75rem;color:var(--mist);margin-top:5px;display:flex;align-items:center;gap:0.35rem;}
+.secure-note svg{width:12px;height:12px;stroke:var(--mist);fill:none;stroke-width:2;flex-shrink:0;}
+
+/* FOOTER */
+.page-footer{background:var(--navy);padding:2rem 5vw;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,0.06);flex-wrap:wrap;gap:1rem;}
+.footer-copy{font-size:0.74rem;color:rgba(255,255,255,0.35);}
+.footer-logo-img{height:40px;width:auto;display:block;}
+.footer-home{font-size:0.78rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;display:flex;align-items:center;gap:0.35rem;}
+.footer-home svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;}
+.footer-home:hover{color:var(--electric);}
+
+@media(max-width:700px){
+  .form-grid-2{grid-template-columns:1fr;}
+  .check-group,.platform-grid{grid-template-columns:1fr 1fr;}
+  .step-label{display:none;}
+  .top-bar{display:none;}
+  .panel-nav{flex-direction:column;gap:0.75rem;}
+  .btn-back,.btn-next,.btn-submit{width:100%;justify-content:center;}
+}
 </style>
 </head>
 <body>
 
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="tb-left">
+    <div class="tb-item"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6.53 6.53l1.93-1.93a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+234 (0) 800 000 0000</div>
+    <div class="tb-item"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>hello@martinleonagency.com</div>
+  </div>
+  <div class="tb-socials">
+    <a href="#"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+    <a href="#"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+    <a href="#"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+  </div>
+</div>
+
+<!-- NAV -->
 <nav>
-  <a href="index.html" class="nav-logo">Martin <span>Leon</span></a>
-  <a href="index.html" class="nav-back">← Back to Home</a>
+  <a href="index.html" class="nav-logo"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTUwMCIgem9vbUFuZFBhbj0ibWFnbmlmeSIgdmlld0JveD0iMCAwIDExMjUgMzc0Ljk5OTk5MSIgaGVpZ2h0PSI1MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIG1lZXQiIHZlcnNpb249IjEuMCI+PGRlZnM+PGcvPjxjbGlwUGF0aCBpZD0iNzM2MzhhMzUwYyI+PHBhdGggZD0iTSAxOC4xMDU0NjkgMi4wNzgxMjUgTCA0NTguMzU1NDY5IDIuMDc4MTI1IEwgNDU4LjM1NTQ2OSAzNzQuODI4MTI1IEwgMTguMTA1NDY5IDM3NC44MjgxMjUgWiBNIDE4LjEwNTQ2OSAyLjA3ODEyNSAiIGNsaXAtcnVsZT0ibm9uemVybyIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIGNsaXAtcGF0aD0idXJsKCM3MzYzOGEzNTBjKSI+PHBhdGggZmlsbD0iIzAwNGFhZCIgZD0iTSAyNzguMTA1NDY5IDExNS4wNTQ2ODggTCAxOC4xNjQwNjIgMzc0Ljk5MjE4OCBMIDE4LjE2NDA2MiAyNjIuMjE4NzUgTCAyNzguMTA1NDY5IDIuMDc4MTI1IFogTSAxOTguMTIxMDk0IDI2MS44MTY0MDYgTCAxOTguMTIxMDk0IDM3NC45OTIxODggTCAzNzguMDc0MjE5IDE5NS4yNDIxODggTCAzNzguMDc0MjE5IDM3NC45OTIxODggTCA0NTguMDU4NTk0IDI5NS4wMDc4MTIgTCA0NTguMDU4NTk0IDIuMDc4MTI1IFogTSAxOTguMTIxMDk0IDI2MS44MTY0MDYgIiBmaWxsLW9wYWNpdHk9IjEiIGZpbGwtcnVsZT0ibm9uemVybyIvPjwvZz48ZyBmaWxsPSIjMDA0YWFkIiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUxMi4yNTAwMzcsIDE3NS44MDczNTYpIj48Zz48cGF0aCBkPSJNIDM3LjkyMTg3NSAwIEwgMzcuODc1IC0yMi4xMjUgTCAyNy4wMTU2MjUgLTMuODkwNjI1IEwgMjMuMTcxODc1IC0zLjg5MDYyNSBMIDEyLjM3NSAtMjEuNjQwNjI1IEwgMTIuMzc1IDAgTCA0LjM3NSAwIEwgNC4zNzUgLTM2Ljg3NSBMIDExLjQzNzUgLTM2Ljg3NSBMIDI1LjIzNDM3NSAtMTMuOTUzMTI1IEwgMzguODEyNSAtMzYuODc1IEwgNDUuODI4MTI1IC0zNi44NzUgTCA0NS45Mzc1IDAgWiBNIDM3LjkyMTg3NSAwICIvPjwvZz48L2c+PC9nPjxnIGZpbGw9IiMwMDRhYWQiIGZpbGwtb3BhY2l0eT0iMSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTc1LjIzOTEzOCwgMTc1LjgwNzM1NikiPjxnPjxwYXRoIGQ9Ik0gMjguNjU2MjUgLTcuOTA2MjUgTCAxMS41MzEyNSAtNy45MDYyNSBMIDguMjY1NjI1IDAgTCAtMC40Njg3NSAwIEwgMTUuOTUzMTI1IC0zNi44NzUgTCAyNC4zOTA2MjUgLTM2Ljg3NSBMIDQwLjg3NSAwIEwgMzEuOTIxODc1IDAgWiBNIDI1Ljk2ODc1IC0xNC4zNzUgTCAyMC4xMjUgLTI4LjUgTCAxNC4yODEyNSAtMTQuMzc1IFogTSAyNS45Njg3NSAtMTQuMzc1ICIvPjwvZz48L2c+PC9nPjxnIGZpbGw9IiMwMDRhYWQiIGZpbGwtb3BhY2l0eT0iMSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjI4LjI3NDcxOCwgMTc1LjgwNzM1NikiPjxnPjxwYXRoIGQ9Ik0gMjcuODU5Mzc1IDAgTCAyMC43NSAtMTAuMjY1NjI1IEwgMTIuOTA2MjUgLTEwLjI2NTYyNSBMIDEyLjkwNjI1IDAgTCA0LjM3NSAwIEwgNC4zNzUgLTM2Ljg3NSBMIDIwLjMyODEyNSAtMzYuODc1IEMgMjMuNTk3NjU2IC0zNi44NzUgMjYuNDM3NSAtMzYuMzI4MTI1IDI4Ljg0Mzc1IC0zNS4yMzQzNzUgQyAzMS4yNSAtMzQuMTQ4NDM4IDMzLjA5NzY1NiAtMzIuNjAxNTYyIDM0LjM5MDYyNSAtMzAuNTkzNzUgQyAzNS42OTE0MDYgLTI4LjU5Mzc1IDM2LjM0Mzc1IC0yNi4yMjI2NTYgMzYuMzQzNzUgLTIzLjQ4NDM3NSBDIDM2LjM0Mzc1IC0yMC43NTM5MDYgMzUuNjc5Njg4IC0xOC4zOTQ1MzEgMzQuMzU5Mzc1IC0xNi40MDYyNSBDIDMzLjA0Njg3NSAtMTQuNDI1NzgxIDMxLjE3OTY4OCAtMTIuOTA2MjUgMjguNzY1NjI1IC0xMS44NDM3NSBMIDM3LjAzMTI1IDAgWiBNIDI3LjcwMzEyNSAtMjMuNDg0Mzc1IEMgMjcuNzAzMTI1IC0yNS41NTQ2ODggMjcuMDM1MTU2IC0yNy4xNDQ1MzEgMjUuNzAzMTI1IC0yOC4yNSBDIDI0LjM2NzE4OCAtMjkuMzYzMjgxIDIyLjQyMTg3NSAtMjkuOTIxODc1IDE5Ljg1OTM3NSAtMjkuOTIxODc1IEwgMTIuOTA2MjUgLTI5LjkyMTg3NSBMIDEyLjkwNjI1IC0xNy4wNjI1IEwgMTkuODU5Mzc1IC0xNy4wNjI1IEMgMjIuNDIxODc1IC0xNy4wNjI1IDI0LjM2NzE4OCAtMTcuNjI1IDI1LjcwMzEyNSAtMTguNzUgQyAyNy4wMzUxNTYgLTE5Ljg3NSAyNy43MDMxMjUgLTIxLjQ1MzEyNSAyNy43MDMxMjUgLTIzLjQ4NDM3NSBaIE0gMjcuNzAzMTI1IC0yMy40ODQzNzUgIi8+PC9nPjwvZz48L2c+PGcgZmlsbD0iIzAwNGFhZCIgZmlsbC1vcGFjaXR5PSIxIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2NzkuNjc3NzE4LCAxNzUuODA3MzU2KSI+PGc+PHBhdGggZD0iTSAxMi4wMTU2MjUgLTI5LjkyMTg3NSBMIDAuMjAzMTI1IC0yOS45MjE4NzUgTCAwLjIwMzEyNSAtMzYuODc1IEwgMzIuMzQzNzUgLTM2Ljg3NSBMIDMyLjM0Mzc1IC0yOS45MjE4NzUgTCAyMC41NDY4NzUgLTI5LjkyMTg3NSBMIDIwLjU0Njg3NSAwIEwgMTIuMDE1NjI1IDAgWiBNIDEyLjAxNTYyNSAtMjkuOTIxODc1ICIvPjwvZz48L2c+PC9nPjxnIGZpbGw9IiMwMDRhYWQiIGZpbGwtb3BhY2l0eT0iMSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzI0LjkxOTAxNCwgMTc1LjgwNzM1NikiPjxnPjxwYXRoIGQ9Ik0gNC4zNzUgLTM2Ljg3NSBMIDEyLjkwNjI1IC0zNi44NzUgTCAxMi45MDYyNSAwIEwgNC4zNzUgMCBaIE0gNC4zNzUgLTM2Ljg3NSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjMDA0YWFkIiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDc1NC44ODc3MjQsIDE3NS44MDczNTYpIj48Zz48cGF0aCBkPSJNIDM4LjE4NzUgLTM2Ljg3NSBMIDM4LjE4NzUgMCBMIDMxLjE4NzUgMCBMIDEyLjc5Njg3NSAtMjIuMzkwNjI1IEwgMTIuNzk2ODc1IDAgTCA0LjM3NSAwIEwgNC4zNzUgLTM2Ljg3NSBMIDExLjQzNzUgLTM2Ljg3NSBMIDI5Ljc2NTYyNSAtMTQuNDg0Mzc1IEwgMjkuNzY1NjI1IC0zNi44NzUgWiBNIDM4LjE4NzUgLTM2Ljg3NSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjMDA0YWFkIiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDgxMC4xMzUxOTUsIDE3NS44MDczNTYpIj48Zy8+PC9nPjwvZz48ZyBmaWxsPSIjMDA0YWFkIiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDgzNy43MzQwMTYsIDE3NS44MDczNTYpIj48Zz48cGF0aCBkPSJNIDQuMzc1IC0zNi44NzUgTCAxMi45MDYyNSAtMzYuODc1IEwgMTIuOTA2MjUgLTYuOTUzMTI1IEwgMzEuMzkwNjI1IC02Ljk1MzEyNSBMIDMxLjM5MDYyNSAwIEwgNC4zNzUgMCBaIE0gNC4zNzUgLTM2Ljg3NSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjMDA0YWFkIiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDg4Mi4yMzgwMDQsIDE3NS44MDczNTYpIj48Zz48cGF0aCBkPSJNIDMyLjkyMTg3NSAtNi44NDM3NSBMIDMyLjkyMTg3NSAwIEwgNC4zNzUgMCBMIDQuMzc1IC0zNi44NzUgTCAzMi4yMzQzNzUgLTM2Ljg3NSBMIDMyLjIzNDM3NSAtMzAuMDE1NjI1IEwgMTIuODU5Mzc1IC0zMC4wMTU2MjUgTCAxMi44NTkzNzUgLTIyLjAxNTYyNSBMIDI5Ljk2ODc1IC0yMi4wMTU2MjUgTCAyOS45Njg3NSAtMTUuMzc1IEwgMTIuODU5Mzc1IC0xNS4zNzUgTCAxMi44NTkzNzUgLTYuODQzNzUgWiBNIDMyLjkyMTg3NSAtNi44NDM3NSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjMDA0YWFkIiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDkzMC4yNzA1MDIsIDE3NS44MDczNTYpIj48Zz48cGF0aCBkPSJNIDIyLjIzNDM3NSAwLjYyNSBDIDE4LjM5ODQzOCAwLjYyNSAxNC45NDUzMTIgLTAuMTk1MzEyIDExLjg3NSAtMS44NDM3NSBDIDguODAwNzgxIC0zLjQ4ODI4MSA2LjM5NDUzMSAtNS43NTc4MTIgNC42NTYyNSAtOC42NTYyNSBDIDIuOTE0MDYyIC0xMS41NjI1IDIuMDQ2ODc1IC0xNC44MjAzMTIgMi4wNDY4NzUgLTE4LjQzNzUgQyAyLjA0Njg3NSAtMjIuMDUwNzgxIDIuOTE0MDYyIC0yNS4zMDQ2ODggNC42NTYyNSAtMjguMjAzMTI1IEMgNi4zOTQ1MzEgLTMxLjA5NzY1NiA4LjgwMDc4MSAtMzMuMzY3MTg4IDExLjg3NSAtMzUuMDE1NjI1IEMgMTQuOTQ1MzEyIC0zNi42NzE4NzUgMTguMzk4NDM4IC0zNy41IDIyLjIzNDM3NSAtMzcuNSBDIDI2LjA1NDY4OCAtMzcuNSAyOS40OTIxODggLTM2LjY3MTg3NSAzMi41NDY4NzUgLTM1LjAxNTYyNSBDIDM1LjYwOTM3NSAtMzMuMzY3MTg4IDM4LjAxNTYyNSAtMzEuMDk3NjU2IDM5Ljc2NTYyNSAtMjguMjAzMTI1IEMgNDEuNTIzNDM4IC0yNS4zMDQ2ODggNDIuNDA2MjUgLTIyLjA1MDc4MSA0Mi40MDYyNSAtMTguNDM3NSBDIDQyLjQwNjI1IC0xNC44MjAzMTIgNDEuNTIzNDM4IC0xMS41NjI1IDM5Ljc2NTYyNSAtOC42NTYyNSBDIDM4LjAxNTYyNSAtNS43NTc4MTIgMzUuNjA5Mzc1IC0zLjQ4ODI4MSAzMi41NDY4NzUgLTEuODQzNzUgQyAyOS40OTIxODggLTAuMTk1MzEyIDI2LjA1NDY4OCAwLjYyNSAyMi4yMzQzNzUgMC42MjUgWiBNIDIyLjIzNDM3NSAtNi42NDA2MjUgQyAyNC40MTAxNTYgLTYuNjQwNjI1IDI2LjM3NSAtNy4xNDA2MjUgMjguMTI1IC04LjE0MDYyNSBDIDI5Ljg4MjgxMiAtOS4xNDA2MjUgMzEuMjY1NjI1IC0xMC41MzUxNTYgMzIuMjY1NjI1IC0xMi4zMjgxMjUgQyAzMy4yNjU2MjUgLTE0LjExNzE4OCAzMy43NjU2MjUgLTE2LjE1NjI1IDMzLjc2NTYyNSAtMTguNDM3NSBDIDMzLjc2NTYyNSAtMjAuNzE4NzUgMzMuMjY1NjI1IC0yMi43NTM5MDYgMzIuMjY1NjI1IC0yNC41NDY4NzUgQyAzMS4yNjU2MjUgLTI2LjMzNTkzOCAyOS44ODI4MTIgLTI3LjczNDM3NSAyOC4xMjUgLTI4LjczNDM3NSBDIDI2LjM3NSAtMjkuNzM0Mzc1IDI0LjQxMDE1NiAtMzAuMjM0Mzc1IDIyLjIzNDM3NSAtMzAuMjM0Mzc1IEMgMjAuMDU0Njg4IC0zMC4yMzQzNzUgMTguMDg1OTM4IC0yOS43MzQzNzUgMTYuMzI4MTI1IC0yOC43MzQzNzUgQyAxNC41NjY0MDYgLTI3LjczNDM3NSAxMy4xODc1IC0yNi4zMzU5MzggMTIuMTg3NSAtMjQuNTQ2ODc1IEMgMTEuMTg3NSAtMjIuNzUzOTA2IDEwLjY4NzUgLTIwLjcxODc1IDEwLjY4NzUgLTE4LjQzNzUgQyAxMC42ODc1IC0xNi4xNTYyNSAxMS4xODc1IC0xNC4xMTcxODggMTIuMTg3NSAtMTIuMzI4MTI1IEMgMTMuMTg3NSAtMTAuNTM1MTU2IDE0LjU2NjQwNiAtOS4xNDA2MjUgMTYuMzI4MTI1IC04LjE0MDYyNSBDIDE4LjA4NTkzOCAtNy4xNDA2MjUgMjAuMDU0Njg4IC02LjY0MDYyNSAyMi4yMzQzNzUgLTYuNjQwNjI1IFogTSAyMi4yMzQzNzUgLTYuNjQwNjI1ICIvPjwvZz48L2c+PC9nPjxnIGZpbGw9IiMwMDRhYWQiIGZpbGwtb3BhY2l0eT0iMSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTg3LjQxMzkxNiwgMTc1LjgwNzM1NikiPjxnPjxwYXRoIGQ9Ik0gMzguMTg3NSAtMzYuODc1IEwgMzguMTg3NSAwIEwgMzEuMTg3NSAwIEwgMTIuNzk2ODc1IC0yMi4zOTA2MjUgTCAxMi43OTY4NzUgMCBMIDQuMzc1IDAgTCA0LjM3NSAtMzYuODc1IEwgMTEuNDM3NSAtMzYuODc1IEwgMjkuNzY1NjI1IC0xNC40ODQzNzUgTCAyOS43NjU2MjUgLTM2Ljg3NSBaIE0gMzguMTg3NSAtMzYuODc1ICIvPjwvZz48L2c+PC9nPjxnIGZpbGw9IiNkYjFjMTkiIGZpbGwtb3BhY2l0eT0iMSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjM5Ljk1NjYzOCwgMjMzLjI0ODQwMykiPjxnPjxwYXRoIGQ9Ik0gMjYuNDg0Mzc1IC04Ljk1MzEyNSBMIDcuODEyNSAtOC45NTMxMjUgTCAzLjc4MTI1IDAgTCAwLjA5Mzc1IDAgTCAxNS40MjE4NzUgLTMzLjUzMTI1IEwgMTguOTIxODc1IC0zMy41MzEyNSBMIDM0LjI1IDAgTCAzMC41MTU2MjUgMCBaIE0gMjUuMjAzMTI1IC0xMS44MjgxMjUgTCAxNy4xNTYyNSAtMjkuODQzNzUgTCA5LjEwOTM3NSAtMTEuODI4MTI1IFogTSAyNS4yMDMxMjUgLTExLjgyODEyNSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjZGIxYzE5IiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY4NS44NTI1ODIsIDIzMy4yNDg0MDMpIj48Zz48cGF0aCBkPSJNIDI5LjA3ODEyNSAtMTYuNzY1NjI1IEwgMzIuNDg0Mzc1IC0xNi43NjU2MjUgTCAzMi40ODQzNzUgLTMuOTY4NzUgQyAzMC45MjE4NzUgLTIuNjAxNTYyIDI5LjA2NjQwNiAtMS41NTA3ODEgMjYuOTIxODc1IC0wLjgxMjUgQyAyNC43ODUxNTYgLTAuMDgyMDMxMiAyMi41MzUxNTYgMC4yODEyNSAyMC4xNzE4NzUgMC4yODEyNSBDIDE2LjgxNjQwNiAwLjI4MTI1IDEzLjc5Njg3NSAtMC40NTMxMjUgMTEuMTA5Mzc1IC0xLjkyMTg3NSBDIDguNDI5Njg4IC0zLjM5MDYyNSA2LjMyMDMxMiAtNS40MjE4NzUgNC43ODEyNSAtOC4wMTU2MjUgQyAzLjI1IC0xMC42MTcxODggMi40ODQzNzUgLTEzLjUzNTE1NiAyLjQ4NDM3NSAtMTYuNzY1NjI1IEMgMi40ODQzNzUgLTE5Ljk5MjE4OCAzLjI1IC0yMi45MTAxNTYgNC43ODEyNSAtMjUuNTE1NjI1IEMgNi4zMjAzMTIgLTI4LjExNzE4OCA4LjQyOTY4OCAtMzAuMTU2MjUgMTEuMTA5Mzc1IC0zMS42MjUgQyAxMy43OTY4NzUgLTMzLjA5Mzc1IDE2LjgzMjAzMSAtMzMuODI4MTI1IDIwLjIxODc1IC0zMy44MjgxMjUgQyAyMi43Njk1MzEgLTMzLjgyODEyNSAyNS4xMTMyODEgLTMzLjQxNDA2MiAyNy4yNSAtMzIuNTkzNzUgQyAyOS4zOTQ1MzEgLTMxLjc4MTI1IDMxLjIwMzEyNSAtMzAuNTc4MTI1IDMyLjY3MTg3NSAtMjguOTg0Mzc1IEwgMzAuNDY4NzUgLTI2LjczNDM3NSBDIDI3LjgxMjUgLTI5LjM0NzY1NiAyNC40NDE0MDYgLTMwLjY1NjI1IDIwLjM1OTM3NSAtMzAuNjU2MjUgQyAxNy42NDA2MjUgLTMwLjY1NjI1IDE1LjE4NzUgLTMwLjA1NDY4OCAxMyAtMjguODU5Mzc1IEMgMTAuODEyNSAtMjcuNjYwMTU2IDkuMDkzNzUgLTI2IDcuODQzNzUgLTIzLjg3NSBDIDYuNjAxNTYyIC0yMS43NTc4MTIgNS45ODQzNzUgLTE5LjM5MDYyNSA1Ljk4NDM3NSAtMTYuNzY1NjI1IEMgNS45ODQzNzUgLTE0LjE0ODQzOCA2LjYwMTU2MiAtMTEuNzg1MTU2IDcuODQzNzUgLTkuNjcxODc1IEMgOS4wOTM3NSAtNy41NjY0MDYgMTAuODAwNzgxIC01LjkwNjI1IDEyLjk2ODc1IC00LjY4NzUgQyAxNS4xNDQ1MzEgLTMuNDc2NTYyIDE3LjU5Mzc1IC0yLjg3NSAyMC4zMTI1IC0yLjg3NSBDIDIzLjc1NzgxMiAtMi44NzUgMjYuNjc5Njg4IC0zLjczODI4MSAyOS4wNzgxMjUgLTUuNDY4NzUgWiBNIDI5LjA3ODEyNSAtMTYuNzY1NjI1ICIvPjwvZz48L2c+PC9nPjxnIGZpbGw9IiNkYjFjMTkiIGZpbGwtb3BhY2l0eT0iMSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzM0LjQzMTI4MywgMjMzLjI0ODQwMykiPjxnPjxwYXRoIGQ9Ik0gMjkuMTcxODc1IC0zLjA2MjUgTCAyOS4xNzE4NzUgMCBMIDUuNDY4NzUgMCBMIDUuNDY4NzUgLTMzLjUzMTI1IEwgMjguNDUzMTI1IC0zMy41MzEyNSBMIDI4LjQ1MzEyNSAtMzAuNDY4NzUgTCA5IC0zMC40Njg3NSBMIDkgLTE4LjU0Njg3NSBMIDI2LjM0Mzc1IC0xOC41NDY4NzUgTCAyNi4zNDM3NSAtMTUuNTE1NjI1IEwgOSAtMTUuNTE1NjI1IEwgOSAtMy4wNjI1IFogTSAyOS4xNzE4NzUgLTMuMDYyNSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjZGIxYzE5IiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDc3OC4wMjc3MzEsIDIzMy4yNDg0MDMpIj48Zz48cGF0aCBkPSJNIDMzLjQ4NDM3NSAtMzMuNTMxMjUgTCAzMy40ODQzNzUgMCBMIDMwLjU2MjUgMCBMIDkgLTI3LjIwMzEyNSBMIDkgMCBMIDUuNDY4NzUgMCBMIDUuNDY4NzUgLTMzLjUzMTI1IEwgOC4zOTA2MjUgLTMzLjUzMTI1IEwgMjkuOTg0Mzc1IC02LjMyODEyNSBMIDI5Ljk4NDM3NSAtMzMuNTMxMjUgWiBNIDMzLjQ4NDM3NSAtMzMuNTMxMjUgIi8+PC9nPjwvZz48L2c+PGcgZmlsbD0iI2RiMWMxOSIgZmlsbC1vcGFjaXR5PSIxIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4MjguNTIyNjc3LCAyMzMuMjQ4NDAzKSI+PGc+PHBhdGggZD0iTSAyMC4wMzEyNSAwLjI4MTI1IEMgMTYuNzA3MDMxIDAuMjgxMjUgMTMuNzEwOTM4IC0wLjQ1MzEyNSAxMS4wNDY4NzUgLTEuOTIxODc1IEMgOC4zNzg5MDYgLTMuMzkwNjI1IDYuMjg1MTU2IC01LjQyMTg3NSA0Ljc2NTYyNSAtOC4wMTU2MjUgQyAzLjI0MjE4OCAtMTAuNjE3MTg4IDIuNDg0Mzc1IC0xMy41MzUxNTYgMi40ODQzNzUgLTE2Ljc2NTYyNSBDIDIuNDg0Mzc1IC0xOS45OTIxODggMy4yNDIxODggLTIyLjkxMDE1NiA0Ljc2NTYyNSAtMjUuNTE1NjI1IEMgNi4yODUxNTYgLTI4LjExNzE4OCA4LjM4MjgxMiAtMzAuMTU2MjUgMTEuMDYyNSAtMzEuNjI1IEMgMTMuNzUgLTMzLjA5Mzc1IDE2Ljc1MzkwNiAtMzMuODI4MTI1IDIwLjA3ODEyNSAtMzMuODI4MTI1IEMgMjIuNTY2NDA2IC0zMy44MjgxMjUgMjQuODYzMjgxIC0zMy40MTAxNTYgMjYuOTY4NzUgLTMyLjU3ODEyNSBDIDI5LjA4MjAzMSAtMzEuNzQyMTg4IDMwLjg3NSAtMzAuNTMxMjUgMzIuMzQzNzUgLTI4LjkzNzUgTCAzMC4wNzgxMjUgLTI2LjY4NzUgQyAyNy40NjA5MzggLTI5LjMzMjAzMSAyNC4xNjAxNTYgLTMwLjY1NjI1IDIwLjE3MTg3NSAtMzAuNjU2MjUgQyAxNy41MTU2MjUgLTMwLjY1NjI1IDE1LjA5NzY1NiAtMzAuMDQ2ODc1IDEyLjkyMTg3NSAtMjguODI4MTI1IEMgMTAuNzUzOTA2IC0yNy42MTcxODggOS4wNTQ2ODggLTI1Ljk2MDkzOCA3LjgyODEyNSAtMjMuODU5Mzc1IEMgNi41OTc2NTYgLTIxLjc1MzkwNiA1Ljk4NDM3NSAtMTkuMzkwNjI1IDUuOTg0Mzc1IC0xNi43NjU2MjUgQyA1Ljk4NDM3NSAtMTQuMTQ4NDM4IDYuNTk3NjU2IC0xMS43ODUxNTYgNy44MjgxMjUgLTkuNjcxODc1IEMgOS4wNTQ2ODggLTcuNTY2NDA2IDEwLjc1MzkwNiAtNS45MDYyNSAxMi45MjE4NzUgLTQuNjg3NSBDIDE1LjA5NzY1NiAtMy40NzY1NjIgMTcuNTE1NjI1IC0yLjg3NSAyMC4xNzE4NzUgLTIuODc1IEMgMjQuMTkxNDA2IC0yLjg3NSAyNy40OTIxODggLTQuMjE4NzUgMzAuMDc4MTI1IC02LjkwNjI1IEwgMzIuMzQzNzUgLTQuNjQwNjI1IEMgMzAuODc1IC0zLjA0Njg3NSAyOS4wNzgxMjUgLTEuODI4MTI1IDI2Ljk1MzEyNSAtMC45ODQzNzUgQyAyNC44MjgxMjUgLTAuMTQwNjI1IDIyLjUxOTUzMSAwLjI4MTI1IDIwLjAzMTI1IDAuMjgxMjUgWiBNIDIwLjAzMTI1IDAuMjgxMjUgIi8+PC9nPjwvZz48L2c+PGcgZmlsbD0iI2RiMWMxOSIgZmlsbC1vcGFjaXR5PSIxIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4NzQuNTE0NDUzLCAyMzMuMjQ4NDAzKSI+PGc+PHBhdGggZD0iTSAxNi45NTMxMjUgLTExLjU5Mzc1IEwgMTYuOTUzMTI1IDAgTCAxMy40Njg3NSAwIEwgMTMuNDY4NzUgLTExLjU5Mzc1IEwgMC4wNDY4NzUgLTMzLjUzMTI1IEwgMy44MjgxMjUgLTMzLjUzMTI1IEwgMTUuMzI4MTI1IC0xNC43MDMxMjUgTCAyNi44MjgxMjUgLTMzLjUzMTI1IEwgMzAuMzc1IC0zMy41MzEyNSBaIE0gMTYuOTUzMTI1IC0xMS41OTM3NSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjZGIxYzE5IiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDkxNi40ODIwODYsIDIzMy4yNDg0MDMpIj48Zz48cGF0aCBkPSJNIDUuMDc4MTI1IDAuMjM0Mzc1IEMgNC4zNzg5MDYgMC4yMzQzNzUgMy43ODEyNSAtMC4wMTk1MzEyIDMuMjgxMjUgLTAuNTMxMjUgQyAyLjc4MTI1IC0xLjAzOTA2MiAyLjUzMTI1IC0xLjY2MDE1NiAyLjUzMTI1IC0yLjM5MDYyNSBDIDIuNTMxMjUgLTMuMTI4OTA2IDIuNzgxMjUgLTMuNzQyMTg4IDMuMjgxMjUgLTQuMjM0Mzc1IEMgMy43ODEyNSAtNC43MzQzNzUgNC4zNzg5MDYgLTQuOTg0Mzc1IDUuMDc4MTI1IC00Ljk4NDM3NSBDIDUuNzczNDM4IC00Ljk4NDM3NSA2LjM3ODkwNiAtNC43MzQzNzUgNi44OTA2MjUgLTQuMjM0Mzc1IEMgNy40MTAxNTYgLTMuNzQyMTg4IDcuNjcxODc1IC0zLjEyODkwNiA3LjY3MTg3NSAtMi4zOTA2MjUgQyA3LjY3MTg3NSAtMS42NjAxNTYgNy40MTAxNTYgLTEuMDM5MDYyIDYuODkwNjI1IC0wLjUzMTI1IEMgNi4zNzg5MDYgLTAuMDE5NTMxMiA1Ljc3MzQzOCAwLjIzNDM3NSA1LjA3ODEyNSAwLjIzNDM3NSBaIE0gNS4wNzgxMjUgMC4yMzQzNzUgIi8+PC9nPjwvZz48L2c+PC9zdmc+" alt="Martin Leon Agency" class="nav-logo-img"></a>
+  <a href="index.html" class="nav-back">
+    <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    Back to Home
+  </a>
 </nav>
 
+<!-- HERO -->
 <div class="page-hero">
-  <span class="hero-tag">New Client Onboarding</span>
+  <div class="hero-tag"><div class="tag-dots"><div class="tag-dot"></div><div class="tag-dot r"></div></div>New Client Onboarding</div>
   <h1>Welcome to<br><em>Martin Leon Agency.</em></h1>
   <p>Let's get everything we need to hit the ground running. This takes about 10 minutes — the more detail you share, the better your first deliverables will be.</p>
 </div>
@@ -172,189 +203,122 @@
 <!-- STEPPER -->
 <div class="stepper-wrap">
   <div class="stepper">
-    <div class="step-item active" id="s1">
-      <div class="step-circle">1</div>
-      <span class="step-label">Your Business</span>
-    </div>
+    <div class="step-item active" id="s1"><div class="step-circle">1</div><span class="step-label">Your Business</span></div>
     <div class="step-line" id="l1"></div>
-    <div class="step-item" id="s2">
-      <div class="step-circle">2</div>
-      <span class="step-label">Brand Identity</span>
-    </div>
+    <div class="step-item" id="s2"><div class="step-circle">2</div><span class="step-label">Brand Identity</span></div>
     <div class="step-line" id="l2"></div>
-    <div class="step-item" id="s3">
-      <div class="step-circle">3</div>
-      <span class="step-label">Social Media</span>
-    </div>
+    <div class="step-item" id="s3"><div class="step-circle">3</div><span class="step-label">Social Media</span></div>
     <div class="step-line" id="l3"></div>
-    <div class="step-item" id="s4">
-      <div class="step-circle">4</div>
-      <span class="step-label">Goals & Access</span>
-    </div>
+    <div class="step-item" id="s4"><div class="step-circle">4</div><span class="step-label">Goals &amp; Access</span></div>
     <div class="step-line" id="l4"></div>
-    <div class="step-item" id="s5">
-      <div class="step-circle">5</div>
-      <span class="step-label">Review & Submit</span>
-    </div>
+    <div class="step-item" id="s5"><div class="step-circle">5</div><span class="step-label">Review &amp; Submit</span></div>
   </div>
 </div>
 
 <div class="form-main">
   <div class="error-banner" id="main-error">✗ Please fix the errors above before continuing.</div>
 
-  <!-- PANEL 1: Business Info -->
+  <!-- PANEL 1 -->
   <div class="panel active" id="panel-1">
     <h2 class="panel-title">Tell Us About Your Business</h2>
     <p class="panel-sub">Basic details so we can understand who you are and who you serve.</p>
-
     <div class="form-grid-2">
-      <div class="form-row">
-        <label>First Name <span style="color:var(--gold)">*</span></label>
-        <input type="text" id="o-fname" placeholder="First name">
-        <span class="field-error" id="o-fname-err"></span>
-      </div>
-      <div class="form-row">
-        <label>Last Name <span style="color:var(--gold)">*</span></label>
-        <input type="text" id="o-lname" placeholder="Last name">
-        <span class="field-error" id="o-lname-err"></span>
-      </div>
+      <div class="form-row"><label>First Name <span style="color:var(--blue)">*</span></label><input type="text" id="o-fname" placeholder="First name"><span class="field-error" id="o-fname-err"></span></div>
+      <div class="form-row"><label>Last Name <span style="color:var(--blue)">*</span></label><input type="text" id="o-lname" placeholder="Last name"><span class="field-error" id="o-lname-err"></span></div>
+    </div>
+    <div class="form-row"><label>Business / Brand Name <span style="color:var(--blue)">*</span></label><input type="text" id="o-biz" placeholder="Your business name"><span class="field-error" id="o-biz-err"></span></div>
+    <div class="form-grid-2">
+      <div class="form-row"><label>Email Address <span style="color:var(--blue)">*</span></label><input type="email" id="o-email" placeholder="you@example.com"><span class="field-error" id="o-email-err"></span></div>
+      <div class="form-row"><label>WhatsApp / Phone</label><input type="tel" id="o-phone" placeholder="+234 800 000 0000"></div>
     </div>
     <div class="form-row">
-      <label>Business / Brand Name <span style="color:var(--gold)">*</span></label>
-      <input type="text" id="o-biz" placeholder="Your business name">
-      <span class="field-error" id="o-biz-err"></span>
-    </div>
-    <div class="form-grid-2">
-      <div class="form-row">
-        <label>Email Address <span style="color:var(--gold)">*</span></label>
-        <input type="email" id="o-email" placeholder="you@example.com">
-        <span class="field-error" id="o-email-err"></span>
-      </div>
-      <div class="form-row">
-        <label>WhatsApp / Phone</label>
-        <input type="tel" id="o-phone" placeholder="+234 800 000 0000">
-      </div>
-    </div>
-    <div class="form-row">
-      <label>Industry / Niche <span style="color:var(--gold)">*</span></label>
+      <label>Industry / Niche <span style="color:var(--blue)">*</span></label>
       <select id="o-industry">
         <option value="">— Select your industry —</option>
-        <option>Fashion & Beauty</option>
-        <option>Food & Beverage</option>
-        <option>Real Estate</option>
-        <option>Health & Wellness</option>
-        <option>Finance & Fintech</option>
-        <option>E-commerce / Retail</option>
-        <option>Technology / SaaS</option>
-        <option>Education & Coaching</option>
-        <option>Entertainment & Media</option>
-        <option>Hospitality & Events</option>
-        <option>Professional Services</option>
-        <option>Non-profit / NGO</option>
-        <option>Other</option>
+        <option>Fashion &amp; Beauty</option><option>Food &amp; Beverage</option><option>Real Estate</option>
+        <option>Health &amp; Wellness</option><option>Finance &amp; Fintech</option><option>E-commerce / Retail</option>
+        <option>Technology / SaaS</option><option>Education &amp; Coaching</option><option>Entertainment &amp; Media</option>
+        <option>Hospitality &amp; Events</option><option>Professional Services</option><option>Non-profit / NGO</option><option>Other</option>
       </select>
       <span class="field-error" id="o-industry-err"></span>
     </div>
-    <div class="form-row">
-      <label>Website URL (if you have one)</label>
-      <input type="url" id="o-website" placeholder="https://yourwebsite.com">
-    </div>
-    <div class="form-row">
-      <label>Describe your business in 2–3 sentences <span style="color:var(--gold)">*</span></label>
-      <textarea id="o-desc" placeholder="What do you do, who do you serve, and what makes you different?"></textarea>
-      <span class="field-error" id="o-desc-err"></span>
-    </div>
-    <div class="form-row">
-      <label>Who is your target audience?</label>
-      <textarea id="o-audience" placeholder="Age range, interests, location, income level, problems they face..."></textarea>
-    </div>
-
+    <div class="form-row"><label>Website URL (if you have one)</label><input type="url" id="o-website" placeholder="https://yourwebsite.com"></div>
+    <div class="form-row"><label>Describe your business in 2–3 sentences <span style="color:var(--blue)">*</span></label><textarea id="o-desc" placeholder="What do you do, who do you serve, and what makes you different?"></textarea><span class="field-error" id="o-desc-err"></span></div>
+    <div class="form-row"><label>Who is your target audience?</label><textarea id="o-audience" placeholder="Age range, interests, location, income level, problems they face..."></textarea></div>
     <div class="panel-nav">
       <div></div>
-      <button class="btn-next" onclick="goTo(2)">Next: Brand Identity →</button>
+      <button class="btn-next" onclick="goTo(2)">Next: Brand Identity <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
     </div>
   </div>
 
-  <!-- PANEL 2: Brand Identity -->
+  <!-- PANEL 2 -->
   <div class="panel" id="panel-2">
     <h2 class="panel-title">Brand Identity</h2>
-    <p class="panel-sub">Help us understand your visual identity and tone so we can design content that feels unmistakably yours.</p>
-
+    <p class="panel-sub">Help us understand your visual identity and tone so we create content that feels unmistakably yours.</p>
     <div class="form-row">
       <label>Brand Tone of Voice</label>
       <div class="check-group" id="tone-group">
         <label class="check-item"><input type="checkbox" value="Professional"><span class="check-box"></span>Professional</label>
-        <label class="check-item"><input type="checkbox" value="Friendly & Approachable"><span class="check-box"></span>Friendly & Approachable</label>
-        <label class="check-item"><input type="checkbox" value="Bold & Confident"><span class="check-box"></span>Bold & Confident</label>
-        <label class="check-item"><input type="checkbox" value="Playful & Fun"><span class="check-box"></span>Playful & Fun</label>
-        <label class="check-item"><input type="checkbox" value="Luxurious & Exclusive"><span class="check-box"></span>Luxurious & Exclusive</label>
-        <label class="check-item"><input type="checkbox" value="Educational & Informative"><span class="check-box"></span>Educational & Informative</label>
-        <label class="check-item"><input type="checkbox" value="Inspirational & Motivational"><span class="check-box"></span>Inspirational</label>
-        <label class="check-item"><input type="checkbox" value="Minimalist & Clean"><span class="check-box"></span>Minimalist & Clean</label>
+        <label class="check-item"><input type="checkbox" value="Friendly &amp; Approachable"><span class="check-box"></span>Friendly &amp; Approachable</label>
+        <label class="check-item"><input type="checkbox" value="Bold &amp; Confident"><span class="check-box"></span>Bold &amp; Confident</label>
+        <label class="check-item"><input type="checkbox" value="Playful &amp; Fun"><span class="check-box"></span>Playful &amp; Fun</label>
+        <label class="check-item"><input type="checkbox" value="Luxurious &amp; Exclusive"><span class="check-box"></span>Luxurious &amp; Exclusive</label>
+        <label class="check-item"><input type="checkbox" value="Educational &amp; Informative"><span class="check-box"></span>Educational &amp; Informative</label>
+        <label class="check-item"><input type="checkbox" value="Inspirational"><span class="check-box"></span>Inspirational</label>
+        <label class="check-item"><input type="checkbox" value="Minimalist &amp; Clean"><span class="check-box"></span>Minimalist &amp; Clean</label>
       </div>
     </div>
-
     <div class="form-row">
       <label>Primary Brand Colors</label>
-      <p style="font-size:0.8rem; color:var(--smoke); margin-bottom:0.5rem;">Select colors that match your brand (or enter hex codes below)</p>
-      <div class="swatch-row" id="swatch-row">
+      <p style="font-size:0.8rem;color:var(--smoke);margin-bottom:0.5rem;">Select colours that match your brand, or enter hex codes below</p>
+      <div class="swatch-row">
         <div class="swatch" style="background:#000000" data-color="#000000" title="Black"></div>
-        <div class="swatch" style="background:#FFFFFF; border: 1px solid #ddd;" data-color="#FFFFFF" title="White"></div>
-        <div class="swatch" style="background:#C9A84C" data-color="#C9A84C" title="Gold"></div>
-        <div class="swatch" style="background:#E74C3C" data-color="#E74C3C" title="Red"></div>
+        <div class="swatch" style="background:#FFFFFF;border:1px solid #ddd;" data-color="#FFFFFF" title="White"></div>
+        <div class="swatch" style="background:#004AAD" data-color="#004AAD" title="Blue"></div>
+        <div class="swatch" style="background:#DB1C19" data-color="#DB1C19" title="Red"></div>
+        <div class="swatch" style="background:#E74C3C" data-color="#E74C3C" title="Coral Red"></div>
         <div class="swatch" style="background:#2ECC71" data-color="#2ECC71" title="Green"></div>
-        <div class="swatch" style="background:#3498DB" data-color="#3498DB" title="Blue"></div>
+        <div class="swatch" style="background:#3498DB" data-color="#3498DB" title="Sky Blue"></div>
         <div class="swatch" style="background:#9B59B6" data-color="#9B59B6" title="Purple"></div>
         <div class="swatch" style="background:#F39C12" data-color="#F39C12" title="Orange"></div>
         <div class="swatch" style="background:#1ABC9C" data-color="#1ABC9C" title="Teal"></div>
         <div class="swatch" style="background:#E91E8C" data-color="#E91E8C" title="Pink"></div>
       </div>
     </div>
-    <div class="form-row">
-      <label>Brand Hex Codes (e.g. #FF5733, #2C3E50)</label>
-      <input type="text" id="o-colors" placeholder="#000000, #C9A84C">
-    </div>
-
+    <div class="form-row"><label>Brand Hex Codes (e.g. #004AAD, #DB1C19)</label><input type="text" id="o-colors" placeholder="#004AAD, #DB1C19"></div>
     <div class="form-row">
       <label>Do you have existing brand assets?</label>
       <div class="check-group" id="assets-group">
         <label class="check-item"><input type="checkbox" value="Logo (PNG/SVG)"><span class="check-box"></span>Logo (PNG/SVG)</label>
         <label class="check-item"><input type="checkbox" value="Brand Guidelines"><span class="check-box"></span>Brand Guidelines</label>
         <label class="check-item"><input type="checkbox" value="Product Photos"><span class="check-box"></span>Product Photos</label>
-        <label class="check-item"><input type="checkbox" value="Previous Social Graphics"><span class="check-box"></span>Previous Social Graphics</label>
+        <label class="check-item"><input type="checkbox" value="Previous Social Graphics"><span class="check-box"></span>Social Graphics</label>
         <label class="check-item"><input type="checkbox" value="None yet"><span class="check-box"></span>None yet</label>
         <label class="check-item"><input type="checkbox" value="Other"><span class="check-box"></span>Other</label>
       </div>
     </div>
-
     <div class="form-row">
       <label>Upload Brand Assets (optional)</label>
-      <div class="upload-area" id="upload-area" onclick="document.getElementById('file-input').click()">
-        <input type="file" id="file-input" multiple accept="image/*,.pdf,.zip,.ai,.eps">
-        <p class="upload-label"><strong>Click to upload</strong> or drag files here<br><span style="font-size:0.75rem;">Logos, photos, guidelines — PNG, JPG, PDF, ZIP accepted</span></p>
+      <div class="upload-area" onclick="document.getElementById('file-input').click()">
+        <input type="file" id="file-input" multiple accept="image/*,.pdf,.zip,.ai,.eps,.svg">
+        <p class="upload-label"><strong>Click to upload</strong> or drag files here<br><span style="font-size:0.75rem;color:var(--mist);">Logos, photos, guidelines — PNG, JPG, SVG, PDF accepted</span></p>
         <div class="file-list" id="file-list"></div>
       </div>
     </div>
-
-    <div class="form-row">
-      <label>Brands you admire (for design inspiration)</label>
-      <textarea id="o-inspo" placeholder="e.g. Apple, Zara, Sephora — and what you like about them..."></textarea>
-    </div>
-
+    <div class="form-row"><label>Brands you admire (design inspiration)</label><textarea id="o-inspo" placeholder="e.g. Apple, Zara, Sephora — and what you like about them..."></textarea></div>
     <div class="panel-nav">
       <button class="btn-back" onclick="goTo(1)">← Back</button>
-      <button class="btn-next" onclick="goTo(3)">Next: Social Media →</button>
+      <button class="btn-next" onclick="goTo(3)">Next: Social Media <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
     </div>
   </div>
 
-  <!-- PANEL 3: Social Media -->
+  <!-- PANEL 3 -->
   <div class="panel" id="panel-3">
     <h2 class="panel-title">Social Media Setup</h2>
     <p class="panel-sub">Tell us about your current social presence and what you want to achieve.</p>
-
     <div class="form-row">
       <label>Which platforms do you want us to manage?</label>
-      <div class="platform-grid" id="platform-grid">
+      <div class="platform-grid">
         <button type="button" class="platform-btn" data-p="Instagram">📸 Instagram</button>
         <button type="button" class="platform-btn" data-p="Facebook">👍 Facebook</button>
         <button type="button" class="platform-btn" data-p="TikTok">🎵 TikTok</button>
@@ -366,61 +330,31 @@
         <button type="button" class="platform-btn" data-p="WhatsApp Channel">💬 WhatsApp</button>
       </div>
     </div>
-
-    <div class="form-row">
-      <label>Your existing handles / profile links</label>
-      <textarea id="o-handles" placeholder="Instagram: @yourbrand&#10;Facebook: facebook.com/yourbrand&#10;TikTok: @yourbrand"></textarea>
-    </div>
+    <div class="form-row"><label>Existing social media handles</label><textarea id="o-handles" placeholder="@yourbrand on Instagram&#10;linkedin.com/company/yourbrand&#10;etc."></textarea></div>
     <div class="form-grid-2">
+      <div class="form-row"><label>Current follower count (approx.)</label><input type="text" id="o-followers" placeholder="e.g. 2,400 on Instagram"></div>
       <div class="form-row">
-        <label>Current Follower Count (approx.)</label>
-        <select id="o-followers">
-          <option value="">— Select —</option>
-          <option>Starting from 0</option>
-          <option>Under 500</option>
-          <option>500 – 2,000</option>
-          <option>2,000 – 10,000</option>
-          <option>10,000 – 50,000</option>
-          <option>50,000+</option>
-        </select>
-      </div>
-      <div class="form-row">
-        <label>Posting Frequency Goal</label>
+        <label>Preferred posting frequency</label>
         <select id="o-freq">
           <option value="">— Select —</option>
-          <option>3x per week</option>
-          <option>5x per week</option>
-          <option>Daily</option>
-          <option>Multiple times daily</option>
-          <option>Flexible — you decide</option>
+          <option>3x per week</option><option>5x per week</option><option>Daily</option>
+          <option>Multiple times daily</option><option>Flexible — you decide</option>
         </select>
       </div>
     </div>
-
-    <div class="form-row">
-      <label>Content themes / topics you want covered</label>
-      <textarea id="o-themes" placeholder="e.g. product showcases, behind the scenes, tips & education, testimonials, promotions, lifestyle..."></textarea>
-    </div>
-    <div class="form-row">
-      <label>Content you do NOT want (restrictions / sensitivities)</label>
-      <textarea id="o-restrict" placeholder="Anything off-limits — certain topics, competitors to avoid mentioning, language restrictions, etc."></textarea>
-    </div>
-    <div class="form-row">
-      <label>Competitors to keep an eye on</label>
-      <textarea id="o-competitors" placeholder="List 3–5 competitors or brands in your space..."></textarea>
-    </div>
-
+    <div class="form-row"><label>Content themes / topics you want covered</label><textarea id="o-themes" placeholder="e.g. product showcases, behind the scenes, tips &amp; education, testimonials, promotions, lifestyle..."></textarea></div>
+    <div class="form-row"><label>Content you do NOT want (restrictions / sensitivities)</label><textarea id="o-restrict" placeholder="Anything off-limits — topics, competitors to avoid, language restrictions, etc."></textarea></div>
+    <div class="form-row"><label>Competitors to keep an eye on</label><textarea id="o-competitors" placeholder="List 3–5 competitors or brands in your space..."></textarea></div>
     <div class="panel-nav">
       <button class="btn-back" onclick="goTo(2)">← Back</button>
-      <button class="btn-next" onclick="goTo(4)">Next: Goals & Access →</button>
+      <button class="btn-next" onclick="goTo(4)">Next: Goals &amp; Access <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
     </div>
   </div>
 
-  <!-- PANEL 4: Goals & Access -->
+  <!-- PANEL 4 -->
   <div class="panel" id="panel-4">
-    <h2 class="panel-title">Goals & Account Access</h2>
+    <h2 class="panel-title">Goals &amp; Account Access</h2>
     <p class="panel-sub">Help us understand what success looks like for you, and share the credentials we'll need to get started.</p>
-
     <div class="form-row">
       <label>Primary Goals (select all that apply)</label>
       <div class="check-group" id="goals-group">
@@ -434,64 +368,46 @@
         <label class="check-item"><input type="checkbox" value="Establish authority"><span class="check-box"></span>Establish authority</label>
       </div>
     </div>
-
     <div class="form-grid-2">
       <div class="form-row">
         <label>Timeline / Urgency</label>
         <select id="o-timeline">
           <option value="">— Select —</option>
-          <option>ASAP — start immediately</option>
-          <option>Within 1–2 weeks</option>
-          <option>Within a month</option>
-          <option>Planning ahead (1–3 months)</option>
+          <option>ASAP — start immediately</option><option>Within 1–2 weeks</option>
+          <option>Within a month</option><option>Planning ahead (1–3 months)</option>
         </select>
       </div>
       <div class="form-row">
         <label>Monthly Budget Confirmed</label>
         <select id="o-budget">
           <option value="">— Select —</option>
-          <option>Essentials ($499/mo)</option>
-          <option>Professional ($999/mo)</option>
-          <option>Enterprise ($2,499/mo)</option>
-          <option>Custom / TBD</option>
+          <option>Essentials ($499/mo)</option><option>Professional ($999/mo)</option>
+          <option>Enterprise ($2,499/mo)</option><option>Custom / TBD</option>
         </select>
       </div>
     </div>
-
     <div class="form-row">
       <label>Website / Platform Login Details</label>
-      <textarea id="o-credentials" placeholder="WordPress admin URL + login&#10;Shopify store URL + login&#10;Webflow credentials&#10;(You can also share via secure link — just note it here)"></textarea>
-      <p style="font-size:0.75rem; color: var(--smoke); margin-top:4px;">🔒 Your data is transmitted securely. We recommend sharing passwords via 1Password or a password manager link.</p>
+      <textarea id="o-credentials" placeholder="WordPress admin URL + login&#10;Shopify store URL + login&#10;(You can also share via secure link — just note it here)"></textarea>
+      <p class="secure-note"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Transmitted securely. We recommend sharing passwords via a password manager link.</p>
     </div>
-
-    <div class="form-row">
-      <label>Social Media Account Access Notes</label>
-      <textarea id="o-access" placeholder="e.g. Will add as admin on Facebook Business Manager, Instagram collaborator invite sent to hello@martinleonagency.com..."></textarea>
-    </div>
-
-    <div class="form-row">
-      <label>Is there anything else we should know?</label>
-      <textarea id="o-extra" placeholder="Any upcoming campaigns, seasonal events, product launches, or specific requests for your first month..."></textarea>
-    </div>
-
+    <div class="form-row"><label>Social Media Account Access Notes</label><textarea id="o-access" placeholder="e.g. Will add as admin on Facebook Business Manager, Instagram collaborator invite sent to hello@martinleonagency.com..."></textarea></div>
+    <div class="form-row"><label>Anything else we should know?</label><textarea id="o-extra" placeholder="Upcoming campaigns, seasonal events, product launches, or specific requests for your first month..."></textarea></div>
     <div class="panel-nav">
       <button class="btn-back" onclick="goTo(3)">← Back</button>
-      <button class="btn-next" onclick="goTo(5)">Next: Review & Submit →</button>
+      <button class="btn-next" onclick="goTo(5)">Next: Review &amp; Submit <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
     </div>
   </div>
 
-  <!-- PANEL 5: Review & Submit -->
+  <!-- PANEL 5 -->
   <div class="panel" id="panel-5">
-    <h2 class="panel-title">Review & Submit</h2>
+    <h2 class="panel-title">Review &amp; Submit</h2>
     <p class="panel-sub">Here's a summary of what you've shared. Click Submit to send your onboarding information to our team.</p>
-
-    <div id="review-summary" style="background: var(--cream); border: 1px solid rgba(201,168,76,0.2); padding: 2rem; margin-bottom: 2rem; font-size: 0.88rem; line-height: 2;"></div>
-
-    <div style="background: var(--gold-pale); border: 1px solid rgba(201,168,76,0.3); padding: 1.25rem 1.5rem; margin-bottom: 2rem; font-size: 0.88rem; color: var(--ink); line-height: 1.7;">
-      <strong style="display:block; margin-bottom:0.25rem; color: var(--black);">What happens next?</strong>
+    <div class="review-box" id="review-summary"></div>
+    <div class="what-next">
+      <strong>What happens next?</strong>
       Within 24 hours your dedicated account manager will reach out to schedule a kickoff call, confirm your strategy brief, and share your first content calendar draft.
     </div>
-
     <div class="panel-nav">
       <button class="btn-back" onclick="goTo(4)">← Back</button>
       <button class="btn-submit" id="submit-onboard" onclick="submitOnboarding()">Submit Onboarding ✓</button>
@@ -517,164 +433,144 @@
   </div>
 </div>
 
+<!-- FOOTER -->
 <div class="page-footer">
-  <span class="footer-copy">© 2025 Martin Leon Agency</span>
-  <a href="index.html" class="footer-home">← Back to Home</a>
+  <a href="index.html" class="nav-logo"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTUwMCIgem9vbUFuZFBhbj0ibWFnbmlmeSIgdmlld0JveD0iMCAwIDExMjUgMzc0Ljk5OTk5MSIgaGVpZ2h0PSI1MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIG1lZXQiIHZlcnNpb249IjEuMCI+PGRlZnM+PGcvPjxjbGlwUGF0aCBpZD0iNzM2MzhhMzUwYyI+PHBhdGggZD0iTSAxOC4xMDU0NjkgMi4wNzgxMjUgTCA0NTguMzU1NDY5IDIuMDc4MTI1IEwgNDU4LjM1NTQ2OSAzNzQuODI4MTI1IEwgMTguMTA1NDY5IDM3NC44MjgxMjUgWiBNIDE4LjEwNTQ2OSAyLjA3ODEyNSAiIGNsaXAtcnVsZT0ibm9uemVybyIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIGNsaXAtcGF0aD0idXJsKCM3MzYzOGEzNTBjKSI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTSAyNzguMTA1NDY5IDExNS4wNTQ2ODggTCAxOC4xNjQwNjIgMzc0Ljk5MjE4OCBMIDE4LjE2NDA2MiAyNjIuMjE4NzUgTCAyNzguMTA1NDY5IDIuMDc4MTI1IFogTSAxOTguMTIxMDk0IDI2MS44MTY0MDYgTCAxOTguMTIxMDk0IDM3NC45OTIxODggTCAzNzguMDc0MjE5IDE5NS4yNDIxODggTCAzNzguMDc0MjE5IDM3NC45OTIxODggTCA0NTguMDU4NTk0IDI5NS4wMDc4MTIgTCA0NTguMDU4NTk0IDIuMDc4MTI1IFogTSAxOTguMTIxMDk0IDI2MS44MTY0MDYgIiBmaWxsLW9wYWNpdHk9IjEiIGZpbGwtcnVsZT0ibm9uemVybyIvPjwvZz48ZyBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUxMi4yNTAwMzcsIDE3NS44MDczNTYpIj48Zz48cGF0aCBkPSJNIDM3LjkyMTg3NSAwIEwgMzcuODc1IC0yMi4xMjUgTCAyNy4wMTU2MjUgLTMuODkwNjI1IEwgMjMuMTcxODc1IC0zLjg5MDYyNSBMIDEyLjM3NSAtMjEuNjQwNjI1IEwgMTIuMzc1IDAgTCA0LjM3NSAwIEwgNC4zNzUgLTM2Ljg3NSBMIDExLjQzNzUgLTM2Ljg3NSBMIDI1LjIzNDM3NSAtMTMuOTUzMTI1IEwgMzguODEyNSAtMzYuODc1IEwgNDUuODI4MTI1IC0zNi44NzUgTCA0NS45Mzc1IDAgWiBNIDM3LjkyMTg3NSAwICIvPjwvZz48L2c+PC9nPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTc1LjIzOTEzOCwgMTc1LjgwNzM1NikiPjxnPjxwYXRoIGQ9Ik0gMjguNjU2MjUgLTcuOTA2MjUgTCAxMS41MzEyNSAtNy45MDYyNSBMIDguMjY1NjI1IDAgTCAtMC40Njg3NSAwIEwgMTUuOTUzMTI1IC0zNi44NzUgTCAyNC4zOTA2MjUgLTM2Ljg3NSBMIDQwLjg3NSAwIEwgMzEuOTIxODc1IDAgWiBNIDI1Ljk2ODc1IC0xNC4zNzUgTCAyMC4xMjUgLTI4LjUgTCAxNC4yODEyNSAtMTQuMzc1IFogTSAyNS45Njg3NSAtMTQuMzc1ICIvPjwvZz48L2c+PC9nPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjI4LjI3NDcxOCwgMTc1LjgwNzM1NikiPjxnPjxwYXRoIGQ9Ik0gMjcuODU5Mzc1IDAgTCAyMC43NSAtMTAuMjY1NjI1IEwgMTIuOTA2MjUgLTEwLjI2NTYyNSBMIDEyLjkwNjI1IDAgTCA0LjM3NSAwIEwgNC4zNzUgLTM2Ljg3NSBMIDIwLjMyODEyNSAtMzYuODc1IEMgMjMuNTk3NjU2IC0zNi44NzUgMjYuNDM3NSAtMzYuMzI4MTI1IDI4Ljg0Mzc1IC0zNS4yMzQzNzUgQyAzMS4yNSAtMzQuMTQ4NDM4IDMzLjA5NzY1NiAtMzIuNjAxNTYyIDM0LjM5MDYyNSAtMzAuNTkzNzUgQyAzNS42OTE0MDYgLTI4LjU5Mzc1IDM2LjM0Mzc1IC0yNi4yMjI2NTYgMzYuMzQzNzUgLTIzLjQ4NDM3NSBDIDM2LjM0Mzc1IC0yMC43NTM5MDYgMzUuNjc5Njg4IC0xOC4zOTQ1MzEgMzQuMzU5Mzc1IC0xNi40MDYyNSBDIDMzLjA0Njg3NSAtMTQuNDI1NzgxIDMxLjE3OTY4OCAtMTIuOTA2MjUgMjguNzY1NjI1IC0xMS44NDM3NSBMIDM3LjAzMTI1IDAgWiBNIDI3LjcwMzEyNSAtMjMuNDg0Mzc1IEMgMjcuNzAzMTI1IC0yNS41NTQ2ODggMjcuMDM1MTU2IC0yNy4xNDQ1MzEgMjUuNzAzMTI1IC0yOC4yNSBDIDI0LjM2NzE4OCAtMjkuMzYzMjgxIDIyLjQyMTg3NSAtMjkuOTIxODc1IDE5Ljg1OTM3NSAtMjkuOTIxODc1IEwgMTIuOTA2MjUgLTI5LjkyMTg3NSBMIDEyLjkwNjI1IC0xNy4wNjI1IEwgMTkuODU5Mzc1IC0xNy4wNjI1IEMgMjIuNDIxODc1IC0xNy4wNjI1IDI0LjM2NzE4OCAtMTcuNjI1IDI1LjcwMzEyNSAtMTguNzUgQyAyNy4wMzUxNTYgLTE5Ljg3NSAyNy43MDMxMjUgLTIxLjQ1MzEyNSAyNy43MDMxMjUgLTIzLjQ4NDM3NSBaIE0gMjcuNzAzMTI1IC0yMy40ODQzNzUgIi8+PC9nPjwvZz48L2c+PGcgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIxIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2NzkuNjc3NzE4LCAxNzUuODA3MzU2KSI+PGc+PHBhdGggZD0iTSAxMi4wMTU2MjUgLTI5LjkyMTg3NSBMIDAuMjAzMTI1IC0yOS45MjE4NzUgTCAwLjIwMzEyNSAtMzYuODc1IEwgMzIuMzQzNzUgLTM2Ljg3NSBMIDMyLjM0Mzc1IC0yOS45MjE4NzUgTCAyMC41NDY4NzUgLTI5LjkyMTg3NSBMIDIwLjU0Njg3NSAwIEwgMTIuMDE1NjI1IDAgWiBNIDEyLjAxNTYyNSAtMjkuOTIxODc1ICIvPjwvZz48L2c+PC9nPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzI0LjkxOTAxNCwgMTc1LjgwNzM1NikiPjxnPjxwYXRoIGQ9Ik0gNC4zNzUgLTM2Ljg3NSBMIDEyLjkwNjI1IC0zNi44NzUgTCAxMi45MDYyNSAwIEwgNC4zNzUgMCBaIE0gNC4zNzUgLTM2Ljg3NSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDc1NC44ODc3MjQsIDE3NS44MDczNTYpIj48Zz48cGF0aCBkPSJNIDM4LjE4NzUgLTM2Ljg3NSBMIDM4LjE4NzUgMCBMIDMxLjE4NzUgMCBMIDEyLjc5Njg3NSAtMjIuMzkwNjI1IEwgMTIuNzk2ODc1IDAgTCA0LjM3NSAwIEwgNC4zNzUgLTM2Ljg3NSBMIDExLjQzNzUgLTM2Ljg3NSBMIDI5Ljc2NTYyNSAtMTQuNDg0Mzc1IEwgMjkuNzY1NjI1IC0zNi44NzUgWiBNIDM4LjE4NzUgLTM2Ljg3NSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDgxMC4xMzUxOTUsIDE3NS44MDczNTYpIj48Zy8+PC9nPjwvZz48ZyBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDgzNy43MzQwMTYsIDE3NS44MDczNTYpIj48Zz48cGF0aCBkPSJNIDQuMzc1IC0zNi44NzUgTCAxMi45MDYyNSAtMzYuODc1IEwgMTIuOTA2MjUgLTYuOTUzMTI1IEwgMzEuMzkwNjI1IC02Ljk1MzEyNSBMIDMxLjM5MDYyNSAwIEwgNC4zNzUgMCBaIE0gNC4zNzUgLTM2Ljg3NSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDg4Mi4yMzgwMDQsIDE3NS44MDczNTYpIj48Zz48cGF0aCBkPSJNIDMyLjkyMTg3NSAtNi44NDM3NSBMIDMyLjkyMTg3NSAwIEwgNC4zNzUgMCBMIDQuMzc1IC0zNi44NzUgTCAzMi4yMzQzNzUgLTM2Ljg3NSBMIDMyLjIzNDM3NSAtMzAuMDE1NjI1IEwgMTIuODU5Mzc1IC0zMC4wMTU2MjUgTCAxMi44NTkzNzUgLTIyLjAxNTYyNSBMIDI5Ljk2ODc1IC0yMi4wMTU2MjUgTCAyOS45Njg3NSAtMTUuMzc1IEwgMTIuODU5Mzc1IC0xNS4zNzUgTCAxMi44NTkzNzUgLTYuODQzNzUgWiBNIDMyLjkyMTg3NSAtNi44NDM3NSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDkzMC4yNzA1MDIsIDE3NS44MDczNTYpIj48Zz48cGF0aCBkPSJNIDIyLjIzNDM3NSAwLjYyNSBDIDE4LjM5ODQzOCAwLjYyNSAxNC45NDUzMTIgLTAuMTk1MzEyIDExLjg3NSAtMS44NDM3NSBDIDguODAwNzgxIC0zLjQ4ODI4MSA2LjM5NDUzMSAtNS43NTc4MTIgNC42NTYyNSAtOC42NTYyNSBDIDIuOTE0MDYyIC0xMS41NjI1IDIuMDQ2ODc1IC0xNC44MjAzMTIgMi4wNDY4NzUgLTE4LjQzNzUgQyAyLjA0Njg3NSAtMjIuMDUwNzgxIDIuOTE0MDYyIC0yNS4zMDQ2ODggNC42NTYyNSAtMjguMjAzMTI1IEMgNi4zOTQ1MzEgLTMxLjA5NzY1NiA4LjgwMDc4MSAtMzMuMzY3MTg4IDExLjg3NSAtMzUuMDE1NjI1IEMgMTQuOTQ1MzEyIC0zNi42NzE4NzUgMTguMzk4NDM4IC0zNy41IDIyLjIzNDM3NSAtMzcuNSBDIDI2LjA1NDY4OCAtMzcuNSAyOS40OTIxODggLTM2LjY3MTg3NSAzMi41NDY4NzUgLTM1LjAxNTYyNSBDIDM1LjYwOTM3NSAtMzMuMzY3MTg4IDM4LjAxNTYyNSAtMzEuMDk3NjU2IDM5Ljc2NTYyNSAtMjguMjAzMTI1IEMgNDEuNTIzNDM4IC0yNS4zMDQ2ODggNDIuNDA2MjUgLTIyLjA1MDc4MSA0Mi40MDYyNSAtMTguNDM3NSBDIDQyLjQwNjI1IC0xNC44MjAzMTIgNDEuNTIzNDM4IC0xMS41NjI1IDM5Ljc2NTYyNSAtOC42NTYyNSBDIDM4LjAxNTYyNSAtNS43NTc4MTIgMzUuNjA5Mzc1IC0zLjQ4ODI4MSAzMi41NDY4NzUgLTEuODQzNzUgQyAyOS40OTIxODggLTAuMTk1MzEyIDI2LjA1NDY4OCAwLjYyNSAyMi4yMzQzNzUgMC42MjUgWiBNIDIyLjIzNDM3NSAtNi42NDA2MjUgQyAyNC40MTAxNTYgLTYuNjQwNjI1IDI2LjM3NSAtNy4xNDA2MjUgMjguMTI1IC04LjE0MDYyNSBDIDI5Ljg4MjgxMiAtOS4xNDA2MjUgMzEuMjY1NjI1IC0xMC41MzUxNTYgMzIuMjY1NjI1IC0xMi4zMjgxMjUgQyAzMy4yNjU2MjUgLTE0LjExNzE4OCAzMy43NjU2MjUgLTE2LjE1NjI1IDMzLjc2NTYyNSAtMTguNDM3NSBDIDMzLjc2NTYyNSAtMjAuNzE4NzUgMzMuMjY1NjI1IC0yMi43NTM5MDYgMzIuMjY1NjI1IC0yNC41NDY4NzUgQyAzMS4yNjU2MjUgLTI2LjMzNTkzOCAyOS44ODI4MTIgLTI3LjczNDM3NSAyOC4xMjUgLTI4LjczNDM3NSBDIDI2LjM3NSAtMjkuNzM0Mzc1IDI0LjQxMDE1NiAtMzAuMjM0Mzc1IDIyLjIzNDM3NSAtMzAuMjM0Mzc1IEMgMjAuMDU0Njg4IC0zMC4yMzQzNzUgMTguMDg1OTM4IC0yOS43MzQzNzUgMTYuMzI4MTI1IC0yOC43MzQzNzUgQyAxNC41NjY0MDYgLTI3LjczNDM3NSAxMy4xODc1IC0yNi4zMzU5MzggMTIuMTg3NSAtMjQuNTQ2ODc1IEMgMTEuMTg3NSAtMjIuNzUzOTA2IDEwLjY4NzUgLTIwLjcxODc1IDEwLjY4NzUgLTE4LjQzNzUgQyAxMC42ODc1IC0xNi4xNTYyNSAxMS4xODc1IC0xNC4xMTcxODggMTIuMTg3NSAtMTIuMzI4MTI1IEMgMTMuMTg3NSAtMTAuNTM1MTU2IDE0LjU2NjQwNiAtOS4xNDA2MjUgMTYuMzI4MTI1IC04LjE0MDYyNSBDIDE4LjA4NTkzOCAtNy4xNDA2MjUgMjAuMDU0Njg4IC02LjY0MDYyNSAyMi4yMzQzNzUgLTYuNjQwNjI1IFogTSAyMi4yMzQzNzUgLTYuNjQwNjI1ICIvPjwvZz48L2c+PC9nPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTg3LjQxMzkxNiwgMTc1LjgwNzM1NikiPjxnPjxwYXRoIGQ9Ik0gMzguMTg3NSAtMzYuODc1IEwgMzguMTg3NSAwIEwgMzEuMTg3NSAwIEwgMTIuNzk2ODc1IC0yMi4zOTA2MjUgTCAxMi43OTY4NzUgMCBMIDQuMzc1IDAgTCA0LjM3NSAtMzYuODc1IEwgMTEuNDM3NSAtMzYuODc1IEwgMjkuNzY1NjI1IC0xNC40ODQzNzUgTCAyOS43NjU2MjUgLTM2Ljg3NSBaIE0gMzguMTg3NSAtMzYuODc1ICIvPjwvZz48L2c+PC9nPjxnIGZpbGw9IiNkYjFjMTkiIGZpbGwtb3BhY2l0eT0iMSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjM5Ljk1NjYzOCwgMjMzLjI0ODQwMykiPjxnPjxwYXRoIGQ9Ik0gMjYuNDg0Mzc1IC04Ljk1MzEyNSBMIDcuODEyNSAtOC45NTMxMjUgTCAzLjc4MTI1IDAgTCAwLjA5Mzc1IDAgTCAxNS40MjE4NzUgLTMzLjUzMTI1IEwgMTguOTIxODc1IC0zMy41MzEyNSBMIDM0LjI1IDAgTCAzMC41MTU2MjUgMCBaIE0gMjUuMjAzMTI1IC0xMS44MjgxMjUgTCAxNy4xNTYyNSAtMjkuODQzNzUgTCA5LjEwOTM3NSAtMTEuODI4MTI1IFogTSAyNS4yMDMxMjUgLTExLjgyODEyNSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjZGIxYzE5IiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY4NS44NTI1ODIsIDIzMy4yNDg0MDMpIj48Zz48cGF0aCBkPSJNIDI5LjA3ODEyNSAtMTYuNzY1NjI1IEwgMzIuNDg0Mzc1IC0xNi43NjU2MjUgTCAzMi40ODQzNzUgLTMuOTY4NzUgQyAzMC45MjE4NzUgLTIuNjAxNTYyIDI5LjA2NjQwNiAtMS41NTA3ODEgMjYuOTIxODc1IC0wLjgxMjUgQyAyNC43ODUxNTYgLTAuMDgyMDMxMiAyMi41MzUxNTYgMC4yODEyNSAyMC4xNzE4NzUgMC4yODEyNSBDIDE2LjgxNjQwNiAwLjI4MTI1IDEzLjc5Njg3NSAtMC40NTMxMjUgMTEuMTA5Mzc1IC0xLjkyMTg3NSBDIDguNDI5Njg4IC0zLjM5MDYyNSA2LjMyMDMxMiAtNS40MjE4NzUgNC43ODEyNSAtOC4wMTU2MjUgQyAzLjI1IC0xMC42MTcxODggMi40ODQzNzUgLTEzLjUzNTE1NiAyLjQ4NDM3NSAtMTYuNzY1NjI1IEMgMi40ODQzNzUgLTE5Ljk5MjE4OCAzLjI1IC0yMi45MTAxNTYgNC43ODEyNSAtMjUuNTE1NjI1IEMgNi4zMjAzMTIgLTI4LjExNzE4OCA4LjQyOTY4OCAtMzAuMTU2MjUgMTEuMTA5Mzc1IC0zMS42MjUgQyAxMy43OTY4NzUgLTMzLjA5Mzc1IDE2LjgzMjAzMSAtMzMuODI4MTI1IDIwLjIxODc1IC0zMy44MjgxMjUgQyAyMi43Njk1MzEgLTMzLjgyODEyNSAyNS4xMTMyODEgLTMzLjQxNDA2MiAyNy4yNSAtMzIuNTkzNzUgQyAyOS4zOTQ1MzEgLTMxLjc4MTI1IDMxLjIwMzEyNSAtMzAuNTc4MTI1IDMyLjY3MTg3NSAtMjguOTg0Mzc1IEwgMzAuNDY4NzUgLTI2LjczNDM3NSBDIDI3LjgxMjUgLTI5LjM0NzY1NiAyNC40NDE0MDYgLTMwLjY1NjI1IDIwLjM1OTM3NSAtMzAuNjU2MjUgQyAxNy42NDA2MjUgLTMwLjY1NjI1IDE1LjE4NzUgLTMwLjA1NDY4OCAxMyAtMjguODU5Mzc1IEMgMTAuODEyNSAtMjcuNjYwMTU2IDkuMDkzNzUgLTI2IDcuODQzNzUgLTIzLjg3NSBDIDYuNjAxNTYyIC0yMS43NTc4MTIgNS45ODQzNzUgLTE5LjM5MDYyNSA1Ljk4NDM3NSAtMTYuNzY1NjI1IEMgNS45ODQzNzUgLTE0LjE0ODQzOCA2LjYwMTU2MiAtMTEuNzg1MTU2IDcuODQzNzUgLTkuNjcxODc1IEMgOS4wOTM3NSAtNy41NjY0MDYgMTAuODAwNzgxIC01LjkwNjI1IDEyLjk2ODc1IC00LjY4NzUgQyAxNS4xNDQ1MzEgLTMuNDc2NTYyIDE3LjU5Mzc1IC0yLjg3NSAyMC4zMTI1IC0yLjg3NSBDIDIzLjc1NzgxMiAtMi44NzUgMjYuNjc5Njg4IC0zLjczODI4MSAyOS4wNzgxMjUgLTUuNDY4NzUgWiBNIDI5LjA3ODEyNSAtMTYuNzY1NjI1ICIvPjwvZz48L2c+PC9nPjxnIGZpbGw9IiNkYjFjMTkiIGZpbGwtb3BhY2l0eT0iMSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzM0LjQzMTI4MywgMjMzLjI0ODQwMykiPjxnPjxwYXRoIGQ9Ik0gMjkuMTcxODc1IC0zLjA2MjUgTCAyOS4xNzE4NzUgMCBMIDUuNDY4NzUgMCBMIDUuNDY4NzUgLTMzLjUzMTI1IEwgMjguNDUzMTI1IC0zMy41MzEyNSBMIDI4LjQ1MzEyNSAtMzAuNDY4NzUgTCA5IC0zMC40Njg3NSBMIDkgLTE4LjU0Njg3NSBMIDI2LjM0Mzc1IC0xOC41NDY4NzUgTCAyNi4zNDM3NSAtMTUuNTE1NjI1IEwgOSAtMTUuNTE1NjI1IEwgOSAtMy4wNjI1IFogTSAyOS4xNzE4NzUgLTMuMDYyNSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjZGIxYzE5IiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDc3OC4wMjc3MzEsIDIzMy4yNDg0MDMpIj48Zz48cGF0aCBkPSJNIDMzLjQ4NDM3NSAtMzMuNTMxMjUgTCAzMy40ODQzNzUgMCBMIDMwLjU2MjUgMCBMIDkgLTI3LjIwMzEyNSBMIDkgMCBMIDUuNDY4NzUgMCBMIDUuNDY4NzUgLTMzLjUzMTI1IEwgOC4zOTA2MjUgLTMzLjUzMTI1IEwgMjkuOTg0Mzc1IC02LjMyODEyNSBMIDI5Ljk4NDM3NSAtMzMuNTMxMjUgWiBNIDMzLjQ4NDM3NSAtMzMuNTMxMjUgIi8+PC9nPjwvZz48L2c+PGcgZmlsbD0iI2RiMWMxOSIgZmlsbC1vcGFjaXR5PSIxIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4MjguNTIyNjc3LCAyMzMuMjQ4NDAzKSI+PGc+PHBhdGggZD0iTSAyMC4wMzEyNSAwLjI4MTI1IEMgMTYuNzA3MDMxIDAuMjgxMjUgMTMuNzEwOTM4IC0wLjQ1MzEyNSAxMS4wNDY4NzUgLTEuOTIxODc1IEMgOC4zNzg5MDYgLTMuMzkwNjI1IDYuMjg1MTU2IC01LjQyMTg3NSA0Ljc2NTYyNSAtOC4wMTU2MjUgQyAzLjI0MjE4OCAtMTAuNjE3MTg4IDIuNDg0Mzc1IC0xMy41MzUxNTYgMi40ODQzNzUgLTE2Ljc2NTYyNSBDIDIuNDg0Mzc1IC0xOS45OTIxODggMy4yNDIxODggLTIyLjkxMDE1NiA0Ljc2NTYyNSAtMjUuNTE1NjI1IEMgNi4yODUxNTYgLTI4LjExNzE4OCA4LjM4MjgxMiAtMzAuMTU2MjUgMTEuMDYyNSAtMzEuNjI1IEMgMTMuNzUgLTMzLjA5Mzc1IDE2Ljc1MzkwNiAtMzMuODI4MTI1IDIwLjA3ODEyNSAtMzMuODI4MTI1IEMgMjIuNTY2NDA2IC0zMy44MjgxMjUgMjQuODYzMjgxIC0zMy40MTAxNTYgMjYuOTY4NzUgLTMyLjU3ODEyNSBDIDI5LjA4MjAzMSAtMzEuNzQyMTg4IDMwLjg3NSAtMzAuNTMxMjUgMzIuMzQzNzUgLTI4LjkzNzUgTCAzMC4wNzgxMjUgLTI2LjY4NzUgQyAyNy40NjA5MzggLTI5LjMzMjAzMSAyNC4xNjAxNTYgLTMwLjY1NjI1IDIwLjE3MTg3NSAtMzAuNjU2MjUgQyAxNy41MTU2MjUgLTMwLjY1NjI1IDE1LjA5NzY1NiAtMzAuMDQ2ODc1IDEyLjkyMTg3NSAtMjguODI4MTI1IEMgMTAuNzUzOTA2IC0yNy42MTcxODggOS4wNTQ2ODggLTI1Ljk2MDkzOCA3LjgyODEyNSAtMjMuODU5Mzc1IEMgNi41OTc2NTYgLTIxLjc1MzkwNiA1Ljk4NDM3NSAtMTkuMzkwNjI1IDUuOTg0Mzc1IC0xNi43NjU2MjUgQyA1Ljk4NDM3NSAtMTQuMTQ4NDM4IDYuNTk3NjU2IC0xMS43ODUxNTYgNy44MjgxMjUgLTkuNjcxODc1IEMgOS4wNTQ2ODggLTcuNTY2NDA2IDEwLjc1MzkwNiAtNS45MDYyNSAxMi45MjE4NzUgLTQuNjg3NSBDIDE1LjA5NzY1NiAtMy40NzY1NjIgMTcuNTE1NjI1IC0yLjg3NSAyMC4xNzE4NzUgLTIuODc1IEMgMjQuMTkxNDA2IC0yLjg3NSAyNy40OTIxODggLTQuMjE4NzUgMzAuMDc4MTI1IC02LjkwNjI1IEwgMzIuMzQzNzUgLTQuNjQwNjI1IEMgMzAuODc1IC0zLjA0Njg3NSAyOS4wNzgxMjUgLTEuODI4MTI1IDI2Ljk1MzEyNSAtMC45ODQzNzUgQyAyNC44MjgxMjUgLTAuMTQwNjI1IDIyLjUxOTUzMSAwLjI4MTI1IDIwLjAzMTI1IDAuMjgxMjUgWiBNIDIwLjAzMTI1IDAuMjgxMjUgIi8+PC9nPjwvZz48L2c+PGcgZmlsbD0iI2RiMWMxOSIgZmlsbC1vcGFjaXR5PSIxIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4NzQuNTE0NDUzLCAyMzMuMjQ4NDAzKSI+PGc+PHBhdGggZD0iTSAxNi45NTMxMjUgLTExLjU5Mzc1IEwgMTYuOTUzMTI1IDAgTCAxMy40Njg3NSAwIEwgMTMuNDY4NzUgLTExLjU5Mzc1IEwgMC4wNDY4NzUgLTMzLjUzMTI1IEwgMy44MjgxMjUgLTMzLjUzMTI1IEwgMTUuMzI4MTI1IC0xNC43MDMxMjUgTCAyNi44MjgxMjUgLTMzLjUzMTI1IEwgMzAuMzc1IC0zMy41MzEyNSBaIE0gMTYuOTUzMTI1IC0xMS41OTM3NSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjZGIxYzE5IiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDkxNi40ODIwODYsIDIzMy4yNDg0MDMpIj48Zz48cGF0aCBkPSJNIDUuMDc4MTI1IDAuMjM0Mzc1IEMgNC4zNzg5MDYgMC4yMzQzNzUgMy43ODEyNSAtMC4wMTk1MzEyIDMuMjgxMjUgLTAuNTMxMjUgQyAyLjc4MTI1IC0xLjAzOTA2MiAyLjUzMTI1IC0xLjY2MDE1NiAyLjUzMTI1IC0yLjM5MDYyNSBDIDIuNTMxMjUgLTMuMTI4OTA2IDIuNzgxMjUgLTMuNzQyMTg4IDMuMjgxMjUgLTQuMjM0Mzc1IEMgMy43ODEyNSAtNC43MzQzNzUgNC4zNzg5MDYgLTQuOTg0Mzc1IDUuMDc4MTI1IC00Ljk4NDM3NSBDIDUuNzczNDM4IC00Ljk4NDM3NSA2LjM3ODkwNiAtNC43MzQzNzUgNi44OTA2MjUgLTQuMjM0Mzc1IEMgNy40MTAxNTYgLTMuNzQyMTg4IDcuNjcxODc1IC0zLjEyODkwNiA3LjY3MTg3NSAtMi4zOTA2MjUgQyA3LjY3MTg3NSAtMS42NjAxNTYgNy40MTAxNTYgLTEuMDM5MDYyIDYuODkwNjI1IC0wLjUzMTI1IEMgNi4zNzg5MDYgLTAuMDE5NTMxMiA1Ljc3MzQzOCAwLjIzNDM3NSA1LjA3ODEyNSAwLjIzNDM3NSBaIE0gNS4wNzgxMjUgMC4yMzQzNzUgIi8+PC9nPjwvZz48L2c+PC9zdmc+" alt="Martin Leon Agency" class="footer-logo-img"></a>
+  <p class="footer-copy">© 2026 Martin Leon Agency. All rights reserved.</p>
+  <a href="index.html" class="footer-home"><svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>Back to Home</a>
 </div>
 
 <script>
-  let currentPanel = 1;
+let currentPanel = 1;
 
-  function goTo(n) {
-    if (n > currentPanel && !validatePanel(currentPanel)) return;
-    document.getElementById('panel-' + currentPanel).classList.remove('active');
-    currentPanel = n;
-    document.getElementById('panel-' + n).classList.add('active');
-    updateStepper();
-    if (n === 5) buildReview();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
+function goTo(n) {
+  if (n > currentPanel && !validatePanel(currentPanel)) return;
+  document.getElementById('panel-' + currentPanel).classList.remove('active');
+  currentPanel = n;
+  document.getElementById('panel-' + n).classList.add('active');
+  updateStepper();
+  if (n === 5) buildReview();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
-  function updateStepper() {
-    for (let i = 1; i <= 5; i++) {
-      const s = document.getElementById('s' + i);
-      s.classList.remove('active', 'done');
-      if (i < currentPanel) s.classList.add('done');
-      if (i === currentPanel) s.classList.add('active');
-      if (i < 5) {
-        const l = document.getElementById('l' + i);
-        l.classList.toggle('done', i < currentPanel);
-      }
+function updateStepper() {
+  for (let i = 1; i <= 5; i++) {
+    const s = document.getElementById('s' + i);
+    s.classList.remove('active', 'done');
+    if (i < currentPanel) s.classList.add('done');
+    if (i === currentPanel) s.classList.add('active');
+    if (i < 5) {
+      const l = document.getElementById('l' + i);
+      l.classList.toggle('done', i < currentPanel);
     }
   }
+}
 
-  /* ── Validation ── */
-  function setErr(id, errId, msg) {
-    const f = document.getElementById(id);
-    const e = document.getElementById(errId);
-    if (msg) { if(f) f.classList.add('invalid'); if(e) e.textContent = msg; }
-    else     { if(f) f.classList.remove('invalid'); if(e) e.textContent = ''; }
+function setErr(id, errId, msg) {
+  const f = document.getElementById(id), e = document.getElementById(errId);
+  if (msg) { if(f) f.classList.add('invalid'); if(e) e.textContent = msg; }
+  else     { if(f) f.classList.remove('invalid'); if(e) e.textContent = ''; }
+}
+
+function validatePanel(n) {
+  let ok = true;
+  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (n === 1) {
+    if (!v('o-fname'))   { setErr('o-fname','o-fname-err','Required'); ok=false; }      else setErr('o-fname','o-fname-err','');
+    if (!v('o-lname'))   { setErr('o-lname','o-lname-err','Required'); ok=false; }      else setErr('o-lname','o-lname-err','');
+    if (!v('o-biz'))     { setErr('o-biz','o-biz-err','Required'); ok=false; }          else setErr('o-biz','o-biz-err','');
+    const em = v('o-email');
+    if (!em)             { setErr('o-email','o-email-err','Required'); ok=false; }
+    else if (!emailRe.test(em)) { setErr('o-email','o-email-err','Enter a valid email'); ok=false; }
+    else setErr('o-email','o-email-err','');
+    if (!v('o-industry')){ setErr('o-industry','o-industry-err','Please select your industry'); ok=false; } else setErr('o-industry','o-industry-err','');
+    if (!v('o-desc'))    { setErr('o-desc','o-desc-err','Please describe your business'); ok=false; }      else setErr('o-desc','o-desc-err','');
   }
+  return ok;
+}
 
-  function validatePanel(n) {
-    let ok = true;
-    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (n === 1) {
-      if (!v('o-fname')) { setErr('o-fname','o-fname-err','Required'); ok=false; } else setErr('o-fname','o-fname-err','');
-      if (!v('o-lname')) { setErr('o-lname','o-lname-err','Required'); ok=false; } else setErr('o-lname','o-lname-err','');
-      if (!v('o-biz'))   { setErr('o-biz','o-biz-err','Required'); ok=false; }   else setErr('o-biz','o-biz-err','');
-      const em = v('o-email');
-      if (!em) { setErr('o-email','o-email-err','Required'); ok=false; }
-      else if (!emailRe.test(em)) { setErr('o-email','o-email-err','Enter a valid email'); ok=false; }
-      else setErr('o-email','o-email-err','');
-      if (!v('o-industry')) { setErr('o-industry','o-industry-err','Please select your industry'); ok=false; } else setErr('o-industry','o-industry-err','');
-      if (!v('o-desc'))  { setErr('o-desc','o-desc-err','Please describe your business'); ok=false; }   else setErr('o-desc','o-desc-err','');
-    }
-    return ok;
-  }
+function v(id) { const el = document.getElementById(id); return el ? el.value.trim() : ''; }
 
-  function v(id) {
-    const el = document.getElementById(id);
-    return el ? el.value.trim() : '';
-  }
+document.querySelectorAll('.check-item').forEach(item => {
+  item.addEventListener('click', () => {
+    item.classList.toggle('checked');
+    item.querySelector('input[type="checkbox"]').checked = item.classList.contains('checked');
+  });
+});
 
-  /* ── Checkbox toggle ── */
-  document.querySelectorAll('.check-item').forEach(item => {
-    item.addEventListener('click', () => {
-      item.classList.toggle('checked');
-      item.querySelector('input[type="checkbox"]').checked = item.classList.contains('checked');
+document.querySelectorAll('.platform-btn').forEach(btn => {
+  btn.addEventListener('click', () => btn.classList.toggle('on'));
+});
+
+document.querySelectorAll('.swatch').forEach(s => {
+  s.addEventListener('click', () => {
+    s.classList.toggle('selected');
+    const selected = [...document.querySelectorAll('.swatch.selected')].map(x => x.dataset.color);
+    document.getElementById('o-colors').value = selected.join(', ');
+  });
+});
+
+document.getElementById('file-input').addEventListener('change', function() {
+  const list = document.getElementById('file-list');
+  list.innerHTML = [...this.files].map(f => `<div style="margin-top:4px;">📎 ${f.name} (${(f.size/1024).toFixed(0)} KB)</div>`).join('');
+});
+
+function buildReview() {
+  const platforms = [...document.querySelectorAll('.platform-btn.on')].map(b => b.dataset.p).join(', ') || '—';
+  const tones     = [...document.querySelectorAll('#tone-group .check-item.checked')].map(b => b.textContent.trim()).join(', ') || '—';
+  const goals     = [...document.querySelectorAll('#goals-group .check-item.checked')].map(b => b.textContent.trim()).join(', ') || '—';
+  const row = (label, val) => `<div><span class="review-label">${label}</span>${val || '—'}</div>`;
+  document.getElementById('review-summary').innerHTML = `
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+      ${row('Name', v('o-fname') + ' ' + v('o-lname'))}
+      ${row('Business', v('o-biz'))}
+      ${row('Email', v('o-email'))}
+      ${row('Industry', v('o-industry'))}
+      ${row('Platforms', platforms)}
+      ${row('Brand Tone', tones)}
+      <div style="grid-column:1/-1">${row('Goals', goals)}</div>
+      <div style="grid-column:1/-1">${row('About the Business', v('o-desc'))}</div>
+    </div>`;
+}
+
+async function submitOnboarding() {
+  const btn = document.getElementById('submit-onboard');
+  btn.textContent = 'Submitting…'; btn.disabled = true;
+  const platforms = [...document.querySelectorAll('.platform-btn.on')].map(b => b.dataset.p).join(', ');
+  const tones     = [...document.querySelectorAll('#tone-group .check-item.checked')].map(b => b.textContent.trim()).join(', ');
+  const goals     = [...document.querySelectorAll('#goals-group .check-item.checked')].map(b => b.textContent.trim()).join(', ');
+  const assets    = [...document.querySelectorAll('#assets-group .check-item.checked')].map(b => b.textContent.trim()).join(', ');
+  const data = {
+    _subject: 'New Client Onboarding — Martin Leon Agency',
+    name: `${v('o-fname')} ${v('o-lname')}`, email: v('o-email'), phone: v('o-phone'),
+    business: v('o-biz'), industry: v('o-industry'), website: v('o-website'), description: v('o-desc'),
+    target_audience: v('o-audience'), brand_tone: tones, brand_colors: v('o-colors'),
+    brand_assets: assets, design_inspiration: v('o-inspo'), platforms: platforms,
+    social_handles: v('o-handles'), follower_count: v('o-followers'), posting_frequency: v('o-freq'),
+    content_themes: v('o-themes'), restrictions: v('o-restrict'), competitors: v('o-competitors'),
+    goals: goals, timeline: v('o-timeline'), budget: v('o-budget'),
+    credentials: v('o-credentials'), access_notes: v('o-access'), additional_notes: v('o-extra')
+  };
+  try {
+    const res = await fetch('https://formspree.io/f/xkopkoov', {
+      method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
     });
-  });
-
-  /* ── Platform toggle ── */
-  document.querySelectorAll('.platform-btn').forEach(btn => {
-    btn.addEventListener('click', () => btn.classList.toggle('on'));
-  });
-
-  /* ── Swatch selection ── */
-  document.querySelectorAll('.swatch').forEach(s => {
-    s.addEventListener('click', () => {
-      s.classList.toggle('selected');
-      const selected = [...document.querySelectorAll('.swatch.selected')].map(x => x.dataset.color);
-      document.getElementById('o-colors').value = selected.join(', ');
-    });
-  });
-
-  /* ── File upload ── */
-  document.getElementById('file-input').addEventListener('change', function() {
-    const list = document.getElementById('file-list');
-    list.innerHTML = [...this.files].map(f => `<div>📎 ${f.name} (${(f.size/1024).toFixed(0)} KB)</div>`).join('');
-  });
-
-  /* ── Build review summary ── */
-  function buildReview() {
-    const platforms = [...document.querySelectorAll('.platform-btn.on')].map(b => b.dataset.p).join(', ') || '—';
-    const tones = [...document.querySelectorAll('#tone-group .check-item.checked')].map(b => b.textContent.trim()).join(', ') || '—';
-    const goals = [...document.querySelectorAll('#goals-group .check-item.checked')].map(b => b.textContent.trim()).join(', ') || '—';
-
-    document.getElementById('review-summary').innerHTML = `
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap: 1rem;">
-        <div><strong style="color:var(--gold); display:block; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px;">Name</strong>${v('o-fname')} ${v('o-lname')}</div>
-        <div><strong style="color:var(--gold); display:block; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px;">Business</strong>${v('o-biz')}</div>
-        <div><strong style="color:var(--gold); display:block; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px;">Email</strong>${v('o-email')}</div>
-        <div><strong style="color:var(--gold); display:block; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px;">Industry</strong>${v('o-industry')}</div>
-        <div><strong style="color:var(--gold); display:block; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px;">Platforms</strong>${platforms}</div>
-        <div><strong style="color:var(--gold); display:block; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px;">Brand Tone</strong>${tones}</div>
-        <div style="grid-column: 1/-1;"><strong style="color:var(--gold); display:block; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px;">Goals</strong>${goals}</div>
-        <div style="grid-column: 1/-1;"><strong style="color:var(--gold); display:block; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px;">About the Business</strong>${v('o-desc') || '—'}</div>
-      </div>`;
-  }
-
-  /* ── Submit ── */
-  async function submitOnboarding() {
-    const btn = document.getElementById('submit-onboard');
-    btn.textContent = 'Submitting…'; btn.disabled = true;
-
-    const platforms = [...document.querySelectorAll('.platform-btn.on')].map(b => b.dataset.p).join(', ');
-    const tones     = [...document.querySelectorAll('#tone-group .check-item.checked')].map(b => b.textContent.trim()).join(', ');
-    const goals     = [...document.querySelectorAll('#goals-group .check-item.checked')].map(b => b.textContent.trim()).join(', ');
-    const assets    = [...document.querySelectorAll('#assets-group .check-item.checked')].map(b => b.textContent.trim()).join(', ');
-
-    const data = {
-      _subject: 'New Client Onboarding — Martin Leon Agency',
-      name: `${v('o-fname')} ${v('o-lname')}`,
-      email: v('o-email'), phone: v('o-phone'),
-      business: v('o-biz'), industry: v('o-industry'),
-      website: v('o-website'), description: v('o-desc'),
-      target_audience: v('o-audience'),
-      brand_tone: tones, brand_colors: v('o-colors'),
-      brand_assets: assets, design_inspiration: v('o-inspo'),
-      platforms: platforms, social_handles: v('o-handles'),
-      follower_count: v('o-followers'), posting_frequency: v('o-freq'),
-      content_themes: v('o-themes'), restrictions: v('o-restrict'),
-      competitors: v('o-competitors'),
-      goals: goals, timeline: v('o-timeline'), budget: v('o-budget'),
-      credentials: v('o-credentials'), access_notes: v('o-access'),
-      additional_notes: v('o-extra')
-    };
-
-    try {
-      const res = await fetch('https://formspree.io/f/xkopkoov', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(data)
-      });
-      if (res.ok) {
-        document.getElementById('panel-5').classList.remove('active');
-        document.getElementById('success-screen').style.display = 'block';
-        document.querySelector('.stepper-wrap').style.display = 'none';
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        document.getElementById('main-error').style.display = 'block';
-        document.getElementById('main-error').textContent = '✗ Submission failed. Please try again.';
-      }
-    } catch {
+    if (res.ok) {
+      document.getElementById('panel-5').classList.remove('active');
+      document.getElementById('success-screen').style.display = 'block';
+      document.querySelector('.stepper-wrap').style.display = 'none';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
       document.getElementById('main-error').style.display = 'block';
-      document.getElementById('main-error').textContent = '✗ Network error. Please try again.';
+      document.getElementById('main-error').textContent = '✗ Submission failed. Please try again.';
     }
-
-    btn.textContent = 'Submit Onboarding ✓'; btn.disabled = false;
+  } catch {
+    document.getElementById('main-error').style.display = 'block';
+    document.getElementById('main-error').textContent = '✗ Network error. Please try again.';
   }
+  btn.textContent = 'Submit Onboarding ✓'; btn.disabled = false;
+}
 </script>
 </body>
 </html>
