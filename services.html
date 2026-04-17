@@ -56,12 +56,12 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);display:flex;align-ite
 .sb{padding:6rem 5vw;scroll-margin-top:calc(var(--nav-h) + 54px);}
 .sb:nth-child(odd){background:var(--white);}
 .sb:nth-child(even){background:var(--light-bg);}
-.bl{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.bl{display:grid;grid-template-columns:1fr;gap:2rem;max-width:800px;margin:0 auto;}
 .bl.rev{direction:rtl;}
 .bl.rev>*{direction:ltr;}
 .snum{font-family:'Syne',sans-serif;font-size:5rem;font-weight:800;color:rgba(27,79,216,0.06);line-height:1;margin-bottom:-0.5rem;display:block;}
 .stag2{font-size:0.68rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);margin-bottom:0.6rem;display:block;}
-.stitle{font-family:'Syne',sans-serif;font-size:clamp(1.7rem,3vw,2.3rem);font-weight:800;color:var(--navy);line-height:1.15;margin-bottom:1rem;}
+
 .sdesc{font-size:0.96rem;line-height:1.82;color:var(--smoke);margin-bottom:1.75rem;}
 .subh{font-size:0.72rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--blue);border-top:1px solid rgba(27,79,216,0.12);padding-top:1.5rem;margin:1.75rem 0 0.85rem;display:block;}
 .pills{display:flex;flex-wrap:wrap;gap:0.45rem;margin-bottom:1.75rem;}
@@ -70,14 +70,13 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);display:flex;align-ite
 .feats li{display:flex;align-items:flex-start;gap:0.85rem;padding:0.65rem 0;border-bottom:1px solid rgba(27,79,216,0.08);font-size:0.92rem;color:var(--ink);}
 .feats li:last-child{border-bottom:none;}
 .feats li::before{content:'✓';color:var(--blue);font-weight:700;flex-shrink:0;margin-top:1px;}
-.dark-panel{background:var(--navy);min-height:360px;border-radius:14px;display:flex;flex-direction:column;justify-content:center;padding:3rem;position:relative;overflow:hidden;}
-.dark-panel::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(27,79,216,0.2) 0%,transparent 70%);}
-.dn{font-family:'Syne',sans-serif;font-size:5rem;font-weight:800;color:rgba(255,255,255,0.04);line-height:1;}
-.dl{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:#fff;margin:0.5rem 0;}
-.ds{font-size:0.87rem;color:rgba(255,255,255,0.5);line-height:1.7;}
-.dstats{display:flex;gap:2rem;margin-top:2rem;}
-.dsn{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:var(--electric);display:block;}
-.dsl{font-size:0.66rem;color:rgba(255,255,255,0.45);letter-spacing:0.1em;text-transform:uppercase;}
+
+
+
+
+
+
+
 .tgrid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;}
 .tc{background:var(--white);border:1px solid rgba(27,79,216,0.12);border-radius:10px;padding:1.25rem;transition:border-color 0.2s;}
 .tc:hover{border-color:rgba(27,79,216,0.3);}
@@ -106,10 +105,9 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);display:flex;align-ite
 .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease;}
 .reveal.visible{opacity:1;transform:none;}
 .d1{transition-delay:0.1s;}
-.info-box{margin-top:1.25rem;background:var(--blue-pale);border:1px solid rgba(27,79,216,0.15);border-radius:10px;padding:1.5rem;}
-.info-box p{font-size:0.82rem;font-weight:600;color:var(--navy);margin-bottom:0.75rem;}
-.tag-list{display:flex;flex-wrap:wrap;gap:0.5rem;}
-.tag-pill{background:#fff;border:1px solid rgba(27,79,216,0.18);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.78rem;color:var(--ink);}
+
+
+
 @media(max-width:900px){
   .nav-links,.nav-cta{display:none;}.ham{display:flex;}
   .bl,.bl.rev{grid-template-columns:1fr;direction:ltr;gap:2.5rem;}
@@ -161,13 +159,20 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);display:flex;align-ite
   <a href="#va" class="tl" data-tab="va"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Virtual Assistance</a>
 </div>
 
+
+<!-- SWIPE INDICATOR -->
+<div id="swipe-hint" style="background:var(--navy);padding:0.65rem 5vw;display:flex;align-items:center;justify-content:center;gap:0.6rem;cursor:pointer;" onclick="document.getElementById('swipe-hint').style.display='none'">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  <span style="font-size:0.72rem;color:rgba(255,255,255,0.6);letter-spacing:0.1em;text-transform:uppercase;font-family:'Syne',sans-serif;font-weight:600;">Swipe or click tabs to navigate services</span>
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+</div>
+
 <section class="sb" id="social">
   <div class="bl">
     <div class="reveal">
       <span class="snum">01</span>
       <span class="stag2">Social Media Management</span>
-      <h2 class="stitle">Your Brand, Active &amp; Growing — Every Single Day.</h2>
-      <p class="sdesc">We manage your entire social media presence — strategy, content, branded graphics, scheduling, and community engagement — on whichever platforms your audience actually uses. No rigid tiers. We build around your goals.</p>
+            <p class="sdesc">Full-service social media management — strategy, branded graphics, scheduling and community engagement — tailored to the platforms your audience uses.</p>
       <div class="pills">
         <span class="pill">Instagram</span><span class="pill">Facebook</span><span class="pill">LinkedIn</span>
         <span class="pill">X / Twitter</span><span class="pill">TikTok</span><span class="pill">Pinterest</span>
@@ -195,21 +200,7 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);display:flex;align-ite
         <a href="booking.html" class="bcta">Book a Free Call →</a>
       </div>
     </div>
-    <div class="reveal d1">
-      <div class="dark-panel">
-        <span class="dn">01</span>
-        <p class="dl">Social Media That Sells</p>
-        <p class="ds">We build communities and brand visuals that convert followers into loyal customers — on your preferred platforms.</p>
-        <div class="dstats"><div><span class="dsn">3x</span><span class="dsl">Avg. Engagement Lift</span></div><div><span class="dsn">60d</span><span class="dsl">Avg. Growth Timeline</span></div></div>
-      </div>
-      <div class="info-box">
-        <p>Available Platforms</p>
-        <div class="tag-list">
-          <span class="tag-pill">📸 Instagram</span><span class="tag-pill">👍 Facebook</span><span class="tag-pill">🎵 TikTok</span>
-          <span class="tag-pill">💼 LinkedIn</span><span class="tag-pill">🐦 Twitter/X</span><span class="tag-pill">📌 Pinterest</span>
-        </div>
-      </div>
-    </div>
+
   </div>
 </section>
 
@@ -218,8 +209,7 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);display:flex;align-ite
     <div class="reveal">
       <span class="snum">02</span>
       <span class="stag2">Workflow Automation</span>
-      <h2 class="stitle">Stop Doing Manually What a System Can Do Instantly.</h2>
-      <p class="sdesc">We map your existing business processes, identify bottlenecks, and build automated pipelines that connect your tools and eliminate repetitive manual work — so your team focuses on what actually moves the needle.</p>
+            <p class="sdesc">We map your processes, find the bottlenecks, and build automated pipelines that connect your tools — eliminating repetitive manual work so your team can focus on what matters.</p>
       <div class="pills">
         <span class="pill">Zapier</span><span class="pill">Make</span><span class="pill">n8n</span>
         <span class="pill">HubSpot</span><span class="pill">Notion</span><span class="pill">Airtable</span>
@@ -241,22 +231,7 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);display:flex;align-ite
         <a href="booking.html" class="bcta">Book Discovery Call →</a>
       </div>
     </div>
-    <div class="reveal d1">
-      <div class="dark-panel">
-        <span class="dn">02</span>
-        <p class="dl">Workflow Automation</p>
-        <p class="ds">Connect your tools, eliminate manual steps, and build processes that run themselves — every time.</p>
-        <div class="dstats"><div><span class="dsn">10+</span><span class="dsl">Hours Saved / Week</span></div><div><span class="dsn">100%</span><span class="dsl">Process Documented</span></div></div>
-      </div>
-      <div class="info-box">
-        <p>What We Automate</p>
-        <div class="tag-list">
-          <span class="tag-pill">Lead capture</span><span class="tag-pill">Client onboarding</span>
-          <span class="tag-pill">Invoice &amp; billing</span><span class="tag-pill">Email sequences</span>
-          <span class="tag-pill">Reporting</span><span class="tag-pill">Data sync</span>
-        </div>
-      </div>
-    </div>
+
   </div>
 </section>
 
@@ -265,8 +240,7 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);display:flex;align-ite
     <div class="reveal">
       <span class="snum">03</span>
       <span class="stag2">AI Automation</span>
-      <h2 class="stitle">Deploy Intelligence. Scale Without Hiring.</h2>
-      <p class="sdesc">We build and deploy AI-powered tools, agents, and chatbots that handle customer conversations, qualify leads, generate content, and manage tasks — 24/7, without adding headcount. From simple automations to full AI agent stacks.</p>
+            <p class="sdesc">We build and deploy AI agents, chatbots and smart tools that handle conversations, qualify leads, generate content and manage tasks — 24/7, without adding headcount.</p>
       <div class="pills">
         <span class="pill">OpenAI / GPT-4</span><span class="pill">Claude</span><span class="pill">Voiceflow</span>
         <span class="pill">Botpress</span><span class="pill">n8n AI</span><span class="pill">Make AI</span>
@@ -288,22 +262,7 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);display:flex;align-ite
         <a href="booking.html" class="bcta">Explore AI Solutions →</a>
       </div>
     </div>
-    <div class="reveal d1">
-      <div class="dark-panel">
-        <span class="dn">03</span>
-        <p class="dl">AI Automation</p>
-        <p class="ds">Smart agents and AI tools that qualify leads, answer customers, and generate content — around the clock.</p>
-        <div class="dstats"><div><span class="dsn">24/7</span><span class="dsl">Always On</span></div><div><span class="dsn">80%</span><span class="dsl">Avg. Task Reduction</span></div></div>
-      </div>
-      <div class="info-box">
-        <p>What We Build</p>
-        <div class="tag-list">
-          <span class="tag-pill">AI chatbots</span><span class="tag-pill">Lead bots</span>
-          <span class="tag-pill">AI agents</span><span class="tag-pill">Content pipelines</span>
-          <span class="tag-pill">Internal tools</span><span class="tag-pill">RAG systems</span>
-        </div>
-      </div>
-    </div>
+
   </div>
 </section>
 
@@ -312,8 +271,7 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);display:flex;align-ite
     <div class="reveal">
       <span class="snum">04</span>
       <span class="stag2">Virtual Assistance</span>
-      <h2 class="stitle">The Right Support, Right When You Need It.</h2>
-      <p class="sdesc">We match you with a pre-vetted, skilled Virtual Assistant tailored to your exact needs — backed by full admin task support so your operations run smoothly every single day.</p>
+            <p class="sdesc">Pre-vetted VA matching tailored to your needs — backed by full admin task support so your operations run smoothly every single day.</p>
       <span class="subh">VA Matching Process</span>
       <ul style="list-style:none;margin-bottom:1.5rem;">
         <li style="display:flex;gap:1rem;padding:0.9rem 0;border-bottom:1px solid rgba(27,79,216,0.08);align-items:flex-start;"><div style="width:30px;height:30px;border-radius:50%;background:var(--blue);color:#fff;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.76rem;font-weight:700;">1</div><div><strong style="display:block;font-size:0.9rem;color:var(--navy);margin-bottom:2px;">You tell us what you need</strong><span style="font-size:0.83rem;color:var(--smoke);line-height:1.5;">Tasks, hours per week, time zone, tools, and working style.</span></div></li>
@@ -335,22 +293,7 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);display:flex;align-ite
         <a href="booking.html" class="bcta">Get Matched →</a>
       </div>
     </div>
-    <div class="reveal d1">
-      <div class="dark-panel">
-        <span class="dn">04</span>
-        <p class="dl">Virtual Assistance</p>
-        <p class="ds">Pre-vetted VAs matched to your business — plus full admin support so your day-to-day runs itself.</p>
-        <div class="dstats"><div><span class="dsn">48hr</span><span class="dsl">Matching Guarantee</span></div><div><span class="dsn">100%</span><span class="dsl">Pre-vetted VAs</span></div></div>
-      </div>
-      <div class="info-box">
-        <p>Tools We Work With</p>
-        <div class="tag-list">
-          <span class="tag-pill">Google Workspace</span><span class="tag-pill">Microsoft 365</span>
-          <span class="tag-pill">Trello</span><span class="tag-pill">Asana</span><span class="tag-pill">Notion</span>
-          <span class="tag-pill">HubSpot</span><span class="tag-pill">Slack</span><span class="tag-pill">Airtable</span>
-        </div>
-      </div>
-    </div>
+
   </div>
 </section>
 
