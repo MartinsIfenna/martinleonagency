@@ -3,445 +3,373 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Services — Martin Leon Agency</title>
+<title>Services — Martin Leon Agency</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --gold: #B8922A; --gold-light: #D4AE58; --gold-pale: #FBF6EC; --gold-soft: #F5EDD8;
-  --black: #141210; --charcoal: #1E1C18; --ink: #2A2724; --smoke: #6B6760;
-  --mist: #A8A39C; --cream: #F8F5F0; --slate: #EDF1F7; --white: #FEFCFA;
-  --teal: #0F7B6C; --teal-soft: #E6F4F2; --nav-h: 70px;
-}
+:root{--navy:#0A1628;--blue:#004AAD;--blue-lt:#1A6AD4;--blue-pale:#EEF1FB;--blue-soft:#D6DCF7;--electric:#4A6FE8;--red:#DB1C19;--white:#FAFAFA;--light-bg:#F0F4FF;--ink:#0D1117;--smoke:#4B5563;--cream:#F8FAFF;--nav-h: 78px;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden;}
-
-nav{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 5vw;background:rgba(254,252,250,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(184,146,42,0.1);box-shadow:0 1px 24px rgba(0,0,0,0.05);}
-.nav-logo{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--black);text-decoration:none;display:flex;align-items:center;gap:0.6rem;}
-.nav-logo span{color:var(--gold);}
-.logo-placeholder{width:34px;height:34px;border:1.5px dashed rgba(184,146,42,0.45);background:var(--gold-soft);display:flex;align-items:center;justify-content:center;font-size:0.5rem;color:var(--gold);letter-spacing:0.05em;text-transform:uppercase;font-weight:600;flex-shrink:0;border-radius:4px;}
+.top-bar{background:var(--navy);padding:0.55rem 5vw;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;}
+.top-bar-left{display:flex;align-items:center;gap:1.75rem;}
+.tb-item{display:flex;align-items:center;gap:0.4rem;font-size:0.74rem;color:rgba(255,255,255,0.75);}
+.tb-item svg{width:13px;height:13px;stroke:var(--electric);fill:none;stroke-width:2;flex-shrink:0;}
+.tb-socials{display:flex;gap:0.5rem;}
+.tb-socials a{width:26px;height:26px;border-radius:4px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:background 0.2s;}
+.tb-socials a:hover{background:var(--blue);}
+.tb-socials svg{width:12px;height:12px;stroke:rgba(255,255,255,0.8);fill:none;stroke-width:2;}
+nav{position:sticky;top:0;z-index:200;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 5vw;background:rgba(250,250,250,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(27,79,216,0.1);box-shadow:0 2px 20px rgba(27,79,216,0.06);}
+.nav-logo{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;color:var(--navy);text-decoration:none;display:flex;align-items:center;gap:0.55rem;}
+.lm{width:32px;height:32px;background:var(--blue);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:800;color:#fff;}
+.nav-logo span{color:var(--blue);}
+.nav-logo-img { height: 54px; width: auto; display: block; }
 .nav-links{display:flex;gap:2rem;list-style:none;}
-.nav-links a{font-size:0.78rem;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;color:var(--smoke);transition:color 0.2s;}
-.nav-links a:hover,.nav-links a.active{color:var(--gold);}
-.nav-right{display:flex;align-items:center;}
-.nav-cta{background:var(--gold);color:#fff;padding:0.55rem 1.3rem;font-size:0.76rem;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;border-radius:5px;transition:all 0.22s;white-space:nowrap;}
-.nav-cta:hover{background:var(--gold-light);transform:translateY(-1px);}
+.nav-links a{font-size:0.78rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;color:var(--smoke);transition:color 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--blue);}
+.nav-cta{background:var(--blue);color:#fff;padding:0.55rem 1.4rem;font-size:0.76rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;border-radius:6px;transition:all 0.22s;box-shadow:0 4px 14px rgba(27,79,216,0.3);}
+.nav-cta:hover{background:var(--blue-lt);transform:translateY(-1px);}
 .ham{display:none;background:none;border:none;cursor:pointer;padding:4px;flex-direction:column;gap:5px;}
-.ham span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all 0.28s;}
+.ham span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all 0.28s;}
 .ham.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
 .ham.open span:nth-child(2){opacity:0;}
 .ham.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
-.mob-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;z-index:190;background:var(--white);border-bottom:1px solid rgba(184,146,42,0.12);padding:1rem 5vw 2rem;flex-direction:column;box-shadow:0 12px 32px rgba(0,0,0,0.08);}
+.mob-menu{display:none;position:fixed;top:calc(var(--nav-h) + 36px);left:0;right:0;z-index:190;background:var(--white);border-bottom:2px solid rgba(27,79,216,0.1);padding:1rem 5vw 2rem;flex-direction:column;box-shadow:0 12px 32px rgba(0,0,0,0.08);}
 .mob-menu.open{display:flex;}
-.mob-menu a{font-size:1rem;font-weight:500;text-decoration:none;color:var(--ink);padding:0.85rem 0;border-bottom:1px solid rgba(184,146,42,0.09);display:block;}
-.mob-cta{margin-top:1rem;background:var(--gold);color:#fff !important;text-align:center;border-radius:5px;font-size:0.88rem;letter-spacing:0.07em;text-transform:uppercase;border-bottom:none !important;padding:0.9rem !important;}
-
-.page-hero{background:var(--charcoal);padding:9rem 5vw 5rem;position:relative;overflow:hidden;}
-.page-hero::before{content:'';position:absolute;top:-120px;right:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(184,146,42,0.08) 0%,transparent 70%);}
-.page-hero::after{content:'';position:absolute;bottom:-80px;left:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(15,123,108,0.06) 0%,transparent 70%);}
-.hero-tag{font-size:0.68rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:0.85rem;}
-.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:1rem;max-width:700px;position:relative;z-index:1;}
-.page-hero h1 em{font-style:italic;color:var(--gold);}
-.page-hero p{font-size:1rem;color:var(--mist);max-width:560px;line-height:1.8;position:relative;z-index:1;}
-
-.service-tabs{background:var(--white);padding:0 5vw;border-bottom:1px solid rgba(184,146,42,0.1);position:sticky;top:var(--nav-h);z-index:100;display:flex;gap:0;overflow-x:auto;scrollbar-width:none;}
-.service-tabs::-webkit-scrollbar{display:none;}
-.tab-link{display:flex;align-items:center;gap:0.5rem;padding:1.1rem 1.6rem;font-size:0.78rem;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;color:var(--smoke);border-bottom:2px solid transparent;transition:color 0.2s,border-color 0.2s;white-space:nowrap;flex-shrink:0;}
-.tab-link:hover{color:var(--gold);}
-.tab-link.active{color:var(--gold);border-bottom-color:var(--gold);}
-.tab-link svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.5;flex-shrink:0;}
-
-.service-block{padding:6rem 5vw;scroll-margin-top:calc(var(--nav-h) + 54px);}
-.service-block:nth-child(odd){background:var(--white);}
-.service-block:nth-child(even){background:var(--cream);}
-.block-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
-.block-layout.reverse{direction:rtl;}
-.block-layout.reverse>*{direction:ltr;}
-
-.svc-num{font-family:'Playfair Display',serif;font-size:4.5rem;font-weight:900;color:rgba(184,146,42,0.1);line-height:1;margin-bottom:-0.5rem;display:block;}
-.svc-tag{font-size:0.68rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;display:block;}
-.svc-title{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3vw,2.4rem);font-weight:700;color:var(--black);line-height:1.2;margin-bottom:1rem;}
-.svc-desc{font-size:0.97rem;line-height:1.82;color:var(--smoke);margin-bottom:1.75rem;}
-.svc-sub-heading{font-size:0.75rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);border-top:1px solid rgba(184,146,42,0.18);padding-top:1.5rem;margin:1.75rem 0 0.85rem;display:block;}
-.svc-pills{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:2rem;}
-.pill{background:var(--gold-soft);border:1px solid rgba(184,146,42,0.25);color:var(--ink);font-size:0.78rem;font-weight:500;padding:0.35rem 0.85rem;border-radius:100px;}
-.svc-features{list-style:none;margin-bottom:2rem;}
-.svc-features li{display:flex;align-items:flex-start;gap:0.85rem;padding:0.65rem 0;border-bottom:1px solid rgba(184,146,42,0.1);font-size:0.92rem;color:var(--ink);}
-.svc-features li:last-child{border-bottom:none;}
-.svc-features li::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0;margin-top:1px;}
-
-.svc-visual-dark{background:var(--charcoal);min-height:360px;border-radius:14px;display:flex;flex-direction:column;justify-content:center;padding:3rem;position:relative;overflow:hidden;}
-.svc-visual-dark::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(184,146,42,0.1) 0%,transparent 70%);}
-.dark-num{font-family:'Playfair Display',serif;font-size:5rem;font-weight:900;color:rgba(184,146,42,0.08);line-height:1;}
-.dark-label{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#fff;margin:0.5rem 0;}
-.dark-sub{font-size:0.88rem;color:var(--mist);line-height:1.7;}
-.dark-stats{display:flex;gap:2rem;margin-top:2rem;}
-.dstat-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:var(--gold);display:block;}
-.dstat-label{font-size:0.68rem;color:var(--mist);letter-spacing:0.1em;text-transform:uppercase;}
-
-.task-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;}
-.task-cat{background:var(--white);border:1px solid rgba(184,146,42,0.15);border-radius:10px;padding:1.25rem;transition:border-color 0.2s,box-shadow 0.2s;}
-.task-cat:hover{border-color:rgba(184,146,42,0.4);box-shadow:0 4px 16px rgba(0,0,0,0.05);}
-.task-cat-icon{font-size:1.4rem;margin-bottom:0.5rem;display:block;}
-.task-cat-name{font-size:0.88rem;font-weight:500;color:var(--black);margin-bottom:0.35rem;}
-.task-cat-items{font-size:0.78rem;color:var(--smoke);line-height:1.6;}
-
-.svc-cta-strip{background:var(--charcoal);padding:1.75rem 2rem;border-radius:12px;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;margin-top:0.5rem;}
-.svc-cta-strip p{font-size:0.92rem;color:var(--mist);max-width:340px;line-height:1.6;}
-.svc-cta-strip p strong{color:#fff;display:block;margin-bottom:3px;font-size:1rem;}
-.btn-cta{background:var(--gold);color:#fff;padding:0.78rem 1.6rem;font-size:0.8rem;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;border-radius:5px;white-space:nowrap;transition:all 0.22s;box-shadow:0 4px 14px rgba(184,146,42,0.3);}
-.btn-cta:hover{background:var(--gold-light);transform:translateY(-1px);}
-
-.page-cta{background:linear-gradient(135deg,var(--charcoal) 0%,#252118 100%);padding:7rem 5vw;text-align:center;position:relative;overflow:hidden;}
-.page-cta::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(184,146,42,0.1) 0%,transparent 70%);}
-.page-cta .hero-tag{color:var(--gold-light);}
-.page-cta h2{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,3rem);font-weight:900;color:#fff;margin-bottom:1rem;position:relative;z-index:1;}
-.page-cta p{font-size:1rem;color:var(--mist);max-width:480px;margin:0 auto 2.5rem;line-height:1.75;}
-.cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
-.btn-white{background:#fff;color:var(--black);padding:0.9rem 2rem;font-size:0.84rem;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;border-radius:5px;transition:all 0.22s;}
-.btn-white:hover{background:var(--gold-pale);}
-.btn-outline-w{background:transparent;color:rgba(255,255,255,0.8);padding:0.9rem 2rem;font-size:0.84rem;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;border:1.5px solid rgba(255,255,255,0.22);border-radius:5px;transition:all 0.22s;}
-.btn-outline-w:hover{border-color:rgba(255,255,255,0.5);color:#fff;}
-
-.page-footer{background:var(--charcoal);padding:2rem 5vw;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(184,146,42,0.08);flex-wrap:wrap;gap:1rem;}
-.footer-copy{font-size:0.76rem;color:var(--smoke);}
-.footer-links{display:flex;gap:1.5rem;}
-.footer-links a{font-size:0.78rem;color:var(--smoke);text-decoration:none;transition:color 0.2s;}
-.footer-links a:hover{color:var(--gold);}
-
+.mob-menu a{font-size:1rem;font-weight:500;text-decoration:none;color:var(--ink);padding:0.85rem 0;border-bottom:1px solid rgba(27,79,216,0.08);display:block;}
+.mob-cta{margin-top:1rem!important;background:var(--blue);color:#fff!important;text-align:center;border-radius:6px;padding:0.9rem!important;font-size:0.88rem;letter-spacing:0.06em;text-transform:uppercase;border-bottom:none!important;}
+.page-hero{background:var(--navy);padding:6rem 5vw 5rem;position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;top:-100px;right:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(27,79,216,0.15) 0%,transparent 70%);}
+.stag{display:flex;align-items:center;gap:0.45rem;font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:0.75rem;}
+.tdots{display:flex;gap:3px;}
+.tdot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.6);}
+.tdot.b{background:rgba(232,38,26,0.6);}
+.page-hero h1{font-family:'Syne',sans-serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:800;color:#fff;line-height:1.1;margin-bottom:1rem;position:relative;z-index:1;}
+.page-hero h1 em{font-style:italic;color:var(--electric);}
+.page-hero p{font-size:1rem;color:rgba(255,255,255,0.58);max-width:580px;line-height:1.8;position:relative;z-index:1;}
+.svc-tabs{background:var(--white);padding:0 5vw;border-bottom:1px solid rgba(27,79,216,0.1);position:sticky;top:var(--nav-h);z-index:100;display:flex;overflow-x:auto;scrollbar-width:none;}
+.svc-tabs::-webkit-scrollbar{display:none;}
+.tl{display:flex;align-items:center;gap:0.5rem;padding:1.1rem 1.5rem;font-size:0.76rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;color:var(--smoke);border-bottom:2px solid transparent;transition:color 0.2s,border-color 0.2s;white-space:nowrap;flex-shrink:0;}
+.tl:hover{color:var(--blue);}
+.tl.active{color:var(--blue);border-bottom-color:var(--blue);}
+.tl svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.5;flex-shrink:0;}
+.sb{padding:6rem 5vw;scroll-margin-top:calc(var(--nav-h) + 54px);}
+.sb:nth-child(odd){background:var(--white);}
+.sb:nth-child(even){background:var(--light-bg);}
+.bl{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.bl.rev{direction:rtl;}
+.bl.rev>*{direction:ltr;}
+.snum{font-family:'Syne',sans-serif;font-size:5rem;font-weight:800;color:rgba(27,79,216,0.06);line-height:1;margin-bottom:-0.5rem;display:block;}
+.stag2{font-size:0.68rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);margin-bottom:0.6rem;display:block;}
+.stitle{font-family:'Syne',sans-serif;font-size:clamp(1.7rem,3vw,2.3rem);font-weight:800;color:var(--navy);line-height:1.15;margin-bottom:1rem;}
+.sdesc{font-size:0.96rem;line-height:1.82;color:var(--smoke);margin-bottom:1.75rem;}
+.subh{font-size:0.72rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--blue);border-top:1px solid rgba(27,79,216,0.12);padding-top:1.5rem;margin:1.75rem 0 0.85rem;display:block;}
+.pills{display:flex;flex-wrap:wrap;gap:0.45rem;margin-bottom:1.75rem;}
+.pill{background:var(--blue-soft);border:1px solid rgba(27,79,216,0.2);color:var(--navy);font-size:0.76rem;font-weight:500;padding:0.3rem 0.8rem;border-radius:100px;}
+.feats{list-style:none;margin-bottom:2rem;}
+.feats li{display:flex;align-items:flex-start;gap:0.85rem;padding:0.65rem 0;border-bottom:1px solid rgba(27,79,216,0.08);font-size:0.92rem;color:var(--ink);}
+.feats li:last-child{border-bottom:none;}
+.feats li::before{content:'✓';color:var(--blue);font-weight:700;flex-shrink:0;margin-top:1px;}
+.dark-panel{background:var(--navy);min-height:360px;border-radius:14px;display:flex;flex-direction:column;justify-content:center;padding:3rem;position:relative;overflow:hidden;}
+.dark-panel::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(27,79,216,0.2) 0%,transparent 70%);}
+.dn{font-family:'Syne',sans-serif;font-size:5rem;font-weight:800;color:rgba(255,255,255,0.04);line-height:1;}
+.dl{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:#fff;margin:0.5rem 0;}
+.ds{font-size:0.87rem;color:rgba(255,255,255,0.5);line-height:1.7;}
+.dstats{display:flex;gap:2rem;margin-top:2rem;}
+.dsn{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:var(--electric);display:block;}
+.dsl{font-size:0.66rem;color:rgba(255,255,255,0.45);letter-spacing:0.1em;text-transform:uppercase;}
+.tgrid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;}
+.tc{background:var(--white);border:1px solid rgba(27,79,216,0.12);border-radius:10px;padding:1.25rem;transition:border-color 0.2s;}
+.tc:hover{border-color:rgba(27,79,216,0.3);}
+.tci{font-size:1.3rem;margin-bottom:0.4rem;display:block;}
+.tcn{font-size:0.88rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem;}
+.tcd{font-size:0.78rem;color:var(--smoke);line-height:1.6;}
+.cta-strip{background:var(--navy);padding:1.75rem 2rem;border-radius:12px;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;margin-top:0.5rem;}
+.cta-strip p{font-size:0.92rem;color:rgba(255,255,255,0.5);max-width:340px;line-height:1.6;}
+.cta-strip p strong{color:#fff;display:block;margin-bottom:3px;font-size:1rem;}
+.bcta{background:var(--blue);color:#fff;padding:0.78rem 1.6rem;font-size:0.8rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;border-radius:6px;white-space:nowrap;transition:all 0.22s;box-shadow:0 4px 14px rgba(27,79,216,0.3);}
+.bcta:hover{background:var(--blue-lt);transform:translateY(-1px);}
+.pcta{background:var(--blue);padding:6rem 5vw;text-align:center;position:relative;overflow:hidden;}
+.pcta::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;border-radius:50%;background:rgba(255,255,255,0.06);}
+.pcta h2{font-family:'Syne',sans-serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:800;color:#fff;margin-bottom:1rem;position:relative;z-index:1;}
+.pcta p{font-size:1rem;color:rgba(255,255,255,0.72);max-width:480px;margin:0 auto 2.5rem;line-height:1.75;}
+.crow{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.bw{background:#fff;color:var(--blue);padding:0.9rem 2rem;font-size:0.84rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;border-radius:6px;transition:all 0.22s;}
+.bw:hover{background:var(--light-bg);transform:translateY(-2px);}
+.bwo{background:transparent;color:rgba(255,255,255,0.85);padding:0.9rem 2rem;font-size:0.84rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;border:2px solid rgba(255,255,255,0.3);border-radius:6px;transition:all 0.22s;}
+.bwo:hover{border-color:#fff;color:#fff;}
+.pfooter{background:var(--navy);padding:2rem 5vw;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,0.06);flex-wrap:wrap;gap:1rem;}
+.fc{font-size:0.74rem;color:rgba(255,255,255,0.3);}
+.fl{display:flex;gap:1.5rem;}
+.fl a{font-size:0.78rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;}
+.fl a:hover{color:var(--electric);}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease;}
 .reveal.visible{opacity:1;transform:none;}
-.reveal-delay-1{transition-delay:0.1s;}
-
+.d1{transition-delay:0.1s;}
+.info-box{margin-top:1.25rem;background:var(--blue-pale);border:1px solid rgba(27,79,216,0.15);border-radius:10px;padding:1.5rem;}
+.info-box p{font-size:0.82rem;font-weight:600;color:var(--navy);margin-bottom:0.75rem;}
+.tag-list{display:flex;flex-wrap:wrap;gap:0.5rem;}
+.tag-pill{background:#fff;border:1px solid rgba(27,79,216,0.18);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.78rem;color:var(--ink);}
 @media(max-width:900px){
-  .nav-links,.nav-right{display:none;} .ham{display:flex;}
-  .block-layout,.block-layout.reverse{grid-template-columns:1fr;direction:ltr;gap:2.5rem;}
-  .task-grid{grid-template-columns:1fr;} .service-block{padding:4rem 5vw;}
-  .svc-cta-strip{flex-direction:column;align-items:flex-start;}
+  .nav-links,.nav-cta{display:none;}.ham{display:flex;}
+  .bl,.bl.rev{grid-template-columns:1fr;direction:ltr;gap:2.5rem;}
+  .tgrid{grid-template-columns:1fr;}
+  .sb{padding:4rem 5vw;}
+  .cta-strip{flex-direction:column;align-items:flex-start;}
+  .top-bar{display:none;}
 }
-@media(max-width:480px){.tab-link{padding:1rem 0.9rem;font-size:0.72rem;}}
+@media(max-width:480px){.tl{padding:1rem 0.9rem;font-size:0.7rem;}}
 </style>
 </head>
 <body>
-
+<div class="top-bar">
+  <div class="top-bar-left">
+    <div class="tb-item"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6.53 6.53l1.93-1.93a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+234 (0) 800 000 0000</div>
+    <div class="tb-item"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>hello@martinleonagency.com</div>
+  </div>
+  <div class="tb-socials">
+    <a href="#"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+    <a href="#"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+    <a href="#"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+  </div>
+</div>
 <nav>
-  <a href="martin-leon-agency.html" class="nav-logo">
-    <div class="logo-placeholder">LOGO</div>
-    Martin <span>Leon</span>
-  </a>
+  <a href="index.html" class="nav-logo"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTUwMCIgem9vbUFuZFBhbj0ibWFnbmlmeSIgdmlld0JveD0iMCAwIDExMjUgMzc0Ljk5OTk5MSIgaGVpZ2h0PSI1MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIG1lZXQiIHZlcnNpb249IjEuMCI+PGRlZnM+PGcvPjxjbGlwUGF0aCBpZD0iNzM2MzhhMzUwYyI+PHBhdGggZD0iTSAxOC4xMDU0NjkgMi4wNzgxMjUgTCA0NTguMzU1NDY5IDIuMDc4MTI1IEwgNDU4LjM1NTQ2OSAzNzQuODI4MTI1IEwgMTguMTA1NDY5IDM3NC44MjgxMjUgWiBNIDE4LjEwNTQ2OSAyLjA3ODEyNSAiIGNsaXAtcnVsZT0ibm9uemVybyIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIGNsaXAtcGF0aD0idXJsKCM3MzYzOGEzNTBjKSI+PHBhdGggZmlsbD0iIzAwNGFhZCIgZD0iTSAyNzguMTA1NDY5IDExNS4wNTQ2ODggTCAxOC4xNjQwNjIgMzc0Ljk5MjE4OCBMIDE4LjE2NDA2MiAyNjIuMjE4NzUgTCAyNzguMTA1NDY5IDIuMDc4MTI1IFogTSAxOTguMTIxMDk0IDI2MS44MTY0MDYgTCAxOTguMTIxMDk0IDM3NC45OTIxODggTCAzNzguMDc0MjE5IDE5NS4yNDIxODggTCAzNzguMDc0MjE5IDM3NC45OTIxODggTCA0NTguMDU4NTk0IDI5NS4wMDc4MTIgTCA0NTguMDU4NTk0IDIuMDc4MTI1IFogTSAxOTguMTIxMDk0IDI2MS44MTY0MDYgIiBmaWxsLW9wYWNpdHk9IjEiIGZpbGwtcnVsZT0ibm9uemVybyIvPjwvZz48ZyBmaWxsPSIjMDA0YWFkIiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUxMi4yNTAwMzcsIDE3NS44MDczNTYpIj48Zz48cGF0aCBkPSJNIDM3LjkyMTg3NSAwIEwgMzcuODc1IC0yMi4xMjUgTCAyNy4wMTU2MjUgLTMuODkwNjI1IEwgMjMuMTcxODc1IC0zLjg5MDYyNSBMIDEyLjM3NSAtMjEuNjQwNjI1IEwgMTIuMzc1IDAgTCA0LjM3NSAwIEwgNC4zNzUgLTM2Ljg3NSBMIDExLjQzNzUgLTM2Ljg3NSBMIDI1LjIzNDM3NSAtMTMuOTUzMTI1IEwgMzguODEyNSAtMzYuODc1IEwgNDUuODI4MTI1IC0zNi44NzUgTCA0NS45Mzc1IDAgWiBNIDM3LjkyMTg3NSAwICIvPjwvZz48L2c+PC9nPjxnIGZpbGw9IiMwMDRhYWQiIGZpbGwtb3BhY2l0eT0iMSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTc1LjIzOTEzOCwgMTc1LjgwNzM1NikiPjxnPjxwYXRoIGQ9Ik0gMjguNjU2MjUgLTcuOTA2MjUgTCAxMS41MzEyNSAtNy45MDYyNSBMIDguMjY1NjI1IDAgTCAtMC40Njg3NSAwIEwgMTUuOTUzMTI1IC0zNi44NzUgTCAyNC4zOTA2MjUgLTM2Ljg3NSBMIDQwLjg3NSAwIEwgMzEuOTIxODc1IDAgWiBNIDI1Ljk2ODc1IC0xNC4zNzUgTCAyMC4xMjUgLTI4LjUgTCAxNC4yODEyNSAtMTQuMzc1IFogTSAyNS45Njg3NSAtMTQuMzc1ICIvPjwvZz48L2c+PC9nPjxnIGZpbGw9IiMwMDRhYWQiIGZpbGwtb3BhY2l0eT0iMSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjI4LjI3NDcxOCwgMTc1LjgwNzM1NikiPjxnPjxwYXRoIGQ9Ik0gMjcuODU5Mzc1IDAgTCAyMC43NSAtMTAuMjY1NjI1IEwgMTIuOTA2MjUgLTEwLjI2NTYyNSBMIDEyLjkwNjI1IDAgTCA0LjM3NSAwIEwgNC4zNzUgLTM2Ljg3NSBMIDIwLjMyODEyNSAtMzYuODc1IEMgMjMuNTk3NjU2IC0zNi44NzUgMjYuNDM3NSAtMzYuMzI4MTI1IDI4Ljg0Mzc1IC0zNS4yMzQzNzUgQyAzMS4yNSAtMzQuMTQ4NDM4IDMzLjA5NzY1NiAtMzIuNjAxNTYyIDM0LjM5MDYyNSAtMzAuNTkzNzUgQyAzNS42OTE0MDYgLTI4LjU5Mzc1IDM2LjM0Mzc1IC0yNi4yMjI2NTYgMzYuMzQzNzUgLTIzLjQ4NDM3NSBDIDM2LjM0Mzc1IC0yMC43NTM5MDYgMzUuNjc5Njg4IC0xOC4zOTQ1MzEgMzQuMzU5Mzc1IC0xNi40MDYyNSBDIDMzLjA0Njg3NSAtMTQuNDI1NzgxIDMxLjE3OTY4OCAtMTIuOTA2MjUgMjguNzY1NjI1IC0xMS44NDM3NSBMIDM3LjAzMTI1IDAgWiBNIDI3LjcwMzEyNSAtMjMuNDg0Mzc1IEMgMjcuNzAzMTI1IC0yNS41NTQ2ODggMjcuMDM1MTU2IC0yNy4xNDQ1MzEgMjUuNzAzMTI1IC0yOC4yNSBDIDI0LjM2NzE4OCAtMjkuMzYzMjgxIDIyLjQyMTg3NSAtMjkuOTIxODc1IDE5Ljg1OTM3NSAtMjkuOTIxODc1IEwgMTIuOTA2MjUgLTI5LjkyMTg3NSBMIDEyLjkwNjI1IC0xNy4wNjI1IEwgMTkuODU5Mzc1IC0xNy4wNjI1IEMgMjIuNDIxODc1IC0xNy4wNjI1IDI0LjM2NzE4OCAtMTcuNjI1IDI1LjcwMzEyNSAtMTguNzUgQyAyNy4wMzUxNTYgLTE5Ljg3NSAyNy43MDMxMjUgLTIxLjQ1MzEyNSAyNy43MDMxMjUgLTIzLjQ4NDM3NSBaIE0gMjcuNzAzMTI1IC0yMy40ODQzNzUgIi8+PC9nPjwvZz48L2c+PGcgZmlsbD0iIzAwNGFhZCIgZmlsbC1vcGFjaXR5PSIxIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2NzkuNjc3NzE4LCAxNzUuODA3MzU2KSI+PGc+PHBhdGggZD0iTSAxMi4wMTU2MjUgLTI5LjkyMTg3NSBMIDAuMjAzMTI1IC0yOS45MjE4NzUgTCAwLjIwMzEyNSAtMzYuODc1IEwgMzIuMzQzNzUgLTM2Ljg3NSBMIDMyLjM0Mzc1IC0yOS45MjE4NzUgTCAyMC41NDY4NzUgLTI5LjkyMTg3NSBMIDIwLjU0Njg3NSAwIEwgMTIuMDE1NjI1IDAgWiBNIDEyLjAxNTYyNSAtMjkuOTIxODc1ICIvPjwvZz48L2c+PC9nPjxnIGZpbGw9IiMwMDRhYWQiIGZpbGwtb3BhY2l0eT0iMSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzI0LjkxOTAxNCwgMTc1LjgwNzM1NikiPjxnPjxwYXRoIGQ9Ik0gNC4zNzUgLTM2Ljg3NSBMIDEyLjkwNjI1IC0zNi44NzUgTCAxMi45MDYyNSAwIEwgNC4zNzUgMCBaIE0gNC4zNzUgLTM2Ljg3NSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjMDA0YWFkIiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDc1NC44ODc3MjQsIDE3NS44MDczNTYpIj48Zz48cGF0aCBkPSJNIDM4LjE4NzUgLTM2Ljg3NSBMIDM4LjE4NzUgMCBMIDMxLjE4NzUgMCBMIDEyLjc5Njg3NSAtMjIuMzkwNjI1IEwgMTIuNzk2ODc1IDAgTCA0LjM3NSAwIEwgNC4zNzUgLTM2Ljg3NSBMIDExLjQzNzUgLTM2Ljg3NSBMIDI5Ljc2NTYyNSAtMTQuNDg0Mzc1IEwgMjkuNzY1NjI1IC0zNi44NzUgWiBNIDM4LjE4NzUgLTM2Ljg3NSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjMDA0YWFkIiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDgxMC4xMzUxOTUsIDE3NS44MDczNTYpIj48Zy8+PC9nPjwvZz48ZyBmaWxsPSIjMDA0YWFkIiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDgzNy43MzQwMTYsIDE3NS44MDczNTYpIj48Zz48cGF0aCBkPSJNIDQuMzc1IC0zNi44NzUgTCAxMi45MDYyNSAtMzYuODc1IEwgMTIuOTA2MjUgLTYuOTUzMTI1IEwgMzEuMzkwNjI1IC02Ljk1MzEyNSBMIDMxLjM5MDYyNSAwIEwgNC4zNzUgMCBaIE0gNC4zNzUgLTM2Ljg3NSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjMDA0YWFkIiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDg4Mi4yMzgwMDQsIDE3NS44MDczNTYpIj48Zz48cGF0aCBkPSJNIDMyLjkyMTg3NSAtNi44NDM3NSBMIDMyLjkyMTg3NSAwIEwgNC4zNzUgMCBMIDQuMzc1IC0zNi44NzUgTCAzMi4yMzQzNzUgLTM2Ljg3NSBMIDMyLjIzNDM3NSAtMzAuMDE1NjI1IEwgMTIuODU5Mzc1IC0zMC4wMTU2MjUgTCAxMi44NTkzNzUgLTIyLjAxNTYyNSBMIDI5Ljk2ODc1IC0yMi4wMTU2MjUgTCAyOS45Njg3NSAtMTUuMzc1IEwgMTIuODU5Mzc1IC0xNS4zNzUgTCAxMi44NTkzNzUgLTYuODQzNzUgWiBNIDMyLjkyMTg3NSAtNi44NDM3NSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjMDA0YWFkIiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDkzMC4yNzA1MDIsIDE3NS44MDczNTYpIj48Zz48cGF0aCBkPSJNIDIyLjIzNDM3NSAwLjYyNSBDIDE4LjM5ODQzOCAwLjYyNSAxNC45NDUzMTIgLTAuMTk1MzEyIDExLjg3NSAtMS44NDM3NSBDIDguODAwNzgxIC0zLjQ4ODI4MSA2LjM5NDUzMSAtNS43NTc4MTIgNC42NTYyNSAtOC42NTYyNSBDIDIuOTE0MDYyIC0xMS41NjI1IDIuMDQ2ODc1IC0xNC44MjAzMTIgMi4wNDY4NzUgLTE4LjQzNzUgQyAyLjA0Njg3NSAtMjIuMDUwNzgxIDIuOTE0MDYyIC0yNS4zMDQ2ODggNC42NTYyNSAtMjguMjAzMTI1IEMgNi4zOTQ1MzEgLTMxLjA5NzY1NiA4LjgwMDc4MSAtMzMuMzY3MTg4IDExLjg3NSAtMzUuMDE1NjI1IEMgMTQuOTQ1MzEyIC0zNi42NzE4NzUgMTguMzk4NDM4IC0zNy41IDIyLjIzNDM3NSAtMzcuNSBDIDI2LjA1NDY4OCAtMzcuNSAyOS40OTIxODggLTM2LjY3MTg3NSAzMi41NDY4NzUgLTM1LjAxNTYyNSBDIDM1LjYwOTM3NSAtMzMuMzY3MTg4IDM4LjAxNTYyNSAtMzEuMDk3NjU2IDM5Ljc2NTYyNSAtMjguMjAzMTI1IEMgNDEuNTIzNDM4IC0yNS4zMDQ2ODggNDIuNDA2MjUgLTIyLjA1MDc4MSA0Mi40MDYyNSAtMTguNDM3NSBDIDQyLjQwNjI1IC0xNC44MjAzMTIgNDEuNTIzNDM4IC0xMS41NjI1IDM5Ljc2NTYyNSAtOC42NTYyNSBDIDM4LjAxNTYyNSAtNS43NTc4MTIgMzUuNjA5Mzc1IC0zLjQ4ODI4MSAzMi41NDY4NzUgLTEuODQzNzUgQyAyOS40OTIxODggLTAuMTk1MzEyIDI2LjA1NDY4OCAwLjYyNSAyMi4yMzQzNzUgMC42MjUgWiBNIDIyLjIzNDM3NSAtNi42NDA2MjUgQyAyNC40MTAxNTYgLTYuNjQwNjI1IDI2LjM3NSAtNy4xNDA2MjUgMjguMTI1IC04LjE0MDYyNSBDIDI5Ljg4MjgxMiAtOS4xNDA2MjUgMzEuMjY1NjI1IC0xMC41MzUxNTYgMzIuMjY1NjI1IC0xMi4zMjgxMjUgQyAzMy4yNjU2MjUgLTE0LjExNzE4OCAzMy43NjU2MjUgLTE2LjE1NjI1IDMzLjc2NTYyNSAtMTguNDM3NSBDIDMzLjc2NTYyNSAtMjAuNzE4NzUgMzMuMjY1NjI1IC0yMi43NTM5MDYgMzIuMjY1NjI1IC0yNC41NDY4NzUgQyAzMS4yNjU2MjUgLTI2LjMzNTkzOCAyOS44ODI4MTIgLTI3LjczNDM3NSAyOC4xMjUgLTI4LjczNDM3NSBDIDI2LjM3NSAtMjkuNzM0Mzc1IDI0LjQxMDE1NiAtMzAuMjM0Mzc1IDIyLjIzNDM3NSAtMzAuMjM0Mzc1IEMgMjAuMDU0Njg4IC0zMC4yMzQzNzUgMTguMDg1OTM4IC0yOS43MzQzNzUgMTYuMzI4MTI1IC0yOC43MzQzNzUgQyAxNC41NjY0MDYgLTI3LjczNDM3NSAxMy4xODc1IC0yNi4zMzU5MzggMTIuMTg3NSAtMjQuNTQ2ODc1IEMgMTEuMTg3NSAtMjIuNzUzOTA2IDEwLjY4NzUgLTIwLjcxODc1IDEwLjY4NzUgLTE4LjQzNzUgQyAxMC42ODc1IC0xNi4xNTYyNSAxMS4xODc1IC0xNC4xMTcxODggMTIuMTg3NSAtMTIuMzI4MTI1IEMgMTMuMTg3NSAtMTAuNTM1MTU2IDE0LjU2NjQwNiAtOS4xNDA2MjUgMTYuMzI4MTI1IC04LjE0MDYyNSBDIDE4LjA4NTkzOCAtNy4xNDA2MjUgMjAuMDU0Njg4IC02LjY0MDYyNSAyMi4yMzQzNzUgLTYuNjQwNjI1IFogTSAyMi4yMzQzNzUgLTYuNjQwNjI1ICIvPjwvZz48L2c+PC9nPjxnIGZpbGw9IiMwMDRhYWQiIGZpbGwtb3BhY2l0eT0iMSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTg3LjQxMzkxNiwgMTc1LjgwNzM1NikiPjxnPjxwYXRoIGQ9Ik0gMzguMTg3NSAtMzYuODc1IEwgMzguMTg3NSAwIEwgMzEuMTg3NSAwIEwgMTIuNzk2ODc1IC0yMi4zOTA2MjUgTCAxMi43OTY4NzUgMCBMIDQuMzc1IDAgTCA0LjM3NSAtMzYuODc1IEwgMTEuNDM3NSAtMzYuODc1IEwgMjkuNzY1NjI1IC0xNC40ODQzNzUgTCAyOS43NjU2MjUgLTM2Ljg3NSBaIE0gMzguMTg3NSAtMzYuODc1ICIvPjwvZz48L2c+PC9nPjxnIGZpbGw9IiNkYjFjMTkiIGZpbGwtb3BhY2l0eT0iMSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjM5Ljk1NjYzOCwgMjMzLjI0ODQwMykiPjxnPjxwYXRoIGQ9Ik0gMjYuNDg0Mzc1IC04Ljk1MzEyNSBMIDcuODEyNSAtOC45NTMxMjUgTCAzLjc4MTI1IDAgTCAwLjA5Mzc1IDAgTCAxNS40MjE4NzUgLTMzLjUzMTI1IEwgMTguOTIxODc1IC0zMy41MzEyNSBMIDM0LjI1IDAgTCAzMC41MTU2MjUgMCBaIE0gMjUuMjAzMTI1IC0xMS44MjgxMjUgTCAxNy4xNTYyNSAtMjkuODQzNzUgTCA5LjEwOTM3NSAtMTEuODI4MTI1IFogTSAyNS4yMDMxMjUgLTExLjgyODEyNSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjZGIxYzE5IiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY4NS44NTI1ODIsIDIzMy4yNDg0MDMpIj48Zz48cGF0aCBkPSJNIDI5LjA3ODEyNSAtMTYuNzY1NjI1IEwgMzIuNDg0Mzc1IC0xNi43NjU2MjUgTCAzMi40ODQzNzUgLTMuOTY4NzUgQyAzMC45MjE4NzUgLTIuNjAxNTYyIDI5LjA2NjQwNiAtMS41NTA3ODEgMjYuOTIxODc1IC0wLjgxMjUgQyAyNC43ODUxNTYgLTAuMDgyMDMxMiAyMi41MzUxNTYgMC4yODEyNSAyMC4xNzE4NzUgMC4yODEyNSBDIDE2LjgxNjQwNiAwLjI4MTI1IDEzLjc5Njg3NSAtMC40NTMxMjUgMTEuMTA5Mzc1IC0xLjkyMTg3NSBDIDguNDI5Njg4IC0zLjM5MDYyNSA2LjMyMDMxMiAtNS40MjE4NzUgNC43ODEyNSAtOC4wMTU2MjUgQyAzLjI1IC0xMC42MTcxODggMi40ODQzNzUgLTEzLjUzNTE1NiAyLjQ4NDM3NSAtMTYuNzY1NjI1IEMgMi40ODQzNzUgLTE5Ljk5MjE4OCAzLjI1IC0yMi45MTAxNTYgNC43ODEyNSAtMjUuNTE1NjI1IEMgNi4zMjAzMTIgLTI4LjExNzE4OCA4LjQyOTY4OCAtMzAuMTU2MjUgMTEuMTA5Mzc1IC0zMS42MjUgQyAxMy43OTY4NzUgLTMzLjA5Mzc1IDE2LjgzMjAzMSAtMzMuODI4MTI1IDIwLjIxODc1IC0zMy44MjgxMjUgQyAyMi43Njk1MzEgLTMzLjgyODEyNSAyNS4xMTMyODEgLTMzLjQxNDA2MiAyNy4yNSAtMzIuNTkzNzUgQyAyOS4zOTQ1MzEgLTMxLjc4MTI1IDMxLjIwMzEyNSAtMzAuNTc4MTI1IDMyLjY3MTg3NSAtMjguOTg0Mzc1IEwgMzAuNDY4NzUgLTI2LjczNDM3NSBDIDI3LjgxMjUgLTI5LjM0NzY1NiAyNC40NDE0MDYgLTMwLjY1NjI1IDIwLjM1OTM3NSAtMzAuNjU2MjUgQyAxNy42NDA2MjUgLTMwLjY1NjI1IDE1LjE4NzUgLTMwLjA1NDY4OCAxMyAtMjguODU5Mzc1IEMgMTAuODEyNSAtMjcuNjYwMTU2IDkuMDkzNzUgLTI2IDcuODQzNzUgLTIzLjg3NSBDIDYuNjAxNTYyIC0yMS43NTc4MTIgNS45ODQzNzUgLTE5LjM5MDYyNSA1Ljk4NDM3NSAtMTYuNzY1NjI1IEMgNS45ODQzNzUgLTE0LjE0ODQzOCA2LjYwMTU2MiAtMTEuNzg1MTU2IDcuODQzNzUgLTkuNjcxODc1IEMgOS4wOTM3NSAtNy41NjY0MDYgMTAuODAwNzgxIC01LjkwNjI1IDEyLjk2ODc1IC00LjY4NzUgQyAxNS4xNDQ1MzEgLTMuNDc2NTYyIDE3LjU5Mzc1IC0yLjg3NSAyMC4zMTI1IC0yLjg3NSBDIDIzLjc1NzgxMiAtMi44NzUgMjYuNjc5Njg4IC0zLjczODI4MSAyOS4wNzgxMjUgLTUuNDY4NzUgWiBNIDI5LjA3ODEyNSAtMTYuNzY1NjI1ICIvPjwvZz48L2c+PC9nPjxnIGZpbGw9IiNkYjFjMTkiIGZpbGwtb3BhY2l0eT0iMSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzM0LjQzMTI4MywgMjMzLjI0ODQwMykiPjxnPjxwYXRoIGQ9Ik0gMjkuMTcxODc1IC0zLjA2MjUgTCAyOS4xNzE4NzUgMCBMIDUuNDY4NzUgMCBMIDUuNDY4NzUgLTMzLjUzMTI1IEwgMjguNDUzMTI1IC0zMy41MzEyNSBMIDI4LjQ1MzEyNSAtMzAuNDY4NzUgTCA5IC0zMC40Njg3NSBMIDkgLTE4LjU0Njg3NSBMIDI2LjM0Mzc1IC0xOC41NDY4NzUgTCAyNi4zNDM3NSAtMTUuNTE1NjI1IEwgOSAtMTUuNTE1NjI1IEwgOSAtMy4wNjI1IFogTSAyOS4xNzE4NzUgLTMuMDYyNSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjZGIxYzE5IiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDc3OC4wMjc3MzEsIDIzMy4yNDg0MDMpIj48Zz48cGF0aCBkPSJNIDMzLjQ4NDM3NSAtMzMuNTMxMjUgTCAzMy40ODQzNzUgMCBMIDMwLjU2MjUgMCBMIDkgLTI3LjIwMzEyNSBMIDkgMCBMIDUuNDY4NzUgMCBMIDUuNDY4NzUgLTMzLjUzMTI1IEwgOC4zOTA2MjUgLTMzLjUzMTI1IEwgMjkuOTg0Mzc1IC02LjMyODEyNSBMIDI5Ljk4NDM3NSAtMzMuNTMxMjUgWiBNIDMzLjQ4NDM3NSAtMzMuNTMxMjUgIi8+PC9nPjwvZz48L2c+PGcgZmlsbD0iI2RiMWMxOSIgZmlsbC1vcGFjaXR5PSIxIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4MjguNTIyNjc3LCAyMzMuMjQ4NDAzKSI+PGc+PHBhdGggZD0iTSAyMC4wMzEyNSAwLjI4MTI1IEMgMTYuNzA3MDMxIDAuMjgxMjUgMTMuNzEwOTM4IC0wLjQ1MzEyNSAxMS4wNDY4NzUgLTEuOTIxODc1IEMgOC4zNzg5MDYgLTMuMzkwNjI1IDYuMjg1MTU2IC01LjQyMTg3NSA0Ljc2NTYyNSAtOC4wMTU2MjUgQyAzLjI0MjE4OCAtMTAuNjE3MTg4IDIuNDg0Mzc1IC0xMy41MzUxNTYgMi40ODQzNzUgLTE2Ljc2NTYyNSBDIDIuNDg0Mzc1IC0xOS45OTIxODggMy4yNDIxODggLTIyLjkxMDE1NiA0Ljc2NTYyNSAtMjUuNTE1NjI1IEMgNi4yODUxNTYgLTI4LjExNzE4OCA4LjM4MjgxMiAtMzAuMTU2MjUgMTEuMDYyNSAtMzEuNjI1IEMgMTMuNzUgLTMzLjA5Mzc1IDE2Ljc1MzkwNiAtMzMuODI4MTI1IDIwLjA3ODEyNSAtMzMuODI4MTI1IEMgMjIuNTY2NDA2IC0zMy44MjgxMjUgMjQuODYzMjgxIC0zMy40MTAxNTYgMjYuOTY4NzUgLTMyLjU3ODEyNSBDIDI5LjA4MjAzMSAtMzEuNzQyMTg4IDMwLjg3NSAtMzAuNTMxMjUgMzIuMzQzNzUgLTI4LjkzNzUgTCAzMC4wNzgxMjUgLTI2LjY4NzUgQyAyNy40NjA5MzggLTI5LjMzMjAzMSAyNC4xNjAxNTYgLTMwLjY1NjI1IDIwLjE3MTg3NSAtMzAuNjU2MjUgQyAxNy41MTU2MjUgLTMwLjY1NjI1IDE1LjA5NzY1NiAtMzAuMDQ2ODc1IDEyLjkyMTg3NSAtMjguODI4MTI1IEMgMTAuNzUzOTA2IC0yNy42MTcxODggOS4wNTQ2ODggLTI1Ljk2MDkzOCA3LjgyODEyNSAtMjMuODU5Mzc1IEMgNi41OTc2NTYgLTIxLjc1MzkwNiA1Ljk4NDM3NSAtMTkuMzkwNjI1IDUuOTg0Mzc1IC0xNi43NjU2MjUgQyA1Ljk4NDM3NSAtMTQuMTQ4NDM4IDYuNTk3NjU2IC0xMS43ODUxNTYgNy44MjgxMjUgLTkuNjcxODc1IEMgOS4wNTQ2ODggLTcuNTY2NDA2IDEwLjc1MzkwNiAtNS45MDYyNSAxMi45MjE4NzUgLTQuNjg3NSBDIDE1LjA5NzY1NiAtMy40NzY1NjIgMTcuNTE1NjI1IC0yLjg3NSAyMC4xNzE4NzUgLTIuODc1IEMgMjQuMTkxNDA2IC0yLjg3NSAyNy40OTIxODggLTQuMjE4NzUgMzAuMDc4MTI1IC02LjkwNjI1IEwgMzIuMzQzNzUgLTQuNjQwNjI1IEMgMzAuODc1IC0zLjA0Njg3NSAyOS4wNzgxMjUgLTEuODI4MTI1IDI2Ljk1MzEyNSAtMC45ODQzNzUgQyAyNC44MjgxMjUgLTAuMTQwNjI1IDIyLjUxOTUzMSAwLjI4MTI1IDIwLjAzMTI1IDAuMjgxMjUgWiBNIDIwLjAzMTI1IDAuMjgxMjUgIi8+PC9nPjwvZz48L2c+PGcgZmlsbD0iI2RiMWMxOSIgZmlsbC1vcGFjaXR5PSIxIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4NzQuNTE0NDUzLCAyMzMuMjQ4NDAzKSI+PGc+PHBhdGggZD0iTSAxNi45NTMxMjUgLTExLjU5Mzc1IEwgMTYuOTUzMTI1IDAgTCAxMy40Njg3NSAwIEwgMTMuNDY4NzUgLTExLjU5Mzc1IEwgMC4wNDY4NzUgLTMzLjUzMTI1IEwgMy44MjgxMjUgLTMzLjUzMTI1IEwgMTUuMzI4MTI1IC0xNC43MDMxMjUgTCAyNi44MjgxMjUgLTMzLjUzMTI1IEwgMzAuMzc1IC0zMy41MzEyNSBaIE0gMTYuOTUzMTI1IC0xMS41OTM3NSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjZGIxYzE5IiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDkxNi40ODIwODYsIDIzMy4yNDg0MDMpIj48Zz48cGF0aCBkPSJNIDUuMDc4MTI1IDAuMjM0Mzc1IEMgNC4zNzg5MDYgMC4yMzQzNzUgMy43ODEyNSAtMC4wMTk1MzEyIDMuMjgxMjUgLTAuNTMxMjUgQyAyLjc4MTI1IC0xLjAzOTA2MiAyLjUzMTI1IC0xLjY2MDE1NiAyLjUzMTI1IC0yLjM5MDYyNSBDIDIuNTMxMjUgLTMuMTI4OTA2IDIuNzgxMjUgLTMuNzQyMTg4IDMuMjgxMjUgLTQuMjM0Mzc1IEMgMy43ODEyNSAtNC43MzQzNzUgNC4zNzg5MDYgLTQuOTg0Mzc1IDUuMDc4MTI1IC00Ljk4NDM3NSBDIDUuNzczNDM4IC00Ljk4NDM3NSA2LjM3ODkwNiAtNC43MzQzNzUgNi44OTA2MjUgLTQuMjM0Mzc1IEMgNy40MTAxNTYgLTMuNzQyMTg4IDcuNjcxODc1IC0zLjEyODkwNiA3LjY3MTg3NSAtMi4zOTA2MjUgQyA3LjY3MTg3NSAtMS42NjAxNTYgNy40MTAxNTYgLTEuMDM5MDYyIDYuODkwNjI1IC0wLjUzMTI1IEMgNi4zNzg5MDYgLTAuMDE5NTMxMiA1Ljc3MzQzOCAwLjIzNDM3NSA1LjA3ODEyNSAwLjIzNDM3NSBaIE0gNS4wNzgxMjUgMC4yMzQzNzUgIi8+PC9nPjwvZz48L2c+PC9zdmc+" alt="Martin Leon Agency" class="nav-logo-img"></a>
   <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
     <li><a href="services.html" class="active">Services</a></li>
     <li><a href="pricing.html">Pricing</a></li>
     <li><a href="booking.html">Book a Call</a></li>
-    <li><a href="martin-leon-agency.html#contact">Contact</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
   </ul>
-  <div class="nav-right"><a href="booking.html" class="nav-cta">Get Started</a></div>
-  <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+  <a href="booking.html" class="nav-cta">Get a Quote</a>
+  <button class="ham" id="ham"><span></span><span></span><span></span></button>
 </nav>
-
 <div class="mob-menu" id="mob-menu">
-  <a href="services.html">Services</a>
-  <a href="pricing.html">Pricing</a>
-  <a href="booking.html">Book a Call</a>
-  <a href="martin-leon-agency.html#contact">Contact</a>
-  <a href="booking.html" class="mob-cta">Get Started →</a>
+  <a href="index.html">Home</a><a href="services.html">Services</a><a href="pricing.html">Pricing</a><a href="booking.html">Book a Call</a><a href="index.html#contact">Contact</a>
+  <a href="booking.html" class="mob-cta">Get a Quote →</a>
 </div>
-
 <div class="page-hero">
-  <span class="hero-tag">Everything We Offer</span>
-  <h1>Three Core Services.<br><em>One Focused Agency.</em></h1>
-  <p>Social media growth with graphic design built in. Virtual assistant and admin support. And web design that converts. Every service is built to save you time and grow your brand.</p>
+  <div class="stag"><div class="tdots"><div class="tdot"></div><div class="tdot b"></div></div>What We Offer</div>
+  <h1>Four Services.<br><em>One Agency.</em></h1>
+  <p>Social media growth, workflow automation, AI tools, and virtual assistance — everything you need to scale without the chaos.</p>
+</div>
+<div class="svc-tabs">
+  <a href="#social" class="tl active" data-tab="social"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>Social Media</a>
+  <a href="#workflow" class="tl" data-tab="workflow"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="6" height="6" rx="1"/><rect x="16" y="7" width="6" height="6" rx="1"/><rect x="9" y="14" width="6" height="6" rx="1"/></svg>Workflow Automation</a>
+  <a href="#ai" class="tl" data-tab="ai"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>AI Automation</a>
+  <a href="#va" class="tl" data-tab="va"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Virtual Assistance</a>
 </div>
 
-<div class="service-tabs" id="service-tabs">
-  <a href="#social" class="tab-link active" data-tab="social">
-    <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-    Social Media Management
-  </a>
-  <a href="#va" class="tab-link" data-tab="va">
-    <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-    Virtual Assistant & Admin
-  </a>
-  <a href="#web" class="tab-link" data-tab="web">
-    <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-    Web Design & Development
-  </a>
-</div>
-
-<!-- 01 SOCIAL MEDIA -->
-<section class="service-block" id="social">
-  <div class="block-layout">
+<section class="sb" id="social">
+  <div class="bl">
     <div class="reveal">
-      <span class="svc-num">01</span>
-      <span class="svc-tag">Social Media Management</span>
-      <h2 class="svc-title">Your Brand, Active & Growing — Every Single Day.</h2>
-      <p class="svc-desc">We take over your entire social media presence — from strategy and content creation to scheduling, posting, community management, and monthly analytics. You focus on your business; we make sure your audience keeps growing.</p>
-      <div class="svc-pills">
-        <span class="pill">Instagram</span><span class="pill">Facebook</span><span class="pill">TikTok</span>
-        <span class="pill">X / Twitter</span><span class="pill">LinkedIn</span><span class="pill">Pinterest</span>
+      <span class="snum">01</span>
+      <span class="stag2">Social Media Management</span>
+      <h2 class="stitle">Your Brand, Active &amp; Growing — Every Single Day.</h2>
+      <p class="sdesc">We manage your entire social media presence — strategy, content, branded graphics, scheduling, and community engagement — on whichever platforms your audience actually uses. No rigid tiers. We build around your goals.</p>
+      <div class="pills">
+        <span class="pill">Instagram</span><span class="pill">Facebook</span><span class="pill">LinkedIn</span>
+        <span class="pill">X / Twitter</span><span class="pill">TikTok</span><span class="pill">Pinterest</span>
         <span class="pill">YouTube Shorts</span><span class="pill">WhatsApp Channel</span>
       </div>
-      <ul class="svc-features">
-        <li>Full content strategy & monthly content calendar</li>
-        <li>Copywriting for every post — captions, hooks, CTAs</li>
+      <ul class="feats">
+        <li>Full content strategy &amp; monthly content calendar</li>
+        <li>Copywriting — captions, hooks, CTAs tailored per platform</li>
         <li>Custom branded graphics for every post</li>
-        <li>Daily/weekly scheduling & publishing</li>
+        <li>Scheduling, publishing &amp; platform management</li>
         <li>Community management — comments, DMs, replies</li>
-        <li>Hashtag research & growth strategy</li>
-        <li>Paid social ad campaign creation & management</li>
-        <li>Monthly analytics report with insights & recommendations</li>
-        <li>Competitor benchmarking & trend monitoring</li>
+        <li>Hashtag research &amp; organic growth strategy</li>
+        <li>Paid social ad creation &amp; campaign management</li>
+        <li>Monthly analytics report with insights &amp; next steps</li>
       </ul>
-
-      <span class="svc-sub-heading">Included: Graphic Design & Visual Content</span>
-      <p class="svc-desc" style="margin-bottom:1rem;">Every post we manage comes with custom-designed visuals — no stock templates, no recycled graphics. We build a full visual identity and keep it consistent across every platform.</p>
-      <div class="svc-pills">
-        <span class="pill">Logo & Brand Identity</span><span class="pill">Social Graphics</span>
-        <span class="pill">Ad Creatives</span><span class="pill">Reels Covers</span>
-        <span class="pill">Flyers & Banners</span><span class="pill">Email Templates</span>
-        <span class="pill">Pitch Decks</span><span class="pill">Packaging Design</span>
-      </div>
-      <ul class="svc-features">
-        <li>Brand identity — logo, colours, typography & style guide</li>
-        <li>Branded social media graphic templates (editable)</li>
-        <li>Static & animated ad creatives (Facebook, Google, TikTok)</li>
-        <li>Flyers, posters, banners & print-ready files</li>
-        <li>Pitch decks, company profiles & presentations</li>
-        <li>All files delivered in multiple formats (PNG, PDF, SVG)</li>
-        <li>Up to 3 revision rounds on every design project</li>
+      <span class="subh">Graphic Design — Included</span>
+      <ul class="feats">
+        <li>Brand identity — logo, colour palette, typography &amp; style guide</li>
+        <li>Branded social templates, ad creatives &amp; story graphics</li>
+        <li>Flyers, banners, pitch decks &amp; print-ready files</li>
+        <li>Files in all formats — PNG, PDF, SVG</li>
       </ul>
-
-      <div class="svc-cta-strip">
-        <p><strong>Ready to grow your audience?</strong>We'll audit your profiles and launch a tailored strategy in week one.</p>
-        <a href="booking.html" class="btn-cta">Book a Free Call →</a>
+      <div class="cta-strip">
+        <p><strong>Ready to grow?</strong>We'll audit your profiles and launch a tailored strategy in week one.</p>
+        <a href="booking.html" class="bcta">Book a Free Call →</a>
       </div>
     </div>
-    <div class="reveal reveal-delay-1">
-      <div class="svc-visual-dark">
-        <span class="dark-num">01</span>
-        <p class="dark-label">Social Media That Sells</p>
-        <p class="dark-sub">We don't just post — we build communities and brand visuals that convert followers into loyal customers.</p>
-        <div class="dark-stats">
-          <div class="dstat"><span class="dstat-num">3x</span><span class="dstat-label">Avg. Engagement Increase</span></div>
-          <div class="dstat"><span class="dstat-num">60d</span><span class="dstat-label">Avg. Time to See Growth</span></div>
-        </div>
+    <div class="reveal d1">
+      <div class="dark-panel">
+        <span class="dn">01</span>
+        <p class="dl">Social Media That Sells</p>
+        <p class="ds">We build communities and brand visuals that convert followers into loyal customers — on your preferred platforms.</p>
+        <div class="dstats"><div><span class="dsn">3x</span><span class="dsl">Avg. Engagement Lift</span></div><div><span class="dsn">60d</span><span class="dsl">Avg. Growth Timeline</span></div></div>
       </div>
-      <div style="margin-top:1.5rem;background:var(--gold-pale);border:1px solid rgba(184,146,42,0.2);border-radius:10px;padding:1.5rem;">
-        <p style="font-size:0.82rem;font-weight:500;color:var(--black);margin-bottom:0.75rem;">Platforms We Manage</p>
-        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
-          <span style="background:#fff;border:1px solid rgba(184,146,42,0.2);border-radius:6px;padding:0.4rem 0.8rem;font-size:0.78rem;color:var(--ink);">📸 Instagram</span>
-          <span style="background:#fff;border:1px solid rgba(184,146,42,0.2);border-radius:6px;padding:0.4rem 0.8rem;font-size:0.78rem;color:var(--ink);">👍 Facebook</span>
-          <span style="background:#fff;border:1px solid rgba(184,146,42,0.2);border-radius:6px;padding:0.4rem 0.8rem;font-size:0.78rem;color:var(--ink);">🎵 TikTok</span>
-          <span style="background:#fff;border:1px solid rgba(184,146,42,0.2);border-radius:6px;padding:0.4rem 0.8rem;font-size:0.78rem;color:var(--ink);">💼 LinkedIn</span>
-          <span style="background:#fff;border:1px solid rgba(184,146,42,0.2);border-radius:6px;padding:0.4rem 0.8rem;font-size:0.78rem;color:var(--ink);">🐦 Twitter/X</span>
-          <span style="background:#fff;border:1px solid rgba(184,146,42,0.2);border-radius:6px;padding:0.4rem 0.8rem;font-size:0.78rem;color:var(--ink);">📌 Pinterest</span>
-        </div>
-      </div>
-      <div style="margin-top:1rem;display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
-        <div style="background:var(--gold-soft);border-radius:10px;padding:1.1rem;text-align:center;">
-          <p style="font-size:1.4rem;margin-bottom:4px;">🎨</p>
-          <p style="font-size:0.8rem;font-weight:500;color:var(--black);">Brand Identity</p>
-          <p style="font-size:0.72rem;color:var(--smoke);">Logo, colours & style guide</p>
-        </div>
-        <div style="background:var(--teal-soft);border-radius:10px;padding:1.1rem;text-align:center;">
-          <p style="font-size:1.4rem;margin-bottom:4px;">📱</p>
-          <p style="font-size:0.8rem;font-weight:500;color:var(--black);">Social Graphics</p>
-          <p style="font-size:0.72rem;color:var(--smoke);">Posts, stories & reels covers</p>
-        </div>
-        <div style="background:var(--slate);border-radius:10px;padding:1.1rem;text-align:center;">
-          <p style="font-size:1.4rem;margin-bottom:4px;">📊</p>
-          <p style="font-size:0.8rem;font-weight:500;color:var(--black);">Pitch Decks</p>
-          <p style="font-size:0.72rem;color:var(--smoke);">Investor-ready presentations</p>
-        </div>
-        <div style="background:var(--cream);border-radius:10px;padding:1.1rem;text-align:center;border:1px solid rgba(184,146,42,0.12);">
-          <p style="font-size:1.4rem;margin-bottom:4px;">🖨️</p>
-          <p style="font-size:0.8rem;font-weight:500;color:var(--black);">Print Design</p>
-          <p style="font-size:0.72rem;color:var(--smoke);">Flyers, banners & packaging</p>
+      <div class="info-box">
+        <p>Available Platforms</p>
+        <div class="tag-list">
+          <span class="tag-pill">📸 Instagram</span><span class="tag-pill">👍 Facebook</span><span class="tag-pill">🎵 TikTok</span>
+          <span class="tag-pill">💼 LinkedIn</span><span class="tag-pill">🐦 Twitter/X</span><span class="tag-pill">📌 Pinterest</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 02 VIRTUAL ASSISTANT & ADMIN -->
-<section class="service-block" id="va">
-  <div class="block-layout reverse">
+<section class="sb" id="workflow">
+  <div class="bl rev">
     <div class="reveal">
-      <span class="svc-num">02</span>
-      <span class="svc-tag">Virtual Assistant & Admin Services</span>
-      <h2 class="svc-title">The Right Support, Right When You Need It.</h2>
-      <p class="svc-desc">Stop spending your most valuable hours on tasks that pull you away from growing your business. We match you with a skilled, pre-vetted Virtual Assistant and back that with full admin task support — so your day-to-day runs itself.</p>
+      <span class="snum">02</span>
+      <span class="stag2">Workflow Automation</span>
+      <h2 class="stitle">Stop Doing Manually What a System Can Do Instantly.</h2>
+      <p class="sdesc">We map your existing business processes, identify bottlenecks, and build automated pipelines that connect your tools and eliminate repetitive manual work — so your team focuses on what actually moves the needle.</p>
+      <div class="pills">
+        <span class="pill">Zapier</span><span class="pill">Make</span><span class="pill">n8n</span>
+        <span class="pill">HubSpot</span><span class="pill">Notion</span><span class="pill">Airtable</span>
+        <span class="pill">Slack</span><span class="pill">Google Workspace</span>
+      </div>
+      <ul class="feats">
+        <li>Business process mapping &amp; bottleneck analysis</li>
+        <li>Automated onboarding flows for new clients</li>
+        <li>CRM automation — lead capture, follow-up, nurture sequences</li>
+        <li>Invoice &amp; payment automation</li>
+        <li>Automated reporting dashboards</li>
+        <li>Email &amp; notification pipelines</li>
+        <li>Cross-platform data sync</li>
+        <li>Custom integrations between your existing tools</li>
+        <li>Full documentation &amp; handover</li>
+      </ul>
+      <div class="cta-strip">
+        <p><strong>Let's map your workflow.</strong>One discovery call is all it takes to see where automation saves you hours.</p>
+        <a href="booking.html" class="bcta">Book Discovery Call →</a>
+      </div>
+    </div>
+    <div class="reveal d1">
+      <div class="dark-panel">
+        <span class="dn">02</span>
+        <p class="dl">Workflow Automation</p>
+        <p class="ds">Connect your tools, eliminate manual steps, and build processes that run themselves — every time.</p>
+        <div class="dstats"><div><span class="dsn">10+</span><span class="dsl">Hours Saved / Week</span></div><div><span class="dsn">100%</span><span class="dsl">Process Documented</span></div></div>
+      </div>
+      <div class="info-box">
+        <p>What We Automate</p>
+        <div class="tag-list">
+          <span class="tag-pill">Lead capture</span><span class="tag-pill">Client onboarding</span>
+          <span class="tag-pill">Invoice &amp; billing</span><span class="tag-pill">Email sequences</span>
+          <span class="tag-pill">Reporting</span><span class="tag-pill">Data sync</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <span class="svc-sub-heading">Virtual Assistant Matching</span>
-      <p style="font-size:0.88rem;font-weight:500;color:var(--black);margin-bottom:1rem;">How the Matching Process Works</p>
+<section class="sb" id="ai">
+  <div class="bl">
+    <div class="reveal">
+      <span class="snum">03</span>
+      <span class="stag2">AI Automation</span>
+      <h2 class="stitle">Deploy Intelligence. Scale Without Hiring.</h2>
+      <p class="sdesc">We build and deploy AI-powered tools, agents, and chatbots that handle customer conversations, qualify leads, generate content, and manage tasks — 24/7, without adding headcount. From simple automations to full AI agent stacks.</p>
+      <div class="pills">
+        <span class="pill">OpenAI / GPT-4</span><span class="pill">Claude</span><span class="pill">Voiceflow</span>
+        <span class="pill">Botpress</span><span class="pill">n8n AI</span><span class="pill">Make AI</span>
+        <span class="pill">Prompt Engineering</span><span class="pill">RAG Systems</span>
+      </div>
+      <ul class="feats">
+        <li>AI chatbot design, build &amp; deployment (web, WhatsApp, Instagram)</li>
+        <li>Lead qualification &amp; intake bots</li>
+        <li>AI customer service agents — trained on your business data</li>
+        <li>AI-powered email response drafting</li>
+        <li>Content generation pipelines (social, blogs, newsletters)</li>
+        <li>Internal AI tools for your team</li>
+        <li>Prompt engineering &amp; system design</li>
+        <li>AI integration into existing tools &amp; workflows</li>
+        <li>Maintenance, monitoring &amp; ongoing optimisation</li>
+      </ul>
+      <div class="cta-strip">
+        <p><strong>Ready to deploy AI?</strong>We'll show you exactly where AI saves you the most time and money.</p>
+        <a href="booking.html" class="bcta">Explore AI Solutions →</a>
+      </div>
+    </div>
+    <div class="reveal d1">
+      <div class="dark-panel">
+        <span class="dn">03</span>
+        <p class="dl">AI Automation</p>
+        <p class="ds">Smart agents and AI tools that qualify leads, answer customers, and generate content — around the clock.</p>
+        <div class="dstats"><div><span class="dsn">24/7</span><span class="dsl">Always On</span></div><div><span class="dsn">80%</span><span class="dsl">Avg. Task Reduction</span></div></div>
+      </div>
+      <div class="info-box">
+        <p>What We Build</p>
+        <div class="tag-list">
+          <span class="tag-pill">AI chatbots</span><span class="tag-pill">Lead bots</span>
+          <span class="tag-pill">AI agents</span><span class="tag-pill">Content pipelines</span>
+          <span class="tag-pill">Internal tools</span><span class="tag-pill">RAG systems</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sb" id="va">
+  <div class="bl rev">
+    <div class="reveal">
+      <span class="snum">04</span>
+      <span class="stag2">Virtual Assistance</span>
+      <h2 class="stitle">The Right Support, Right When You Need It.</h2>
+      <p class="sdesc">We match you with a pre-vetted, skilled Virtual Assistant tailored to your exact needs — backed by full admin task support so your operations run smoothly every single day.</p>
+      <span class="subh">VA Matching Process</span>
       <ul style="list-style:none;margin-bottom:1.5rem;">
-        <li style="display:flex;gap:1rem;align-items:flex-start;padding:1rem 0;border-bottom:1px solid rgba(184,146,42,0.1);">
-          <div style="width:32px;height:32px;border-radius:50%;background:var(--gold);color:#fff;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:700;">1</div>
-          <div><strong style="display:block;font-size:0.92rem;color:var(--black);margin-bottom:2px;">You tell us what you need</strong><span style="font-size:0.84rem;color:var(--smoke);line-height:1.5;">Fill out a quick brief — tasks, hours per week, time zone, communication style, and tools you use.</span></div>
-        </li>
-        <li style="display:flex;gap:1rem;align-items:flex-start;padding:1rem 0;border-bottom:1px solid rgba(184,146,42,0.1);">
-          <div style="width:32px;height:32px;border-radius:50%;background:var(--gold);color:#fff;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:700;">2</div>
-          <div><strong style="display:block;font-size:0.92rem;color:var(--black);margin-bottom:2px;">We source & vet your match</strong><span style="font-size:0.84rem;color:var(--smoke);line-height:1.5;">We screen our network and shortlist 2–3 VAs who fit your brief — skills, availability, and personality.</span></div>
-        </li>
-        <li style="display:flex;gap:1rem;align-items:flex-start;padding:1rem 0;border-bottom:1px solid rgba(184,146,42,0.1);">
-          <div style="width:32px;height:32px;border-radius:50%;background:var(--gold);color:#fff;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:700;">3</div>
-          <div><strong style="display:block;font-size:0.92rem;color:var(--black);margin-bottom:2px;">You meet and approve your VA</strong><span style="font-size:0.84rem;color:var(--smoke);line-height:1.5;">A quick intro call. You decide who you want to work with — no pressure, no obligation.</span></div>
-        </li>
-        <li style="display:flex;gap:1rem;align-items:flex-start;padding:1rem 0;">
-          <div style="width:32px;height:32px;border-radius:50%;background:var(--gold);color:#fff;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:700;">4</div>
-          <div><strong style="display:block;font-size:0.92rem;color:var(--black);margin-bottom:2px;">They start within 48 hours</strong><span style="font-size:0.84rem;color:var(--smoke);line-height:1.5;">Onboarding, tool access, and your first task list — all handled through Martin Leon Agency.</span></div>
-        </li>
+        <li style="display:flex;gap:1rem;padding:0.9rem 0;border-bottom:1px solid rgba(27,79,216,0.08);align-items:flex-start;"><div style="width:30px;height:30px;border-radius:50%;background:var(--blue);color:#fff;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.76rem;font-weight:700;">1</div><div><strong style="display:block;font-size:0.9rem;color:var(--navy);margin-bottom:2px;">You tell us what you need</strong><span style="font-size:0.83rem;color:var(--smoke);line-height:1.5;">Tasks, hours per week, time zone, tools, and working style.</span></div></li>
+        <li style="display:flex;gap:1rem;padding:0.9rem 0;border-bottom:1px solid rgba(27,79,216,0.08);align-items:flex-start;"><div style="width:30px;height:30px;border-radius:50%;background:var(--blue);color:#fff;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.76rem;font-weight:700;">2</div><div><strong style="display:block;font-size:0.9rem;color:var(--navy);margin-bottom:2px;">We source &amp; vet your match</strong><span style="font-size:0.83rem;color:var(--smoke);line-height:1.5;">We shortlist 2–3 VAs matched to your brief, skills, and personality.</span></div></li>
+        <li style="display:flex;gap:1rem;padding:0.9rem 0;border-bottom:1px solid rgba(27,79,216,0.08);align-items:flex-start;"><div style="width:30px;height:30px;border-radius:50%;background:var(--blue);color:#fff;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.76rem;font-weight:700;">3</div><div><strong style="display:block;font-size:0.9rem;color:var(--navy);margin-bottom:2px;">You meet and approve</strong><span style="font-size:0.83rem;color:var(--smoke);line-height:1.5;">A quick intro call — you decide who you work with. No obligation.</span></div></li>
+        <li style="display:flex;gap:1rem;padding:0.9rem 0;align-items:flex-start;"><div style="width:30px;height:30px;border-radius:50%;background:var(--blue);color:#fff;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.76rem;font-weight:700;">4</div><div><strong style="display:block;font-size:0.9rem;color:var(--navy);margin-bottom:2px;">They start within 48 hours</strong><span style="font-size:0.83rem;color:var(--smoke);line-height:1.5;">Onboarding, tool access, and your first task list — handled seamlessly.</span></div></li>
       </ul>
-
-      <span class="svc-sub-heading">Admin Task Support</span>
-      <p style="font-size:0.88rem;font-weight:500;color:var(--black);margin-bottom:1rem;">Task Categories We Cover</p>
-      <div class="task-grid">
-        <div class="task-cat"><span class="task-cat-icon">📬</span><p class="task-cat-name">Inbox & Communication</p><p class="task-cat-items">Email management, drafting replies, follow-ups, client communication, spam filtering</p></div>
-        <div class="task-cat"><span class="task-cat-icon">📅</span><p class="task-cat-name">Scheduling & Calendars</p><p class="task-cat-items">Meeting booking, calendar management, appointment reminders, time zone coordination</p></div>
-        <div class="task-cat"><span class="task-cat-icon">📊</span><p class="task-cat-name">Data & Reporting</p><p class="task-cat-items">Data entry, spreadsheet management, report formatting, database updates, CRM management</p></div>
-        <div class="task-cat"><span class="task-cat-icon">🔍</span><p class="task-cat-name">Research & Sourcing</p><p class="task-cat-items">Market research, competitor analysis, supplier sourcing, product research, fact-checking</p></div>
-        <div class="task-cat"><span class="task-cat-icon">📄</span><p class="task-cat-name">Documents & Files</p><p class="task-cat-items">Document creation, formatting, filing systems, PDF management, contract drafting support</p></div>
-        <div class="task-cat"><span class="task-cat-icon">🤝</span><p class="task-cat-name">Project Coordination</p><p class="task-cat-items">Task tracking, team follow-ups, Trello/Asana management, vendor coordination, invoicing</p></div>
+      <span class="subh">Admin Task Categories</span>
+      <div class="tgrid">
+        <div class="tc"><span class="tci">📬</span><p class="tcn">Inbox &amp; Communication</p><p class="tcd">Email management, replies, follow-ups, spam filtering</p></div>
+        <div class="tc"><span class="tci">📅</span><p class="tcn">Scheduling &amp; Calendars</p><p class="tcd">Meetings, appointments, reminders, coordination</p></div>
+        <div class="tc"><span class="tci">📊</span><p class="tcn">Data &amp; Reporting</p><p class="tcd">Data entry, spreadsheets, CRM updates, reports</p></div>
+        <div class="tc"><span class="tci">🔍</span><p class="tcn">Research</p><p class="tcd">Market research, competitor analysis, sourcing</p></div>
+        <div class="tc"><span class="tci">📄</span><p class="tcn">Documents &amp; Files</p><p class="tcd">Drafting, formatting, filing, PDF management</p></div>
+        <div class="tc"><span class="tci">🤝</span><p class="tcn">Project Coordination</p><p class="tcd">Task tracking, Trello/Asana, vendor coordination</p></div>
       </div>
-
-      <div class="svc-cta-strip">
-        <p><strong>Ready to reclaim your time?</strong>Tell us what's on your plate and we'll handle it reliably and on time.</p>
-        <a href="booking.html" class="btn-cta">Get Matched →</a>
+      <div class="cta-strip">
+        <p><strong>Ready to reclaim your time?</strong>Tell us what's on your plate and we'll handle it.</p>
+        <a href="booking.html" class="bcta">Get Matched →</a>
       </div>
     </div>
-    <div class="reveal reveal-delay-1">
-      <div class="svc-visual-dark">
-        <span class="dark-num">02</span>
-        <p class="dark-label">VA & Admin Support</p>
-        <p class="dark-sub">Pre-vetted VAs plus comprehensive admin coverage — your business runs even when you're not watching.</p>
-        <div class="dark-stats">
-          <div class="dstat"><span class="dstat-num">48hr</span><span class="dstat-label">Matching Guarantee</span></div>
-          <div class="dstat"><span class="dstat-num">100%</span><span class="dstat-label">Pre-vetted VAs</span></div>
-        </div>
+    <div class="reveal d1">
+      <div class="dark-panel">
+        <span class="dn">04</span>
+        <p class="dl">Virtual Assistance</p>
+        <p class="ds">Pre-vetted VAs matched to your business — plus full admin support so your day-to-day runs itself.</p>
+        <div class="dstats"><div><span class="dsn">48hr</span><span class="dsl">Matching Guarantee</span></div><div><span class="dsn">100%</span><span class="dsl">Pre-vetted VAs</span></div></div>
       </div>
-      <div style="margin-top:1.5rem;background:var(--teal-soft);border:1px solid rgba(15,123,108,0.15);border-radius:10px;padding:1.5rem;">
-        <p style="font-size:0.82rem;font-weight:500;color:var(--black);margin-bottom:0.85rem;">What Your VA Can Handle</p>
-        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
-          <span style="background:#fff;border:1px solid rgba(15,123,108,0.2);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.78rem;color:var(--ink);">Email management</span>
-          <span style="background:#fff;border:1px solid rgba(15,123,108,0.2);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.78rem;color:var(--ink);">Calendar management</span>
-          <span style="background:#fff;border:1px solid rgba(15,123,108,0.2);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.78rem;color:var(--ink);">Customer support</span>
-          <span style="background:#fff;border:1px solid rgba(15,123,108,0.2);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.78rem;color:var(--ink);">Research tasks</span>
-          <span style="background:#fff;border:1px solid rgba(15,123,108,0.2);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.78rem;color:var(--ink);">Travel booking</span>
-          <span style="background:#fff;border:1px solid rgba(15,123,108,0.2);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.78rem;color:var(--ink);">Project coordination</span>
-          <span style="background:#fff;border:1px solid rgba(15,123,108,0.2);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.78rem;color:var(--ink);">Social media posting</span>
-        </div>
-      </div>
-      <div style="margin-top:1rem;background:var(--gold-pale);border:1px solid rgba(184,146,42,0.2);border-radius:10px;padding:1.5rem;">
-        <p style="font-size:0.82rem;font-weight:500;color:var(--black);margin-bottom:0.75rem;">Tools We Work With</p>
-        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
-          <span style="background:#fff;border:1px solid rgba(184,146,42,0.18);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.78rem;color:var(--ink);">Google Workspace</span>
-          <span style="background:#fff;border:1px solid rgba(184,146,42,0.18);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.78rem;color:var(--ink);">Microsoft 365</span>
-          <span style="background:#fff;border:1px solid rgba(184,146,42,0.18);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.78rem;color:var(--ink);">Trello</span>
-          <span style="background:#fff;border:1px solid rgba(184,146,42,0.18);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.78rem;color:var(--ink);">Asana</span>
-          <span style="background:#fff;border:1px solid rgba(184,146,42,0.18);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.78rem;color:var(--ink);">Notion</span>
-          <span style="background:#fff;border:1px solid rgba(184,146,42,0.18);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.78rem;color:var(--ink);">HubSpot</span>
-          <span style="background:#fff;border:1px solid rgba(184,146,42,0.18);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.78rem;color:var(--ink);">Slack</span>
-          <span style="background:#fff;border:1px solid rgba(184,146,42,0.18);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.78rem;color:var(--ink);">Airtable</span>
+      <div class="info-box">
+        <p>Tools We Work With</p>
+        <div class="tag-list">
+          <span class="tag-pill">Google Workspace</span><span class="tag-pill">Microsoft 365</span>
+          <span class="tag-pill">Trello</span><span class="tag-pill">Asana</span><span class="tag-pill">Notion</span>
+          <span class="tag-pill">HubSpot</span><span class="tag-pill">Slack</span><span class="tag-pill">Airtable</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 03 WEB DESIGN -->
-<section class="service-block" id="web">
-  <div class="block-layout">
-    <div class="reveal">
-      <span class="svc-num">03</span>
-      <span class="svc-tag">Web Design & Development</span>
-      <h2 class="svc-title">Websites That Work as Hard as You Do.</h2>
-      <p class="svc-desc">Your website is your most powerful sales tool — or your biggest missed opportunity. We design, build, and manage websites that are beautiful, fast, and built to convert visitors into paying customers.</p>
-      <div class="svc-pills">
-        <span class="pill">WordPress</span><span class="pill">Webflow</span><span class="pill">Shopify</span>
-        <span class="pill">Custom HTML/CSS</span><span class="pill">Landing Pages</span>
-        <span class="pill">E-commerce</span><span class="pill">SEO</span><span class="pill">Maintenance</span>
-      </div>
-      <ul class="svc-features">
-        <li>Custom website design — mobile-first, pixel-perfect</li>
-        <li>WordPress, Webflow & Shopify development</li>
-        <li>E-commerce store setup, products & payment integration</li>
-        <li>Landing pages & sales funnels</li>
-        <li>On-page SEO setup (meta tags, schema, speed optimisation)</li>
-        <li>Website copywriting (optional add-on)</li>
-        <li>Hosting setup & domain configuration</li>
-        <li>Ongoing website maintenance & security updates</li>
-        <li>Analytics setup (Google Analytics, Search Console)</li>
-      </ul>
-      <div class="svc-cta-strip">
-        <p><strong>Get a site that sells.</strong>Standard websites designed and launched within 7–14 business days.</p>
-        <a href="booking.html" class="btn-cta">Discuss Your Website →</a>
-      </div>
-    </div>
-    <div class="reveal reveal-delay-1">
-      <div class="svc-visual-dark">
-        <span class="dark-num">03</span>
-        <p class="dark-label">Websites Built to Convert</p>
-        <p class="dark-sub">Fast, responsive, and designed to turn visitors into customers — from first click to checkout.</p>
-        <div class="dark-stats">
-          <div class="dstat"><span class="dstat-num">7–14</span><span class="dstat-label">Days to Launch</span></div>
-          <div class="dstat"><span class="dstat-num">100%</span><span class="dstat-label">Mobile Responsive</span></div>
-        </div>
-      </div>
-      <div style="margin-top:1.5rem;background:var(--gold-pale);border:1px solid rgba(184,146,42,0.18);border-radius:10px;padding:1.5rem;">
-        <p style="font-size:0.82rem;font-weight:500;color:var(--black);margin-bottom:1rem;">Our Build Process</p>
-        <div style="display:flex;flex-direction:column;gap:0.7rem;">
-          <div style="display:flex;align-items:center;gap:0.75rem;"><div style="width:28px;height:28px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;color:#fff;flex-shrink:0;">1</div><span style="font-size:0.84rem;color:var(--ink);">Discovery & wireframe</span></div>
-          <div style="display:flex;align-items:center;gap:0.75rem;"><div style="width:28px;height:28px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;color:#fff;flex-shrink:0;">2</div><span style="font-size:0.84rem;color:var(--ink);">Design mockup (Figma)</span></div>
-          <div style="display:flex;align-items:center;gap:0.75rem;"><div style="width:28px;height:28px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;color:#fff;flex-shrink:0;">3</div><span style="font-size:0.84rem;color:var(--ink);">Build & client review</span></div>
-          <div style="display:flex;align-items:center;gap:0.75rem;"><div style="width:28px;height:28px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;color:#fff;flex-shrink:0;">4</div><span style="font-size:0.84rem;color:var(--ink);">QA, launch & handover</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="page-cta">
-  <span class="hero-tag">Ready to Get Started?</span>
+<div class="pcta">
   <h2>Not Sure Which Service You Need?</h2>
-  <p>Book a free 30-minute strategy call. We'll review your business, identify your biggest opportunities, and recommend the right combination of services.</p>
-  <div class="cta-row">
-    <a href="booking.html" class="btn-white">Book a Free Strategy Call</a>
-    <a href="onboarding.html" class="btn-outline-w">Start Onboarding</a>
-  </div>
+  <p>Book a free 30-minute strategy call. We'll review your business and recommend the right combination.</p>
+  <div class="crow"><a href="booking.html" class="bw">Book a Free Strategy Call</a><a href="pricing.html" class="bwo">View Pricing</a></div>
 </div>
-
-<div class="page-footer">
-  <p class="footer-copy">© 2026 Martin Leon Agency. All rights reserved.</p>
-  <div class="footer-links">
-    <a href="martin-leon-agency.html">Home</a>
-    <a href="pricing.html">Pricing</a>
-    <a href="booking.html">Book a Call</a>
-    <a href="martin-leon-agency.html#contact">Contact</a>
-  </div>
+<div class="pfooter">
+  <p class="fc">© 2026 Martin Leon Agency. All rights reserved.</p>
+  <div class="fl"><a href="index.html">Home</a><a href="pricing.html">Pricing</a><a href="booking.html">Book a Call</a><a href="index.html#contact">Contact</a></div>
 </div>
-
 <script>
-const ham = document.getElementById('ham');
-const mob = document.getElementById('mob-menu');
-ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.08 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-const sections = ['social','va','web'];
-const tabLinks = document.querySelectorAll('.tab-link');
-window.addEventListener('scroll', () => {
-  const scrollY = window.scrollY + 200;
-  let current = 'social';
-  sections.forEach(id => {
-    const el = document.getElementById(id);
-    if (el && el.offsetTop <= scrollY) current = id;
-  });
-  tabLinks.forEach(t => t.classList.toggle('active', t.dataset.tab === current));
-}, { passive: true });
+const ham=document.getElementById('ham'),mob=document.getElementById('mob-menu');
+ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open');});
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');});},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+const secs=['social','workflow','ai','va'],tabs=document.querySelectorAll('.tl');
+window.addEventListener('scroll',()=>{const y=window.scrollY+160;let c='social';secs.forEach(id=>{const el=document.getElementById(id);if(el&&el.offsetTop<=y)c=id;});tabs.forEach(t=>t.classList.toggle('active',t.dataset.tab===c));},{passive:true});
 </script>
 </body>
 </html>
