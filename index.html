@@ -525,9 +525,80 @@ footer{background:var(--navy);padding:4rem 6vw 2rem;border-top:1px solid rgba(25
 @media(max-width:900px){
   .nav-links,.nav-cta{display:none;}
   .ham{display:flex;}
-  .hero{grid-template-columns:1fr;min-height:auto;padding:4rem 6vw;}
-  .hero-right{display:none;}
-  .hero-left{padding:0;}
+
+  /* ── HERO: image as full background, text overlaid ── */
+  .hero{
+    display:block;
+    position:relative;
+    min-height:100svh;
+    padding:0;
+    overflow:hidden;
+  }
+  .hero::before{display:none;}
+  .hero::after{display:none;}
+
+  /* Image fills the whole hero */
+  .hero-right{
+    display:block!important;
+    position:absolute;
+    inset:0;
+    height:100%;
+    width:100%;
+    z-index:0;
+  }
+  .hero-img-wrap{
+    position:absolute;inset:0;
+    width:100%;height:100%;
+    border-radius:0;overflow:hidden;
+  }
+  .hero-img{
+    width:100%;height:100%;
+    object-fit:cover;object-position:center top;
+    border-radius:0;margin:0;
+    box-shadow:none;
+  }
+  /* Dark gradient overlay so text is readable */
+  .hero-right::after{
+    content:'';
+    position:absolute;inset:0;z-index:1;
+    background:linear-gradient(
+      to bottom,
+      rgba(10,22,40,0.55) 0%,
+      rgba(10,22,40,0.72) 50%,
+      rgba(10,22,40,0.88) 100%
+    );
+  }
+  /* Hide all floating cards on mobile */
+  .fc{display:none!important;}
+
+  /* Text copy sits above the overlay */
+  .hero-left{
+    position:relative;z-index:2;
+    padding:calc(var(--nav-h) + 3rem) 6vw 4rem;
+    display:flex;flex-direction:column;
+    min-height:100svh;
+    justify-content:flex-end;
+  }
+  /* Badge: semi-transparent on dark bg */
+  .hero-badge{
+    background:rgba(255,255,255,0.12);
+    border-color:rgba(255,255,255,0.25);
+    color:#fff;
+  }
+  /* Hero tag text: white */
+  .hero h1{color:#fff;font-size:clamp(2.4rem,9vw,3.6rem);}
+  .hero h1 .accent{color:#60A5FA;}
+  .hero h1 .accent::after{background:var(--red);}
+  .hero-sub{color:rgba(255,255,255,0.78);max-width:100%;}
+  /* Buttons: primary stays blue, ghost goes white-outline */
+  .btn-ghost{color:#fff;border-color:rgba(255,255,255,0.4);}
+  .btn-ghost:hover{border-color:#fff;color:#fff;}
+  /* Stats: white text */
+  .hstat-num{color:#fff;}
+  .hstat-label{color:rgba(255,255,255,0.6);}
+  .hstat+.hstat{border-left-color:rgba(255,255,255,0.2);}
+
+  /* Other sections */
   .about-grid{grid-template-columns:1fr;gap:3rem;}
   .ai-visual{display:none;}
   .stats-grid{grid-template-columns:1fr 1fr;}
@@ -537,16 +608,29 @@ footer{background:var(--navy);padding:4rem 6vw 2rem;border-top:1px solid rgba(25
   .footer-grid{grid-template-columns:1fr 1fr;gap:2.5rem;}
   .footer-grid .footer-brand{grid-column:1/-1;}
   .svc-grid{grid-template-columns:1fr;}
+  .services-section{padding:4rem 6vw;}
+  .about-section{padding:4rem 6vw;}
+  .testi-section{padding:4rem 6vw;}
+  .contact-section{padding:4rem 6vw;}
+  .cta-band{padding:4rem 6vw;}
 }
 @media(max-width:600px){
   .top-bar{display:none;}
-  .hero-actions{flex-direction:column;}
+  .hero-left{padding:calc(var(--nav-h) + 2rem) 5vw 3rem;}
+  .hero h1{font-size:clamp(2rem,10vw,2.8rem);}
+  .hero-sub{font-size:0.93rem;}
+  .hero-actions{flex-direction:column;gap:0.75rem;}
   .btn-primary,.btn-ghost{width:100%;text-align:center;justify-content:center;}
   .hero-stats{gap:0;}
   .hstat{padding-right:1.2rem;}
   .hstat+.hstat{padding-left:1.2rem;}
   .stats-grid{grid-template-columns:1fr 1fr;}
   .footer-grid{grid-template-columns:1fr;}
+  .section-title{font-size:clamp(1.6rem,6vw,2rem);}
+  .testi-section,.about-section,.contact-section,.cta-band,.services-section{padding:3.5rem 5vw;}
+  .stats-section{padding:0 5vw 3.5rem;}
+  .nav-logo-img{height:42px;}
+  .mob-menu{top:var(--nav-h);}
 }
 </style>
 </head>
