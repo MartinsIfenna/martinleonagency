@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Martin Leon Agency</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1628;--blue:#004AAD;--blue-lt:#1A6AD4;--blue-pale:#EEF1FB;
+  --blue-soft:#D6DCF7;--electric:#4A6FE8;--red:#DB1C19;--white:#FAFAFA;--light-bg:#F0F4FF;
+  --ink:#0D1117;--smoke:#4B5563;--mist:#9CA3AF;--cream:#F8FAFF;--nav-h: 78px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden;}
+
+.top-bar{background:var(--navy);padding:0.55rem 5vw;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;}
+.top-bar-left{display:flex;align-items:center;gap:1.75rem;}
+.tb-item{display:flex;align-items:center;gap:0.4rem;font-size:0.74rem;color:rgba(255,255,255,0.75);}
+.tb-item svg{width:13px;height:13px;stroke:var(--electric);fill:none;stroke-width:2;flex-shrink:0;}
+.tb-socials{display:flex;gap:0.5rem;}
+.tb-socials a{width:26px;height:26px;border-radius:4px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:background 0.2s;}
+.tb-socials a:hover{background:var(--blue);}
+.tb-socials svg{width:12px;height:12px;stroke:rgba(255,255,255,0.8);fill:none;stroke-width:2;}
+
+nav{position:sticky;top:0;z-index:200;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 5vw;background:rgba(250,250,250,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(27,79,216,0.1);box-shadow:0 2px 20px rgba(27,79,216,0.06);}
+.nav-logo{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;color:var(--navy);text-decoration:none;display:flex;align-items:center;gap:0.55rem;}
+.lm{width:32px;height:32px;background:var(--blue);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:800;color:#fff;}
+.nav-logo span{color:var(--blue);}
+.nav-logo-img { height: 54px; width: auto; display: block; }
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{font-size:0.78rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;color:var(--smoke);transition:color 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--blue);}
+.nav-cta{background:var(--blue);color:#fff;padding:0.55rem 1.4rem;font-size:0.76rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;border-radius:6px;transition:all 0.22s;box-shadow:0 4px 14px rgba(27,79,216,0.3);}
+.nav-cta:hover{background:var(--blue-lt);transform:translateY(-1px);}
+.ham{display:none;background:none;border:none;cursor:pointer;padding:4px;flex-direction:column;gap:5px;}
+.ham span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all 0.28s;}
+.ham.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.ham.open span:nth-child(2){opacity:0;}
+.ham.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+.mob-menu{display:none;position:fixed;top:calc(var(--nav-h) + 36px);left:0;right:0;z-index:190;background:var(--white);border-bottom:2px solid rgba(27,79,216,0.1);padding:1rem 5vw 2rem;flex-direction:column;box-shadow:0 12px 32px rgba(0,0,0,0.08);}
+.mob-menu.open{display:flex;}
+.mob-menu a{font-size:1rem;font-weight:500;text-decoration:none;color:var(--ink);padding:0.85rem 0;border-bottom:1px solid rgba(27,79,216,0.08);display:block;}
+.mob-cta{margin-top:1rem!important;background:var(--blue);color:#fff!important;text-align:center;border-radius:6px;padding:0.9rem!important;font-size:0.88rem;letter-spacing:0.06em;text-transform:uppercase;border-bottom:none!important;}
+
+/* PAGE HERO */
+.page-hero{background:var(--navy);padding:5.5rem 5vw 4.5rem;text-align:center;position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:700px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(27,79,216,0.15) 0%,transparent 70%);}
+.stag{display:flex;align-items:center;justify-content:center;gap:0.45rem;font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:0.75rem;}
+.tdots{display:flex;gap:3px;}
+.tdot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.6);}
+.tdot.b{background:rgba(232,38,26,0.6);}
+.page-hero h1{font-family:'Syne',sans-serif;font-size:clamp(2rem,4.5vw,3.4rem);font-weight:800;color:#fff;line-height:1.1;margin-bottom:0.9rem;position:relative;z-index:1;}
+.page-hero p{font-size:0.97rem;color:rgba(255,255,255,0.58);max-width:520px;margin:0 auto;line-height:1.8;position:relative;z-index:1;}
+
+/* PRICING SECTION */
+.pricing-section{padding:5rem 5vw;}
+.pricing-section:nth-child(even){background:var(--light-bg);}
+.pricing-section:nth-child(odd){background:var(--white);}
+.ps-header{margin-bottom:2.5rem;}
+.ps-tag{display:flex;align-items:center;gap:0.45rem;font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);margin-bottom:0.6rem;}
+.ps-tdots{display:flex;gap:3px;}
+.ps-dot{width:8px;height:8px;border-radius:50%;background:var(--blue);}
+.ps-dot.lt{background:var(--red);}
+.ps-title{font-family:'Syne',sans-serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:800;color:var(--navy);line-height:1.15;margin-bottom:0.5rem;}
+.ps-sub{font-size:0.9rem;color:var(--smoke);line-height:1.7;max-width:560px;}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.price-card{border:1.5px solid rgba(27,79,216,0.12);padding:2.25rem;position:relative;background:var(--white);border-radius:14px;transition:all 0.28s;display:flex;flex-direction:column;}
+.price-card:hover{border-color:var(--blue);transform:translateY(-5px);box-shadow:0 16px 40px rgba(27,79,216,0.1);}
+.price-card.featured{background:var(--navy);border-color:var(--blue);box-shadow:0 12px 40px rgba(27,79,216,0.2);}
+.featured-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;padding:0.28rem 1rem;font-weight:600;white-space:nowrap;border-radius:0 0 8px 8px;}
+.price-tier{font-size:0.64rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:0.4rem;}
+.price-card.featured .price-tier{color:var(--electric);}
+.price-name{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:var(--navy);margin-bottom:0.85rem;}
+.price-card.featured .price-name{color:#fff;}
+.price-amount{font-family:'Syne',sans-serif;font-size:2.6rem;font-weight:800;color:var(--blue);line-height:1;margin-bottom:0.2rem;}
+.price-card.featured .price-amount{color:var(--electric);}
+.price-period{font-size:0.8rem;color:var(--smoke);margin-bottom:1.75rem;}
+.price-card.featured .price-period{color:rgba(255,255,255,0.45);}
+.price-divider{height:1px;background:rgba(27,79,216,0.1);margin-bottom:1.75rem;}
+.price-card.featured .price-divider{background:rgba(255,255,255,0.08);}
+.price-note{font-size:0.8rem;font-style:italic;color:var(--smoke);margin-bottom:1.25rem;padding:0.75rem;background:var(--blue-pale);border-radius:6px;border-left:3px solid var(--blue);}
+.price-card.featured .price-note{background:rgba(27,79,216,0.25);border-color:var(--electric);color:rgba(255,255,255,0.7);}
+.price-feats{list-style:none;margin-bottom:2rem;flex:1;}
+.price-feats li{font-size:0.86rem;padding:0.45rem 0;display:flex;gap:0.7rem;align-items:flex-start;color:var(--smoke);border-bottom:1px solid rgba(27,79,216,0.06);}
+.price-feats li:last-child{border-bottom:none;}
+.price-card.featured .price-feats li{color:rgba(255,255,255,0.55);}
+.price-feats li::before{content:'✓';color:var(--blue);font-weight:700;flex-shrink:0;margin-top:1px;}
+.price-card.featured .price-feats li::before{color:var(--electric);}
+.price-cta{display:block;text-align:center;text-decoration:none;padding:0.85rem;font-size:0.8rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;border-radius:8px;border:2px solid var(--blue);color:var(--blue);transition:all 0.22s;}
+.price-cta:hover{background:var(--blue);color:#fff;}
+.price-card.featured .price-cta{background:var(--blue);color:#fff;border-color:var(--blue);}
+.price-card.featured .price-cta:hover{background:var(--blue-lt);border-color:var(--blue-lt);}
+
+/* VA grid - 3 columns */
+.va-price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+
+/* FAQ */
+.faq-section{background:var(--white);padding:5rem 5vw;}
+.faq-title{font-family:'Syne',sans-serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:800;color:var(--navy);margin-bottom:2.5rem;}
+.faq-list{max-width:760px;}
+.faq-item{border-bottom:1px solid rgba(27,79,216,0.1);}
+.faq-q{width:100%;background:none;border:none;text-align:left;cursor:pointer;padding:1.25rem 0;display:flex;justify-content:space-between;align-items:center;font-family:'DM Sans',sans-serif;font-size:0.96rem;font-weight:500;color:var(--navy);transition:color 0.2s;}
+.faq-q:hover{color:var(--blue);}
+.faq-icon{font-size:1.3rem;color:var(--blue);transition:transform 0.3s;flex-shrink:0;}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.3s;font-size:0.88rem;line-height:1.78;color:var(--smoke);}
+.faq-item.open .faq-a{max-height:200px;padding-bottom:1.25rem;}
+
+/* CTA BAND */
+.cta-band{background:var(--blue);padding:5.5rem 5vw;text-align:center;position:relative;overflow:hidden;}
+.cta-band::before{content:'';position:absolute;top:-100px;right:-100px;width:450px;height:450px;border-radius:50%;background:rgba(255,255,255,0.06);}
+.cta-band h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3.5vw,2.7rem);font-weight:800;color:#fff;max-width:580px;margin:0 auto 0.85rem;line-height:1.15;position:relative;z-index:1;}
+.cta-band p{font-size:0.96rem;color:rgba(255,255,255,0.72);max-width:460px;margin:0 auto 2.25rem;line-height:1.75;}
+.cta-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.btn-white{background:#fff;color:var(--blue);padding:0.88rem 2rem;font-size:0.82rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;border-radius:6px;transition:all 0.22s;box-shadow:0 4px 14px rgba(0,0,0,0.1);}
+.btn-white:hover{background:var(--light-bg);transform:translateY(-2px);}
+.btn-white-outline{background:transparent;color:rgba(255,255,255,0.85);padding:0.88rem 2rem;font-size:0.82rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;border:2px solid rgba(255,255,255,0.3);border-radius:6px;transition:all 0.22s;}
+.btn-white-outline:hover{border-color:#fff;color:#fff;}
+
+.page-footer{background:var(--navy);padding:2rem 5vw;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,0.06);flex-wrap:wrap;gap:1rem;}
+.footer-copy{font-size:0.74rem;color:rgba(255,255,255,0.3);}
+.footer-links{display:flex;gap:1.5rem;}
+.footer-links a{font-size:0.78rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;}
+.footer-links a:hover{color:var(--electric);}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.reveal.visible{opacity:1;transform:none;}
+.d1{transition-delay:0.1s;}
+.d2{transition-delay:0.2s;}
+
+@media(max-width:900px){
+  .nav-links,.nav-cta{display:none;}.ham{display:flex;}
+  .price-grid,.va-price-grid{grid-template-columns:1fr;}
+  .top-bar{display:none;}
+}
+@media(max-width:600px){.price-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="top-bar-left">
+    <div class="tb-item"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6.53 6.53l1.93-1.93a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+234 (0) 800 000 0000</div>
+    <div class="tb-item"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>hello@martinleonagency.com</div>
+  </div>
+  <div class="tb-socials">
+    <a href="#"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+    <a href="#"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+    <a href="#"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+  </div>
+</div>
+
+<nav>
+  <a href="index.html" class="nav-logo"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTUwMCIgem9vbUFuZFBhbj0ibWFnbmlmeSIgdmlld0JveD0iMCAwIDExMjUgMzc0Ljk5OTk5MSIgaGVpZ2h0PSI1MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIG1lZXQiIHZlcnNpb249IjEuMCI+PGRlZnM+PGcvPjxjbGlwUGF0aCBpZD0iNzM2MzhhMzUwYyI+PHBhdGggZD0iTSAxOC4xMDU0NjkgMi4wNzgxMjUgTCA0NTguMzU1NDY5IDIuMDc4MTI1IEwgNDU4LjM1NTQ2OSAzNzQuODI4MTI1IEwgMTguMTA1NDY5IDM3NC44MjgxMjUgWiBNIDE4LjEwNTQ2OSAyLjA3ODEyNSAiIGNsaXAtcnVsZT0ibm9uemVybyIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIGNsaXAtcGF0aD0idXJsKCM3MzYzOGEzNTBjKSI+PHBhdGggZmlsbD0iIzAwNGFhZCIgZD0iTSAyNzguMTA1NDY5IDExNS4wNTQ2ODggTCAxOC4xNjQwNjIgMzc0Ljk5MjE4OCBMIDE4LjE2NDA2MiAyNjIuMjE4NzUgTCAyNzguMTA1NDY5IDIuMDc4MTI1IFogTSAxOTguMTIxMDk0IDI2MS44MTY0MDYgTCAxOTguMTIxMDk0IDM3NC45OTIxODggTCAzNzguMDc0MjE5IDE5NS4yNDIxODggTCAzNzguMDc0MjE5IDM3NC45OTIxODggTCA0NTguMDU4NTk0IDI5NS4wMDc4MTIgTCA0NTguMDU4NTk0IDIuMDc4MTI1IFogTSAxOTguMTIxMDk0IDI2MS44MTY0MDYgIiBmaWxsLW9wYWNpdHk9IjEiIGZpbGwtcnVsZT0ibm9uemVybyIvPjwvZz48ZyBmaWxsPSIjMDA0YWFkIiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUxMi4yNTAwMzcsIDE3NS44MDczNTYpIj48Zz48cGF0aCBkPSJNIDM3LjkyMTg3NSAwIEwgMzcuODc1IC0yMi4xMjUgTCAyNy4wMTU2MjUgLTMuODkwNjI1IEwgMjMuMTcxODc1IC0zLjg5MDYyNSBMIDEyLjM3NSAtMjEuNjQwNjI1IEwgMTIuMzc1IDAgTCA0LjM3NSAwIEwgNC4zNzUgLTM2Ljg3NSBMIDExLjQzNzUgLTM2Ljg3NSBMIDI1LjIzNDM3NSAtMTMuOTUzMTI1IEwgMzguODEyNSAtMzYuODc1IEwgNDUuODI4MTI1IC0zNi44NzUgTCA0NS45Mzc1IDAgWiBNIDM3LjkyMTg3NSAwICIvPjwvZz48L2c+PC9nPjxnIGZpbGw9IiMwMDRhYWQiIGZpbGwtb3BhY2l0eT0iMSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTc1LjIzOTEzOCwgMTc1LjgwNzM1NikiPjxnPjxwYXRoIGQ9Ik0gMjguNjU2MjUgLTcuOTA2MjUgTCAxMS41MzEyNSAtNy45MDYyNSBMIDguMjY1NjI1IDAgTCAtMC40Njg3NSAwIEwgMTUuOTUzMTI1IC0zNi44NzUgTCAyNC4zOTA2MjUgLTM2Ljg3NSBMIDQwLjg3NSAwIEwgMzEuOTIxODc1IDAgWiBNIDI1Ljk2ODc1IC0xNC4zNzUgTCAyMC4xMjUgLTI4LjUgTCAxNC4yODEyNSAtMTQuMzc1IFogTSAyNS45Njg3NSAtMTQuMzc1ICIvPjwvZz48L2c+PC9nPjxnIGZpbGw9IiMwMDRhYWQiIGZpbGwtb3BhY2l0eT0iMSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjI4LjI3NDcxOCwgMTc1LjgwNzM1NikiPjxnPjxwYXRoIGQ9Ik0gMjcuODU5Mzc1IDAgTCAyMC43NSAtMTAuMjY1NjI1IEwgMTIuOTA2MjUgLTEwLjI2NTYyNSBMIDEyLjkwNjI1IDAgTCA0LjM3NSAwIEwgNC4zNzUgLTM2Ljg3NSBMIDIwLjMyODEyNSAtMzYuODc1IEMgMjMuNTk3NjU2IC0zNi44NzUgMjYuNDM3NSAtMzYuMzI4MTI1IDI4Ljg0Mzc1IC0zNS4yMzQzNzUgQyAzMS4yNSAtMzQuMTQ4NDM4IDMzLjA5NzY1NiAtMzIuNjAxNTYyIDM0LjM5MDYyNSAtMzAuNTkzNzUgQyAzNS42OTE0MDYgLTI4LjU5Mzc1IDM2LjM0Mzc1IC0yNi4yMjI2NTYgMzYuMzQzNzUgLTIzLjQ4NDM3NSBDIDM2LjM0Mzc1IC0yMC43NTM5MDYgMzUuNjc5Njg4IC0xOC4zOTQ1MzEgMzQuMzU5Mzc1IC0xNi40MDYyNSBDIDMzLjA0Njg3NSAtMTQuNDI1NzgxIDMxLjE3OTY4OCAtMTIuOTA2MjUgMjguNzY1NjI1IC0xMS44NDM3NSBMIDM3LjAzMTI1IDAgWiBNIDI3LjcwMzEyNSAtMjMuNDg0Mzc1IEMgMjcuNzAzMTI1IC0yNS41NTQ2ODggMjcuMDM1MTU2IC0yNy4xNDQ1MzEgMjUuNzAzMTI1IC0yOC4yNSBDIDI0LjM2NzE4OCAtMjkuMzYzMjgxIDIyLjQyMTg3NSAtMjkuOTIxODc1IDE5Ljg1OTM3NSAtMjkuOTIxODc1IEwgMTIuOTA2MjUgLTI5LjkyMTg3NSBMIDEyLjkwNjI1IC0xNy4wNjI1IEwgMTkuODU5Mzc1IC0xNy4wNjI1IEMgMjIuNDIxODc1IC0xNy4wNjI1IDI0LjM2NzE4OCAtMTcuNjI1IDI1LjcwMzEyNSAtMTguNzUgQyAyNy4wMzUxNTYgLTE5Ljg3NSAyNy43MDMxMjUgLTIxLjQ1MzEyNSAyNy43MDMxMjUgLTIzLjQ4NDM3NSBaIE0gMjcuNzAzMTI1IC0yMy40ODQzNzUgIi8+PC9nPjwvZz48L2c+PGcgZmlsbD0iIzAwNGFhZCIgZmlsbC1vcGFjaXR5PSIxIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2NzkuNjc3NzE4LCAxNzUuODA3MzU2KSI+PGc+PHBhdGggZD0iTSAxMi4wMTU2MjUgLTI5LjkyMTg3NSBMIDAuMjAzMTI1IC0yOS45MjE4NzUgTCAwLjIwMzEyNSAtMzYuODc1IEwgMzIuMzQzNzUgLTM2Ljg3NSBMIDMyLjM0Mzc1IC0yOS45MjE4NzUgTCAyMC41NDY4NzUgLTI5LjkyMTg3NSBMIDIwLjU0Njg3NSAwIEwgMTIuMDE1NjI1IDAgWiBNIDEyLjAxNTYyNSAtMjkuOTIxODc1ICIvPjwvZz48L2c+PC9nPjxnIGZpbGw9IiMwMDRhYWQiIGZpbGwtb3BhY2l0eT0iMSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzI0LjkxOTAxNCwgMTc1LjgwNzM1NikiPjxnPjxwYXRoIGQ9Ik0gNC4zNzUgLTM2Ljg3NSBMIDEyLjkwNjI1IC0zNi44NzUgTCAxMi45MDYyNSAwIEwgNC4zNzUgMCBaIE0gNC4zNzUgLTM2Ljg3NSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjMDA0YWFkIiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDc1NC44ODc3MjQsIDE3NS44MDczNTYpIj48Zz48cGF0aCBkPSJNIDM4LjE4NzUgLTM2Ljg3NSBMIDM4LjE4NzUgMCBMIDMxLjE4NzUgMCBMIDEyLjc5Njg3NSAtMjIuMzkwNjI1IEwgMTIuNzk2ODc1IDAgTCA0LjM3NSAwIEwgNC4zNzUgLTM2Ljg3NSBMIDExLjQzNzUgLTM2Ljg3NSBMIDI5Ljc2NTYyNSAtMTQuNDg0Mzc1IEwgMjkuNzY1NjI1IC0zNi44NzUgWiBNIDM4LjE4NzUgLTM2Ljg3NSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjMDA0YWFkIiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDgxMC4xMzUxOTUsIDE3NS44MDczNTYpIj48Zy8+PC9nPjwvZz48ZyBmaWxsPSIjMDA0YWFkIiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDgzNy43MzQwMTYsIDE3NS44MDczNTYpIj48Zz48cGF0aCBkPSJNIDQuMzc1IC0zNi44NzUgTCAxMi45MDYyNSAtMzYuODc1IEwgMTIuOTA2MjUgLTYuOTUzMTI1IEwgMzEuMzkwNjI1IC02Ljk1MzEyNSBMIDMxLjM5MDYyNSAwIEwgNC4zNzUgMCBaIE0gNC4zNzUgLTM2Ljg3NSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjMDA0YWFkIiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDg4Mi4yMzgwMDQsIDE3NS44MDczNTYpIj48Zz48cGF0aCBkPSJNIDMyLjkyMTg3NSAtNi44NDM3NSBMIDMyLjkyMTg3NSAwIEwgNC4zNzUgMCBMIDQuMzc1IC0zNi44NzUgTCAzMi4yMzQzNzUgLTM2Ljg3NSBMIDMyLjIzNDM3NSAtMzAuMDE1NjI1IEwgMTIuODU5Mzc1IC0zMC4wMTU2MjUgTCAxMi44NTkzNzUgLTIyLjAxNTYyNSBMIDI5Ljk2ODc1IC0yMi4wMTU2MjUgTCAyOS45Njg3NSAtMTUuMzc1IEwgMTIuODU5Mzc1IC0xNS4zNzUgTCAxMi44NTkzNzUgLTYuODQzNzUgWiBNIDMyLjkyMTg3NSAtNi44NDM3NSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjMDA0YWFkIiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDkzMC4yNzA1MDIsIDE3NS44MDczNTYpIj48Zz48cGF0aCBkPSJNIDIyLjIzNDM3NSAwLjYyNSBDIDE4LjM5ODQzOCAwLjYyNSAxNC45NDUzMTIgLTAuMTk1MzEyIDExLjg3NSAtMS44NDM3NSBDIDguODAwNzgxIC0zLjQ4ODI4MSA2LjM5NDUzMSAtNS43NTc4MTIgNC42NTYyNSAtOC42NTYyNSBDIDIuOTE0MDYyIC0xMS41NjI1IDIuMDQ2ODc1IC0xNC44MjAzMTIgMi4wNDY4NzUgLTE4LjQzNzUgQyAyLjA0Njg3NSAtMjIuMDUwNzgxIDIuOTE0MDYyIC0yNS4zMDQ2ODggNC42NTYyNSAtMjguMjAzMTI1IEMgNi4zOTQ1MzEgLTMxLjA5NzY1NiA4LjgwMDc4MSAtMzMuMzY3MTg4IDExLjg3NSAtMzUuMDE1NjI1IEMgMTQuOTQ1MzEyIC0zNi42NzE4NzUgMTguMzk4NDM4IC0zNy41IDIyLjIzNDM3NSAtMzcuNSBDIDI2LjA1NDY4OCAtMzcuNSAyOS40OTIxODggLTM2LjY3MTg3NSAzMi41NDY4NzUgLTM1LjAxNTYyNSBDIDM1LjYwOTM3NSAtMzMuMzY3MTg4IDM4LjAxNTYyNSAtMzEuMDk3NjU2IDM5Ljc2NTYyNSAtMjguMjAzMTI1IEMgNDEuNTIzNDM4IC0yNS4zMDQ2ODggNDIuNDA2MjUgLTIyLjA1MDc4MSA0Mi40MDYyNSAtMTguNDM3NSBDIDQyLjQwNjI1IC0xNC44MjAzMTIgNDEuNTIzNDM4IC0xMS41NjI1IDM5Ljc2NTYyNSAtOC42NTYyNSBDIDM4LjAxNTYyNSAtNS43NTc4MTIgMzUuNjA5Mzc1IC0zLjQ4ODI4MSAzMi41NDY4NzUgLTEuODQzNzUgQyAyOS40OTIxODggLTAuMTk1MzEyIDI2LjA1NDY4OCAwLjYyNSAyMi4yMzQzNzUgMC42MjUgWiBNIDIyLjIzNDM3NSAtNi42NDA2MjUgQyAyNC40MTAxNTYgLTYuNjQwNjI1IDI2LjM3NSAtNy4xNDA2MjUgMjguMTI1IC04LjE0MDYyNSBDIDI5Ljg4MjgxMiAtOS4xNDA2MjUgMzEuMjY1NjI1IC0xMC41MzUxNTYgMzIuMjY1NjI1IC0xMi4zMjgxMjUgQyAzMy4yNjU2MjUgLTE0LjExNzE4OCAzMy43NjU2MjUgLTE2LjE1NjI1IDMzLjc2NTYyNSAtMTguNDM3NSBDIDMzLjc2NTYyNSAtMjAuNzE4NzUgMzMuMjY1NjI1IC0yMi43NTM5MDYgMzIuMjY1NjI1IC0yNC41NDY4NzUgQyAzMS4yNjU2MjUgLTI2LjMzNTkzOCAyOS44ODI4MTIgLTI3LjczNDM3NSAyOC4xMjUgLTI4LjczNDM3NSBDIDI2LjM3NSAtMjkuNzM0Mzc1IDI0LjQxMDE1NiAtMzAuMjM0Mzc1IDIyLjIzNDM3NSAtMzAuMjM0Mzc1IEMgMjAuMDU0Njg4IC0zMC4yMzQzNzUgMTguMDg1OTM4IC0yOS43MzQzNzUgMTYuMzI4MTI1IC0yOC43MzQzNzUgQyAxNC41NjY0MDYgLTI3LjczNDM3NSAxMy4xODc1IC0yNi4zMzU5MzggMTIuMTg3NSAtMjQuNTQ2ODc1IEMgMTEuMTg3NSAtMjIuNzUzOTA2IDEwLjY4NzUgLTIwLjcxODc1IDEwLjY4NzUgLTE4LjQzNzUgQyAxMC42ODc1IC0xNi4xNTYyNSAxMS4xODc1IC0xNC4xMTcxODggMTIuMTg3NSAtMTIuMzI4MTI1IEMgMTMuMTg3NSAtMTAuNTM1MTU2IDE0LjU2NjQwNiAtOS4xNDA2MjUgMTYuMzI4MTI1IC04LjE0MDYyNSBDIDE4LjA4NTkzOCAtNy4xNDA2MjUgMjAuMDU0Njg4IC02LjY0MDYyNSAyMi4yMzQzNzUgLTYuNjQwNjI1IFogTSAyMi4yMzQzNzUgLTYuNjQwNjI1ICIvPjwvZz48L2c+PC9nPjxnIGZpbGw9IiMwMDRhYWQiIGZpbGwtb3BhY2l0eT0iMSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTg3LjQxMzkxNiwgMTc1LjgwNzM1NikiPjxnPjxwYXRoIGQ9Ik0gMzguMTg3NSAtMzYuODc1IEwgMzguMTg3NSAwIEwgMzEuMTg3NSAwIEwgMTIuNzk2ODc1IC0yMi4zOTA2MjUgTCAxMi43OTY4NzUgMCBMIDQuMzc1IDAgTCA0LjM3NSAtMzYuODc1IEwgMTEuNDM3NSAtMzYuODc1IEwgMjkuNzY1NjI1IC0xNC40ODQzNzUgTCAyOS43NjU2MjUgLTM2Ljg3NSBaIE0gMzguMTg3NSAtMzYuODc1ICIvPjwvZz48L2c+PC9nPjxnIGZpbGw9IiNkYjFjMTkiIGZpbGwtb3BhY2l0eT0iMSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjM5Ljk1NjYzOCwgMjMzLjI0ODQwMykiPjxnPjxwYXRoIGQ9Ik0gMjYuNDg0Mzc1IC04Ljk1MzEyNSBMIDcuODEyNSAtOC45NTMxMjUgTCAzLjc4MTI1IDAgTCAwLjA5Mzc1IDAgTCAxNS40MjE4NzUgLTMzLjUzMTI1IEwgMTguOTIxODc1IC0zMy41MzEyNSBMIDM0LjI1IDAgTCAzMC41MTU2MjUgMCBaIE0gMjUuMjAzMTI1IC0xMS44MjgxMjUgTCAxNy4xNTYyNSAtMjkuODQzNzUgTCA5LjEwOTM3NSAtMTEuODI4MTI1IFogTSAyNS4yMDMxMjUgLTExLjgyODEyNSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjZGIxYzE5IiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY4NS44NTI1ODIsIDIzMy4yNDg0MDMpIj48Zz48cGF0aCBkPSJNIDI5LjA3ODEyNSAtMTYuNzY1NjI1IEwgMzIuNDg0Mzc1IC0xNi43NjU2MjUgTCAzMi40ODQzNzUgLTMuOTY4NzUgQyAzMC45MjE4NzUgLTIuNjAxNTYyIDI5LjA2NjQwNiAtMS41NTA3ODEgMjYuOTIxODc1IC0wLjgxMjUgQyAyNC43ODUxNTYgLTAuMDgyMDMxMiAyMi41MzUxNTYgMC4yODEyNSAyMC4xNzE4NzUgMC4yODEyNSBDIDE2LjgxNjQwNiAwLjI4MTI1IDEzLjc5Njg3NSAtMC40NTMxMjUgMTEuMTA5Mzc1IC0xLjkyMTg3NSBDIDguNDI5Njg4IC0zLjM5MDYyNSA2LjMyMDMxMiAtNS40MjE4NzUgNC43ODEyNSAtOC4wMTU2MjUgQyAzLjI1IC0xMC42MTcxODggMi40ODQzNzUgLTEzLjUzNTE1NiAyLjQ4NDM3NSAtMTYuNzY1NjI1IEMgMi40ODQzNzUgLTE5Ljk5MjE4OCAzLjI1IC0yMi45MTAxNTYgNC43ODEyNSAtMjUuNTE1NjI1IEMgNi4zMjAzMTIgLTI4LjExNzE4OCA4LjQyOTY4OCAtMzAuMTU2MjUgMTEuMTA5Mzc1IC0zMS42MjUgQyAxMy43OTY4NzUgLTMzLjA5Mzc1IDE2LjgzMjAzMSAtMzMuODI4MTI1IDIwLjIxODc1IC0zMy44MjgxMjUgQyAyMi43Njk1MzEgLTMzLjgyODEyNSAyNS4xMTMyODEgLTMzLjQxNDA2MiAyNy4yNSAtMzIuNTkzNzUgQyAyOS4zOTQ1MzEgLTMxLjc4MTI1IDMxLjIwMzEyNSAtMzAuNTc4MTI1IDMyLjY3MTg3NSAtMjguOTg0Mzc1IEwgMzAuNDY4NzUgLTI2LjczNDM3NSBDIDI3LjgxMjUgLTI5LjM0NzY1NiAyNC40NDE0MDYgLTMwLjY1NjI1IDIwLjM1OTM3NSAtMzAuNjU2MjUgQyAxNy42NDA2MjUgLTMwLjY1NjI1IDE1LjE4NzUgLTMwLjA1NDY4OCAxMyAtMjguODU5Mzc1IEMgMTAuODEyNSAtMjcuNjYwMTU2IDkuMDkzNzUgLTI2IDcuODQzNzUgLTIzLjg3NSBDIDYuNjAxNTYyIC0yMS43NTc4MTIgNS45ODQzNzUgLTE5LjM5MDYyNSA1Ljk4NDM3NSAtMTYuNzY1NjI1IEMgNS45ODQzNzUgLTE0LjE0ODQzOCA2LjYwMTU2MiAtMTEuNzg1MTU2IDcuODQzNzUgLTkuNjcxODc1IEMgOS4wOTM3NSAtNy41NjY0MDYgMTAuODAwNzgxIC01LjkwNjI1IDEyLjk2ODc1IC00LjY4NzUgQyAxNS4xNDQ1MzEgLTMuNDc2NTYyIDE3LjU5Mzc1IC0yLjg3NSAyMC4zMTI1IC0yLjg3NSBDIDIzLjc1NzgxMiAtMi44NzUgMjYuNjc5Njg4IC0zLjczODI4MSAyOS4wNzgxMjUgLTUuNDY4NzUgWiBNIDI5LjA3ODEyNSAtMTYuNzY1NjI1ICIvPjwvZz48L2c+PC9nPjxnIGZpbGw9IiNkYjFjMTkiIGZpbGwtb3BhY2l0eT0iMSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzM0LjQzMTI4MywgMjMzLjI0ODQwMykiPjxnPjxwYXRoIGQ9Ik0gMjkuMTcxODc1IC0zLjA2MjUgTCAyOS4xNzE4NzUgMCBMIDUuNDY4NzUgMCBMIDUuNDY4NzUgLTMzLjUzMTI1IEwgMjguNDUzMTI1IC0zMy41MzEyNSBMIDI4LjQ1MzEyNSAtMzAuNDY4NzUgTCA5IC0zMC40Njg3NSBMIDkgLTE4LjU0Njg3NSBMIDI2LjM0Mzc1IC0xOC41NDY4NzUgTCAyNi4zNDM3NSAtMTUuNTE1NjI1IEwgOSAtMTUuNTE1NjI1IEwgOSAtMy4wNjI1IFogTSAyOS4xNzE4NzUgLTMuMDYyNSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjZGIxYzE5IiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDc3OC4wMjc3MzEsIDIzMy4yNDg0MDMpIj48Zz48cGF0aCBkPSJNIDMzLjQ4NDM3NSAtMzMuNTMxMjUgTCAzMy40ODQzNzUgMCBMIDMwLjU2MjUgMCBMIDkgLTI3LjIwMzEyNSBMIDkgMCBMIDUuNDY4NzUgMCBMIDUuNDY4NzUgLTMzLjUzMTI1IEwgOC4zOTA2MjUgLTMzLjUzMTI1IEwgMjkuOTg0Mzc1IC02LjMyODEyNSBMIDI5Ljk4NDM3NSAtMzMuNTMxMjUgWiBNIDMzLjQ4NDM3NSAtMzMuNTMxMjUgIi8+PC9nPjwvZz48L2c+PGcgZmlsbD0iI2RiMWMxOSIgZmlsbC1vcGFjaXR5PSIxIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4MjguNTIyNjc3LCAyMzMuMjQ4NDAzKSI+PGc+PHBhdGggZD0iTSAyMC4wMzEyNSAwLjI4MTI1IEMgMTYuNzA3MDMxIDAuMjgxMjUgMTMuNzEwOTM4IC0wLjQ1MzEyNSAxMS4wNDY4NzUgLTEuOTIxODc1IEMgOC4zNzg5MDYgLTMuMzkwNjI1IDYuMjg1MTU2IC01LjQyMTg3NSA0Ljc2NTYyNSAtOC4wMTU2MjUgQyAzLjI0MjE4OCAtMTAuNjE3MTg4IDIuNDg0Mzc1IC0xMy41MzUxNTYgMi40ODQzNzUgLTE2Ljc2NTYyNSBDIDIuNDg0Mzc1IC0xOS45OTIxODggMy4yNDIxODggLTIyLjkxMDE1NiA0Ljc2NTYyNSAtMjUuNTE1NjI1IEMgNi4yODUxNTYgLTI4LjExNzE4OCA4LjM4MjgxMiAtMzAuMTU2MjUgMTEuMDYyNSAtMzEuNjI1IEMgMTMuNzUgLTMzLjA5Mzc1IDE2Ljc1MzkwNiAtMzMuODI4MTI1IDIwLjA3ODEyNSAtMzMuODI4MTI1IEMgMjIuNTY2NDA2IC0zMy44MjgxMjUgMjQuODYzMjgxIC0zMy40MTAxNTYgMjYuOTY4NzUgLTMyLjU3ODEyNSBDIDI5LjA4MjAzMSAtMzEuNzQyMTg4IDMwLjg3NSAtMzAuNTMxMjUgMzIuMzQzNzUgLTI4LjkzNzUgTCAzMC4wNzgxMjUgLTI2LjY4NzUgQyAyNy40NjA5MzggLTI5LjMzMjAzMSAyNC4xNjAxNTYgLTMwLjY1NjI1IDIwLjE3MTg3NSAtMzAuNjU2MjUgQyAxNy41MTU2MjUgLTMwLjY1NjI1IDE1LjA5NzY1NiAtMzAuMDQ2ODc1IDEyLjkyMTg3NSAtMjguODI4MTI1IEMgMTAuNzUzOTA2IC0yNy42MTcxODggOS4wNTQ2ODggLTI1Ljk2MDkzOCA3LjgyODEyNSAtMjMuODU5Mzc1IEMgNi41OTc2NTYgLTIxLjc1MzkwNiA1Ljk4NDM3NSAtMTkuMzkwNjI1IDUuOTg0Mzc1IC0xNi43NjU2MjUgQyA1Ljk4NDM3NSAtMTQuMTQ4NDM4IDYuNTk3NjU2IC0xMS43ODUxNTYgNy44MjgxMjUgLTkuNjcxODc1IEMgOS4wNTQ2ODggLTcuNTY2NDA2IDEwLjc1MzkwNiAtNS45MDYyNSAxMi45MjE4NzUgLTQuNjg3NSBDIDE1LjA5NzY1NiAtMy40NzY1NjIgMTcuNTE1NjI1IC0yLjg3NSAyMC4xNzE4NzUgLTIuODc1IEMgMjQuMTkxNDA2IC0yLjg3NSAyNy40OTIxODggLTQuMjE4NzUgMzAuMDc4MTI1IC02LjkwNjI1IEwgMzIuMzQzNzUgLTQuNjQwNjI1IEMgMzAuODc1IC0zLjA0Njg3NSAyOS4wNzgxMjUgLTEuODI4MTI1IDI2Ljk1MzEyNSAtMC45ODQzNzUgQyAyNC44MjgxMjUgLTAuMTQwNjI1IDIyLjUxOTUzMSAwLjI4MTI1IDIwLjAzMTI1IDAuMjgxMjUgWiBNIDIwLjAzMTI1IDAuMjgxMjUgIi8+PC9nPjwvZz48L2c+PGcgZmlsbD0iI2RiMWMxOSIgZmlsbC1vcGFjaXR5PSIxIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4NzQuNTE0NDUzLCAyMzMuMjQ4NDAzKSI+PGc+PHBhdGggZD0iTSAxNi45NTMxMjUgLTExLjU5Mzc1IEwgMTYuOTUzMTI1IDAgTCAxMy40Njg3NSAwIEwgMTMuNDY4NzUgLTExLjU5Mzc1IEwgMC4wNDY4NzUgLTMzLjUzMTI1IEwgMy44MjgxMjUgLTMzLjUzMTI1IEwgMTUuMzI4MTI1IC0xNC43MDMxMjUgTCAyNi44MjgxMjUgLTMzLjUzMTI1IEwgMzAuMzc1IC0zMy41MzEyNSBaIE0gMTYuOTUzMTI1IC0xMS41OTM3NSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjZGIxYzE5IiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDkxNi40ODIwODYsIDIzMy4yNDg0MDMpIj48Zz48cGF0aCBkPSJNIDUuMDc4MTI1IDAuMjM0Mzc1IEMgNC4zNzg5MDYgMC4yMzQzNzUgMy43ODEyNSAtMC4wMTk1MzEyIDMuMjgxMjUgLTAuNTMxMjUgQyAyLjc4MTI1IC0xLjAzOTA2MiAyLjUzMTI1IC0xLjY2MDE1NiAyLjUzMTI1IC0yLjM5MDYyNSBDIDIuNTMxMjUgLTMuMTI4OTA2IDIuNzgxMjUgLTMuNzQyMTg4IDMuMjgxMjUgLTQuMjM0Mzc1IEMgMy43ODEyNSAtNC43MzQzNzUgNC4zNzg5MDYgLTQuOTg0Mzc1IDUuMDc4MTI1IC00Ljk4NDM3NSBDIDUuNzczNDM4IC00Ljk4NDM3NSA2LjM3ODkwNiAtNC43MzQzNzUgNi44OTA2MjUgLTQuMjM0Mzc1IEMgNy40MTAxNTYgLTMuNzQyMTg4IDcuNjcxODc1IC0zLjEyODkwNiA3LjY3MTg3NSAtMi4zOTA2MjUgQyA3LjY3MTg3NSAtMS42NjAxNTYgNy40MTAxNTYgLTEuMDM5MDYyIDYuODkwNjI1IC0wLjUzMTI1IEMgNi4zNzg5MDYgLTAuMDE5NTMxMiA1Ljc3MzQzOCAwLjIzNDM3NSA1LjA3ODEyNSAwLjIzNDM3NSBaIE0gNS4wNzgxMjUgMC4yMzQzNzUgIi8+PC9nPjwvZz48L2c+PC9zdmc+" alt="Martin Leon Agency" class="nav-logo-img"></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="pricing.html" class="active">Pricing</a></li>
+    <li><a href="booking.html">Book a Call</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a href="booking.html" class="nav-cta">Get a Quote</a>
+  <button class="ham" id="ham"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob-menu" id="mob-menu">
+  <a href="index.html">Home</a><a href="services.html">Services</a><a href="pricing.html">Pricing</a><a href="booking.html">Book a Call</a><a href="index.html#contact">Contact</a>
+  <a href="booking.html" class="mob-cta">Get a Quote →</a>
+</div>
+
+<div class="page-hero">
+  <div class="stag"><div class="tdots"><div class="tdot"></div><div class="tdot b"></div></div>Investment</div>
+  <h1>Transparent Pricing.<br>No Surprises.</h1>
+  <p>All plans include a dedicated account manager and 48-hour response guarantee. Volume and goals drive the work — not arbitrary post counts.</p>
+</div>
+
+<!-- SOCIAL MEDIA PRICING -->
+<section class="pricing-section">
+  <div class="ps-header reveal">
+    <div class="ps-tag"><div class="ps-tdots"><div class="ps-dot"></div><div class="ps-dot lt"></div></div>Social Media Management</div>
+    <h2 class="ps-title">Choose Your Platforms. We Handle the Rest.</h2>
+    <p class="ps-sub">All plans include content strategy, branded graphic design, copywriting, scheduling, community management, and monthly analytics. Volume is driven by your goals — not a fixed quota.</p>
+  </div>
+  <div class="price-grid">
+    <div class="price-card reveal">
+      <p class="price-tier">Starter</p>
+      <h3 class="price-name">Essentials</h3>
+      <div class="price-amount">$499</div>
+      <p class="price-period">per month</p>
+      <div class="price-divider"></div>
+      <div class="price-note">Best for: 1–2 platforms of your choice</div>
+      <ul class="price-feats">
+        <li>1–2 client-preferred platforms</li>
+        <li>Full content strategy &amp; calendar</li>
+        <li>Branded graphics for every post</li>
+        <li>Copywriting &amp; caption writing</li>
+        <li>Community management (weekdays)</li>
+        <li>Monthly analytics report</li>
+        <li>1 revision round per deliverable</li>
+      </ul>
+      <a href="booking.html" class="price-cta">Get Started</a>
+    </div>
+    <div class="price-card featured reveal d1">
+      <div class="featured-badge">Most Popular</div>
+      <p class="price-tier">Growth</p>
+      <h3 class="price-name">Professional</h3>
+      <div class="price-amount">$999</div>
+      <p class="price-period">per month</p>
+      <div class="price-divider"></div>
+      <div class="price-note">Best for: 3–4 platforms of your choice</div>
+      <ul class="price-feats">
+        <li>3–4 client-preferred platforms</li>
+        <li>Content strategy &amp; full calendar</li>
+        <li>Custom branded graphics + Stories</li>
+        <li>Full community management (7 days)</li>
+        <li>Bi-weekly analytics &amp; strategy call</li>
+        <li>1 landing page design/month</li>
+        <li>Email template (1/month)</li>
+        <li>3 revision rounds</li>
+      </ul>
+      <a href="booking.html" class="price-cta">Get Started</a>
+    </div>
+    <div class="price-card reveal d2">
+      <p class="price-tier">Elite</p>
+      <h3 class="price-name">Enterprise</h3>
+      <div class="price-amount">$2,499</div>
+      <p class="price-period">per month</p>
+      <div class="price-divider"></div>
+      <div class="price-note">Best for: 5+ platforms — full presence</div>
+      <ul class="price-feats">
+        <li>5+ client-preferred platforms</li>
+        <li>Daily content + Reels / TikToks</li>
+        <li>Paid ad management (up to $5k spend)</li>
+        <li>Unlimited graphic design requests</li>
+        <li>Full community management (7 days)</li>
+        <li>Weekly strategy sessions</li>
+        <li>Priority 24-hour support</li>
+        <li>Full brand identity package</li>
+      </ul>
+      <a href="booking.html" class="price-cta">Get Started</a>
+    </div>
+  </div>
+  <p style="text-align:center;margin-top:1.75rem;font-size:0.85rem;color:var(--smoke);">Need a custom package? <a href="index.html#contact" style="color:var(--blue);font-weight:600;text-decoration:none;">Let's talk →</a></p>
+</section>
+
+<!-- WORKFLOW AUTOMATION PRICING -->
+<section class="pricing-section">
+  <div class="ps-header reveal">
+    <div class="ps-tag"><div class="ps-tdots"><div class="ps-dot"></div><div class="ps-dot lt"></div></div>Workflow Automation</div>
+    <h2 class="ps-title">Automate Once. Save Hours Every Week.</h2>
+    <p class="ps-sub">One-time builds for simpler automations, monthly retainers for ongoing workflow management and iteration.</p>
+  </div>
+  <div class="price-grid">
+    <div class="price-card reveal">
+      <p class="price-tier">Starter</p>
+      <h3 class="price-name">Starter Build</h3>
+      <div class="price-amount">$599</div>
+      <p class="price-period">one-time</p>
+      <div class="price-divider"></div>
+      <ul class="price-feats">
+        <li>1 automated workflow</li>
+        <li>Up to 2 app integrations</li>
+        <li>Process mapping &amp; documentation</li>
+        <li>Testing &amp; QA</li>
+        <li>Handover &amp; training session</li>
+        <li>14-day post-launch support</li>
+      </ul>
+      <a href="booking.html" class="price-cta">Get Started</a>
+    </div>
+    <div class="price-card featured reveal d1">
+      <div class="featured-badge">Best Value</div>
+      <p class="price-tier">Pro</p>
+      <h3 class="price-name">Pro Retainer</h3>
+      <div class="price-amount">$1,200</div>
+      <p class="price-period">per month</p>
+      <div class="price-divider"></div>
+      <ul class="price-feats">
+        <li>Up to 10 automated workflows</li>
+        <li>Unlimited app integrations</li>
+        <li>Full process mapping &amp; optimisation</li>
+        <li>Monthly workflow review &amp; updates</li>
+        <li>Priority support &amp; fixes</li>
+        <li>Full documentation maintained</li>
+        <li>New automations added each month</li>
+      </ul>
+      <a href="booking.html" class="price-cta">Get Started</a>
+    </div>
+    <div class="price-card reveal d2">
+      <p class="price-tier">Enterprise</p>
+      <h3 class="price-name">Enterprise</h3>
+      <div class="price-amount" style="font-size:1.8rem;">Custom</div>
+      <p class="price-period">tailored to your business</p>
+      <div class="price-divider"></div>
+      <ul class="price-feats">
+        <li>Unlimited workflows &amp; automations</li>
+        <li>Full tech stack integration</li>
+        <li>Dedicated automation strategist</li>
+        <li>Weekly reviews &amp; roadmap sessions</li>
+        <li>SLA-backed support</li>
+        <li>Team training &amp; documentation</li>
+        <li>Priority escalation</li>
+      </ul>
+      <a href="booking.html" class="price-cta">Talk to Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- AI AUTOMATION PRICING -->
+<section class="pricing-section">
+  <div class="ps-header reveal">
+    <div class="ps-tag"><div class="ps-tdots"><div class="ps-dot"></div><div class="ps-dot lt"></div></div>AI Automation</div>
+    <h2 class="ps-title">Deploy AI That Works For Your Business.</h2>
+    <p class="ps-sub">Build AI agents, chatbots, and tools once — or get ongoing AI strategy, deployment, and optimisation on a retainer.</p>
+  </div>
+  <div class="price-grid">
+    <div class="price-card reveal">
+      <p class="price-tier">Starter</p>
+      <h3 class="price-name">Starter AI Build</h3>
+      <div class="price-amount">$799</div>
+      <p class="price-period">one-time</p>
+      <div class="price-divider"></div>
+      <ul class="price-feats">
+        <li>1 AI bot or agent</li>
+        <li>Trained on your business data</li>
+        <li>1 deployment channel (web or WhatsApp)</li>
+        <li>Basic prompt engineering</li>
+        <li>Testing, QA &amp; handover</li>
+        <li>30-day post-launch support</li>
+      </ul>
+      <a href="booking.html" class="price-cta">Get Started</a>
+    </div>
+    <div class="price-card featured reveal d1">
+      <div class="featured-badge">Most Popular</div>
+      <p class="price-tier">Pro</p>
+      <h3 class="price-name">Pro AI Retainer</h3>
+      <div class="price-amount">$1,499</div>
+      <p class="price-period">per month</p>
+      <div class="price-divider"></div>
+      <ul class="price-feats">
+        <li>Up to 5 AI tools or agents</li>
+        <li>Multi-channel deployment</li>
+        <li>Ongoing training &amp; fine-tuning</li>
+        <li>AI content generation pipelines</li>
+        <li>Monthly performance review</li>
+        <li>New AI tools added monthly</li>
+        <li>Priority support</li>
+      </ul>
+      <a href="booking.html" class="price-cta">Get Started</a>
+    </div>
+    <div class="price-card reveal d2">
+      <p class="price-tier">Enterprise</p>
+      <h3 class="price-name">Full AI Stack</h3>
+      <div class="price-amount" style="font-size:1.8rem;">Custom</div>
+      <p class="price-period">tailored to your business</p>
+      <div class="price-divider"></div>
+      <ul class="price-feats">
+        <li>Unlimited AI agents &amp; tools</li>
+        <li>Full AI stack design &amp; architecture</li>
+        <li>RAG systems &amp; knowledge bases</li>
+        <li>CRM, workflow &amp; AI integration</li>
+        <li>Dedicated AI strategist</li>
+        <li>Weekly sessions &amp; roadmap</li>
+        <li>SLA-backed support</li>
+      </ul>
+      <a href="booking.html" class="price-cta">Talk to Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- VIRTUAL ASSISTANCE PRICING -->
+<section class="pricing-section">
+  <div class="ps-header reveal">
+    <div class="ps-tag"><div class="ps-tdots"><div class="ps-dot"></div><div class="ps-dot lt"></div></div>Virtual Assistance</div>
+    <h2 class="ps-title">Dedicated Support. Billed Weekly.</h2>
+    <p class="ps-sub">All VA plans include pre-vetted matching, onboarding, and admin task support. You pay for the hours you need — nothing more.</p>
+  </div>
+  <div class="va-price-grid">
+    <div class="price-card reveal">
+      <p class="price-tier">Light Support</p>
+      <h3 class="price-name">10 hrs / Week</h3>
+      <div class="price-amount">$299</div>
+      <p class="price-period">per month</p>
+      <div class="price-divider"></div>
+      <ul class="price-feats">
+        <li>10 dedicated VA hours per week</li>
+        <li>Pre-vetted VA matching</li>
+        <li>Inbox &amp; calendar management</li>
+        <li>Research &amp; data tasks</li>
+        <li>Weekly progress report</li>
+        <li>Dedicated account manager</li>
+      </ul>
+      <a href="booking.html" class="price-cta">Get Started</a>
+    </div>
+    <div class="price-card featured reveal d1">
+      <div class="featured-badge">Most Popular</div>
+      <p class="price-tier">Part-Time</p>
+      <h3 class="price-name">20 hrs / Week</h3>
+      <div class="price-amount">$499</div>
+      <p class="price-period">per month</p>
+      <div class="price-divider"></div>
+      <ul class="price-feats">
+        <li>20 dedicated VA hours per week</li>
+        <li>Pre-vetted VA matching</li>
+        <li>Full admin task coverage</li>
+        <li>Inbox, calendar &amp; scheduling</li>
+        <li>Research, data &amp; coordination</li>
+        <li>Bi-weekly strategy check-in</li>
+        <li>Dedicated account manager</li>
+      </ul>
+      <a href="booking.html" class="price-cta">Get Started</a>
+    </div>
+    <div class="price-card reveal d2">
+      <p class="price-tier">Full-Time</p>
+      <h3 class="price-name">40 hrs / Week</h3>
+      <div class="price-amount">$949</div>
+      <p class="price-period">per month</p>
+      <div class="price-divider"></div>
+      <ul class="price-feats">
+        <li>40 dedicated VA hours per week</li>
+        <li>Pre-vetted VA matching</li>
+        <li>Comprehensive admin coverage</li>
+        <li>Project coordination &amp; operations</li>
+        <li>Document creation &amp; management</li>
+        <li>Weekly strategy &amp; review calls</li>
+        <li>Priority support &amp; replacements</li>
+      </ul>
+      <a href="booking.html" class="price-cta">Get Started</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="ps-tag" style="margin-bottom:0.6rem;"><div class="ps-tdots"><div class="ps-dot"></div><div class="ps-dot lt"></div></div>Common Questions</div>
+  <h2 class="faq-title">Frequently Asked Questions</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q">Can I cancel or change my plan at any time? <span class="faq-icon">+</span></button>
+      <div class="faq-a">Yes. All monthly plans are month-to-month with no long-term contracts. You can upgrade, downgrade, or cancel with 30 days' notice. One-time builds are non-refundable once work has commenced.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Is there a setup fee? <span class="faq-icon">+</span></button>
+      <div class="faq-a">No setup fees on any plan. The monthly price covers everything including onboarding, account setup, and your dedicated account manager.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">For Social Media, how many posts will I get? <span class="faq-icon">+</span></button>
+      <div class="faq-a">We don't set arbitrary post limits. Volume is determined by your goals, audience, and platform best practices — discussed and agreed in your strategy session each month. Quality over quantity, always.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can I combine services across plans? <span class="faq-icon">+</span></button>
+      <div class="faq-a">Absolutely. Many clients combine Social Media Management with a VA plan or an AI build. We'll build a custom package that makes sense for your budget and needs — just book a discovery call.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How quickly will I see results? <span class="faq-icon">+</span></button>
+      <div class="faq-a">Social media typically shows measurable engagement improvements within 30–60 days. Automations and AI tools are deployed within agreed timelines (usually 5–14 business days). VA support starts within 48 hours of matching.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What payment methods do you accept? <span class="faq-icon">+</span></button>
+      <div class="faq-a">We accept card payments, bank transfer, and PayPal. All billing is handled securely online with an invoice issued monthly.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band">
+  <h2>Not Sure Which Plan Is Right For You?</h2>
+  <p>Book a free 30-minute strategy call. We'll recommend the best fit based on your goals and budget — no pressure, no pitch.</p>
+  <div class="cta-actions">
+    <a href="booking.html" class="btn-white">Book Free Strategy Call</a>
+    <a href="index.html#contact" class="btn-white-outline">Send Us a Message</a>
+  </div>
+</div>
+
+<div class="page-footer">
+  <p class="footer-copy">© 2026 Martin Leon Agency. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="index.html">Home</a><a href="services.html">Services</a><a href="booking.html">Book a Call</a><a href="index.html#contact">Contact</a>
+  </div>
+</div>
+
+<script>
+const ham=document.getElementById('ham'),mob=document.getElementById('mob-menu');
+ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open');});
+
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.parentElement,was=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!was)item.classList.add('open');
+  });
+});
+
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');});},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
