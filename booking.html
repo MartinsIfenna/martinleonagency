@@ -152,9 +152,7 @@
     border-radius: 4px; overflow: hidden;
     box-shadow: 0 4px 32px rgba(0,74,173,0.07);
   }
-  .embed-wrap iframe {
-    width: 100%; border: none; display: block; min-height: 680px;
-  }
+  #inline-container { width: 100%; }
 
   .back-btn {
     background: none; border: none; cursor: pointer;
@@ -179,7 +177,7 @@
     .form-grid-2 { grid-template-columns: 1fr; }
     .trust-strip { gap: 1rem; }
     .step-line { width: 30px; }
-    .embed-wrap iframe { min-height: 820px; }
+
     .page-footer { flex-direction: column; gap: 0.5rem; text-align: center; }
   }
 </style>
@@ -292,13 +290,7 @@
       <h2 class="step-heading">Pick a time that works for you</h2>
       <p class="step-sub" style="margin-bottom:1.5rem;">All times shown in West Africa Time (WAT, UTC+1).</p>
       <div class="embed-wrap">
-        <iframe
-          id="zoho-frame"
-          src="https://martinleonagency.zohobookings.com/#/4744687000000038049"
-          title="Book a Strategy Call — Martin Leon Agency"
-          allow="payment"
-          loading="lazy">
-        </iframe>
+        <div id="inline-container"></div>
       </div>
     </div>
 
@@ -310,6 +302,7 @@
   <a href="index.html" class="footer-home">← Back to Home</a>
 </div>
 
+<script src="https://bookings.nimbuspop.com/assets/embed.js"></script>
 <script>
   // Validation
   function setErr(id, errId, msg) {
@@ -354,6 +347,16 @@
     // Transition to step 2
     document.getElementById('step1').style.display = 'none';
     document.getElementById('step2').style.display = 'block';
+
+    // Init Zoho embed (only once)
+    if (!window._zohoEmbedLoaded) {
+      window._zohoEmbedLoaded = true;
+      Bookings.inlineEmbed({
+        url: "https://martinleonagency.zohobookings.com/portal-embed#/4744687000000038049",
+        parent: "#inline-container",
+        height: "650px"
+      });
+    }
 
     // Update stepper
     document.getElementById('st1').classList.remove('active');
