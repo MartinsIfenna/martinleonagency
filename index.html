@@ -385,18 +385,15 @@ nav{position:sticky;top:0;z-index:300;height:var(--nav-h);display:flex;align-ite
 /* ═══════════════════════════
    STATS
 ═══════════════════════════ */
-.stats-section{background:var(--white);padding:0 6vw 6rem;}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1.5px solid rgba(0,74,173,0.1);border-radius:16px;overflow:hidden;}
-.stat-item{
-  padding:2.25rem 1.75rem;text-align:center;position:relative;
-  transition:background 0.2s;cursor:default;
-}
-.stat-item:not(:last-child)::after{content:'';position:absolute;right:0;top:20%;bottom:20%;width:1.5px;background:rgba(0,74,173,0.1);}
-.stat-item:hover{background:var(--blue-pale);}
-.stat-icon{font-size:1.5rem;display:block;margin-bottom:0.5rem;}
-.stat-num{font-family:'Syne',sans-serif;font-size:2.4rem;font-weight:800;color:var(--navy);display:block;line-height:1;margin-bottom:0.3rem;}
-.stat-num em{color:var(--blue);font-style:normal;}
-.stat-label{font-size:0.72rem;color:var(--smoke);letter-spacing:0.08em;text-transform:uppercase;}
+
+
+
+
+
+
+
+
+
 
 /* ═══════════════════════════
    SERVICES
@@ -604,7 +601,7 @@ footer{background:var(--navy);padding:4rem 6vw 2rem;border-top:1px solid rgba(25
   /* Other sections */
   .about-grid{grid-template-columns:1fr;gap:3rem;}
   .ai-visual{display:none;}
-  .stats-grid{grid-template-columns:1fr 1fr;}
+  
   .stat-item:nth-child(2)::after{display:none;}
   .testi-grid{grid-template-columns:1fr;}
   .contact-grid{grid-template-columns:1fr;gap:3rem;}
@@ -628,11 +625,11 @@ footer{background:var(--navy);padding:4rem 6vw 2rem;border-top:1px solid rgba(25
   .hstat{padding-right:1rem;}
   .hstat+.hstat{padding-left:1rem;}
   .hstat-num{font-size:1.4rem;}
-  .stats-grid{grid-template-columns:1fr 1fr;}
+  
   .footer-grid{grid-template-columns:1fr;}
   .section-title{font-size:clamp(1.6rem,6vw,2rem);}
   .testi-section,.about-section,.contact-section,.cta-band,.services-section{padding:3.5rem 5vw;}
-  .stats-section{padding:0 5vw 3.5rem;}
+  
   .nav-logo-img{height:42px;}
   .mob-menu{top:var(--nav-h);}
 }
@@ -688,9 +685,9 @@ footer{background:var(--navy);padding:4rem 6vw 2rem;border-top:1px solid rgba(25
       <a href="services.html" class="btn-ghost">View All Services</a>
     </div>
     <div class="hero-stats">
-      <div class="hstat"><span class="hstat-num">30<em>+</em></span><span class="hstat-label">Projects Done</span></div>
+      <div class="hstat"><span class="hstat-num">30<em>+</em></span><span class="hstat-label">Projects Delivered</span></div>
       <div class="hstat"><span class="hstat-num">20<em>+</em></span><span class="hstat-label">Happy Clients</span></div>
-      <div class="hstat"><span class="hstat-num">98<em>%</em></span><span class="hstat-label">Satisfaction</span></div>
+      <div class="hstat"><span class="hstat-num">3<em>+</em></span><span class="hstat-label">Years Experience</span></div>
     </div>
   </div>
 
@@ -703,7 +700,7 @@ footer{background:var(--navy);padding:4rem 6vw 2rem;border-top:1px solid rgba(25
       <!-- Floating: Followers card -->
       <div class="fc fc-followers">
         <p class="fc-label">Followers Growth</p>
-        <p class="fc-big">4,680</p>
+        <p class="fc-big">24,680</p>
         <p class="fc-sub">+6.2% this week</p>
       </div>
 
@@ -747,7 +744,7 @@ footer{background:var(--navy);padding:4rem 6vw 2rem;border-top:1px solid rgba(25
       <div class="fc fc-rating">
         <p class="fc-stars">★★★★★</p>
         <p style="font-family:'Syne',sans-serif;font-size:0.88rem;font-weight:700;color:var(--navy);">98% Satisfaction</p>
-        <p style="font-size:0.68rem;color:var(--smoke);margin-top:2px;">20+ happy clients</p>
+        <p style="font-size:0.68rem;color:var(--smoke);margin-top:2px;">200+ happy clients</p>
       </div>
     </div>
   </div>
@@ -866,15 +863,6 @@ footer{background:var(--navy);padding:4rem 6vw 2rem;border-top:1px solid rgba(25
   </div>
 </section>
 
-<!-- STATS -->
-<section class="stats-section">
-  <div class="stats-grid">
-    <div class="stat-item reveal"><span class="stat-icon">🚀</span><span class="stat-num">30<em>+</em></span><span class="stat-label">Projects Delivered</span></div>
-    <div class="stat-item reveal d1"><span class="stat-icon">😊</span><span class="stat-num">20<em>+</em></span><span class="stat-label">Happy Clients</span></div>
-    <div class="stat-item reveal d2"><span class="stat-icon">⭐</span><span class="stat-num">98<em>%</em></span><span class="stat-label">Satisfaction Rate</span></div>
-    <div class="stat-item reveal d3"><span class="stat-icon">📅</span><span class="stat-num">3<em>+</em></span><span class="stat-label">Years Experience</span></div>
-  </div>
-</section>
 
 <!-- SERVICES -->
 <section class="services-section" id="services">
@@ -968,18 +956,26 @@ footer{background:var(--navy);padding:4rem 6vw 2rem;border-top:1px solid rgba(25
       </div>
     </div>
     <div>
-      <form id="contact-form" novalidate>
-        <div class="form-row"><label>Full Name <span style="color:var(--blue)">*</span></label><input type="text" id="name" name="name" placeholder="Your full name" required><span class="field-error" id="name-error"></span></div>
-        <div class="form-row"><label>Email Address <span style="color:var(--blue)">*</span></label><input type="email" id="email" name="email" placeholder="you@example.com" required><span class="field-error" id="email-error"></span></div>
+      <form id="contact-form" name="WebToLeads7376950000000603362" novalidate>
+        <!-- Zoho CRM hidden fields -->
+        <input type="hidden" name="xnQsjsdp" value="716ab2515765a48141684ab7b2d4687404df27f4d9aa23a2930d4ef99fcc901b">
+        <input type="hidden" name="zc_gad" id="zc_gad" value="">
+        <input type="hidden" name="xmIwtLD" value="e58585aa3de4ae72a7082719b768b31eae39960cf2348250bf10ad9aff3ab7e62b984f37930560e395356e0969ce5a39">
+        <input type="hidden" name="actionType" value="TGVhZHM=">
+        <input type="hidden" name="returnURL" value="null">
+        <input type="hidden" name="aG9uZXlwb3Q" value="">
+        <input type="hidden" name="Lead Source" value="Web Form - Contact">
+        <div class="form-row"><label>Full Name <span style="color:var(--blue)">*</span></label><input type="text" id="name" name="Last Name" placeholder="Your full name" required><span class="field-error" id="name-error"></span></div>
+        <div class="form-row"><label>Email Address <span style="color:var(--blue)">*</span></label><input type="email" id="email" name="Email" ftype="email" placeholder="you@example.com" required><span class="field-error" id="email-error"></span></div>
         <div class="form-row"><label>Service Interested In</label>
-          <select id="service" name="service">
+          <select id="service" name="Lead Source">
             <option value="">— Select a service —</option>
             <option>Social Media Management</option><option>Workflow Automation</option>
             <option>AI Automation</option><option>Virtual Assistance</option>
             <option>Full Package</option><option>Not sure yet — let's talk</option>
           </select>
         </div>
-        <div class="form-row"><label>Tell Us About Your Project <span style="color:var(--blue)">*</span></label><textarea id="message" name="message" placeholder="What does your business do? What are you looking to achieve?" required></textarea><span class="field-error" id="message-error"></span></div>
+        <div class="form-row"><label>Tell Us About Your Project <span style="color:var(--blue)">*</span></label><textarea id="message" name="Description" placeholder="What does your business do? What are you looking to achieve?" required></textarea><span class="field-error" id="message-error"></span></div>
         <div id="form-success" class="form-msg s">✓ <strong>Message sent!</strong> We'll get back to you within 24 hours.</div>
         <div id="form-error" class="form-msg e">✗ Something went wrong. Please try again.</div>
         <button type="submit" class="form-submit" id="submit-btn">Send Message →</button>
@@ -1086,13 +1082,17 @@ form.addEventListener('submit',async function(e){
   const btn=document.getElementById('submit-btn');
   btn.textContent='Sending…';btn.disabled=true;
   try{
-    const res=await fetch('https://formspree.io/f/xkopkoov',{
-      method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify({name:document.getElementById('name').value.trim(),email:document.getElementById('email').value.trim(),service:document.getElementById('service').value,message:document.getElementById('message').value.trim()})
+    const fd = new FormData(form);
+    // Merge service into Description
+    const svc = document.getElementById('service').value;
+    const msg = document.getElementById('message').value.trim();
+    fd.set('Description', [svc ? 'Service: ' + svc : '', msg].filter(Boolean).join(' | '));
+    fd.set('Last Name', document.getElementById('name').value.trim());
+    await fetch('https://crm.zoho.com/crm/WebToLeadForm', {
+      method: 'POST', body: fd, mode: 'no-cors'
     });
-    if(res.ok){successEl.style.display='block';form.reset();}
-    else errorEl.style.display='block';
-  }catch{errorEl.style.display='block';}
+    successEl.style.display='block'; form.reset();
+  }catch{ errorEl.style.display='block'; }
   btn.textContent='Send Message →';btn.disabled=false;
 });
 ['name','email','message'].forEach(id=>{
@@ -1102,5 +1102,6 @@ form.addEventListener('submit',async function(e){
   });
 });
 </script>
+<script id="wf_anal" src="https://crm.zohopublic.com/crm/WebFormAnalyticsServeServlet?rid=2286414973eb4652ef27bb8127952649378f05be599a50448c4793386b3a835215c24f1eea1dab7977ed309129acef38gid1bb146078625578a4d0c5ab0fcba17fe85c7470d090a65702ff393da75bc2cc9gidd0943ae9dd9706aad8020e04361e9c96e1204be682e63f985e25a5b0d9e825a4gide9f857de812a299f2ccfe63acc921e561e03949ac5cb3c778e2d6f0238b42933&tw=5f0f78fb5849b2d029894924365be672bc62c6320da488d938adc05fb91a5878"></script>
 </body>
 </html>
