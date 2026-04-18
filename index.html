@@ -968,14 +968,14 @@ footer{background:var(--navy);padding:4rem 6vw 2rem;border-top:1px solid rgba(25
         <div class="form-row"><label>Full Name <span style="color:var(--blue)">*</span></label><input type="text" id="name" name="Last Name" placeholder="Your full name" required><span class="field-error" id="name-error"></span></div>
         <div class="form-row"><label>Email Address <span style="color:var(--blue)">*</span></label><input type="email" id="email" name="Email" ftype="email" placeholder="you@example.com" required><span class="field-error" id="email-error"></span></div>
         <div class="form-row"><label>Service Interested In</label>
-          <select id="service" name="Lead Source">
+          <select id="service" name="service_interest">
             <option value="">— Select a service —</option>
             <option>Social Media Management</option><option>Workflow Automation</option>
             <option>AI Automation</option><option>Virtual Assistance</option>
             <option>Full Package</option><option>Not sure yet — let's talk</option>
           </select>
         </div>
-        <div class="form-row"><label>Tell Us About Your Project <span style="color:var(--blue)">*</span></label><textarea id="message" name="Description" placeholder="What does your business do? What are you looking to achieve?" required></textarea><span class="field-error" id="message-error"></span></div>
+        <div class="form-row"><label>Tell Us About Your Project <span style="color:var(--blue)">*</span></label><textarea id="message" name="message" placeholder="What does your business do? What are you looking to achieve?" required></textarea><span class="field-error" id="message-error"></span></div>
         <div id="form-success" class="form-msg s">✓ <strong>Message sent!</strong> We'll get back to you within 24 hours.</div>
         <div id="form-error" class="form-msg e">✗ Something went wrong. Please try again.</div>
         <button type="submit" class="form-submit" id="submit-btn">Send Message →</button>
@@ -1082,12 +1082,20 @@ form.addEventListener('submit',async function(e){
   const btn=document.getElementById('submit-btn');
   btn.textContent='Sending…';btn.disabled=true;
   try{
-    const fd = new FormData(form);
-    // Merge service into Description
+    const fd = new FormData();
+    fd.append('xnQsjsdp', '716ab2515765a48141684ab7b2d4687404df27f4d9aa23a2930d4ef99fcc901b');
+    fd.append('xmIwtLD',  'e58585aa3de4ae72a7082719b768b31eae39960cf2348250bf10ad9aff3ab7e62b984f37930560e395356e0969ce5a39');
+    fd.append('actionType', 'TGVhZHM=');
+    fd.append('returnURL', 'null');
+    fd.append('zc_gad', '');
+    fd.append('aG9uZXlwb3Q', '');
+    fd.append('Lead Source', 'Web Form - Contact');
+    fd.append('Last Name',  document.getElementById('name').value.trim());
+    fd.append('Email',      document.getElementById('email').value.trim());
+    fd.append('Phone',      '');
     const svc = document.getElementById('service').value;
     const msg = document.getElementById('message').value.trim();
-    fd.set('Description', [svc ? 'Service: ' + svc : '', msg].filter(Boolean).join(' | '));
-    fd.set('Last Name', document.getElementById('name').value.trim());
+    fd.append('Description', [svc ? 'Service Interest: ' + svc : '', msg].filter(Boolean).join(' | '));
     await fetch('https://crm.zoho.com/crm/WebToLeadForm', {
       method: 'POST', body: fd, mode: 'no-cors'
     });
