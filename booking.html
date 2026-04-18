@@ -378,11 +378,21 @@
     document.getElementById('step1').style.display = 'none';
     document.getElementById('step2').style.display = 'block';
 
-    // Init Zoho Bookings embed (only once)
+    // Init Zoho Bookings embed (only once) with pre-filled details
     if (!window._zohoEmbedLoaded) {
       window._zohoEmbedLoaded = true;
+      const fname    = document.getElementById('d-fname').value.trim();
+      const lname    = document.getElementById('d-lname').value.trim();
+      const email    = document.getElementById('d-email').value.trim();
+      const phone    = document.getElementById('d-phone').value.trim();
+      const fullName = [fname, lname].filter(Boolean).join(' ');
+      const params   = new URLSearchParams({
+        name:  fullName,
+        email: email,
+        phone: phone
+      });
       Bookings.inlineEmbed({
-        url: "https://martinleonagency.zohobookings.com/portal-embed#/4744687000000038049",
+        url: "https://martinleonagency.zohobookings.com/portal-embed#/4744687000000038049?" + params.toString(),
         parent: "#inline-container",
         height: "650px"
       });
