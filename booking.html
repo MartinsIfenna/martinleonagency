@@ -225,40 +225,50 @@
       <h2 class="step-heading">Tell us about yourself</h2>
       <p class="step-sub">Just a few quick details so we can make the most of your 30 minutes.</p>
 
-      <form id="details-form" novalidate>
+      <form id="details-form" name="WebToLeads7376950000000603362" novalidate>
+
+        <!-- Zoho CRM hidden fields -->
+        <input type="hidden" name="xnQsjsdp" value="716ab2515765a48141684ab7b2d4687404df27f4d9aa23a2930d4ef99fcc901b">
+        <input type="hidden" name="zc_gad" id="zc_gad" value="">
+        <input type="hidden" name="xmIwtLD" value="e58585aa3de4ae72a7082719b768b31eae39960cf2348250bf10ad9aff3ab7e62b984f37930560e395356e0969ce5a39">
+        <input type="hidden" name="actionType" value="TGVhZHM=">
+        <input type="hidden" name="returnURL" value="null">
+        <input type="hidden" name="aG9uZXlwb3Q" value="">
+        <input type="hidden" name="Lead Source" value="Web Form">
+
         <div class="form-grid-2">
           <div class="form-row">
-            <label>First Name <span style="color:var(--red)">*</span></label>
-            <input type="text" id="d-fname" placeholder="First name" required>
+            <label>First Name</label>
+            <input type="text" id="d-fname" name="First Name" placeholder="First name" maxlength="40">
             <span class="field-error" id="d-fname-err"></span>
           </div>
           <div class="form-row">
             <label>Last Name <span style="color:var(--red)">*</span></label>
-            <input type="text" id="d-lname" placeholder="Last name" required>
+            <input type="text" id="d-lname" name="Last Name" placeholder="Last name" maxlength="80" required>
             <span class="field-error" id="d-lname-err"></span>
           </div>
         </div>
 
         <div class="form-row">
           <label>Email Address <span style="color:var(--red)">*</span></label>
-          <input type="email" id="d-email" placeholder="you@example.com" required>
+          <input type="email" id="d-email" name="Email" ftype="email" placeholder="you@example.com" maxlength="100" required>
           <span class="field-error" id="d-email-err"></span>
         </div>
 
         <div class="form-row">
           <label>WhatsApp / Phone</label>
-          <input type="tel" id="d-phone" placeholder="+234 800 000 0000">
+          <input type="tel" id="d-phone" name="Phone" placeholder="+234 800 000 0000" maxlength="30">
         </div>
 
         <div class="form-row">
           <label>Business / Brand Name <span style="color:var(--red)">*</span></label>
-          <input type="text" id="d-biz" placeholder="Your business name" required>
+          <input type="text" id="d-biz" name="Company" placeholder="Your business name" maxlength="200" required>
           <span class="field-error" id="d-biz-err"></span>
         </div>
 
         <div class="form-row">
           <label>Service You're Interested In</label>
-          <select id="d-service">
+          <select id="d-service" name="Description">
             <option value="">— Select one —</option>
             <option>Social Media Management</option>
             <option>Workflow Automation</option>
@@ -270,7 +280,7 @@
 
         <div class="form-row">
           <label>Anything we should know?</label>
-          <textarea id="d-notes" placeholder="Your current challenges, goals, or questions..."></textarea>
+          <textarea id="d-notes" name="Description" placeholder="Your current challenges, goals, or questions..."></textarea>
         </div>
 
         <p class="req-note">* Required fields</p>
@@ -344,11 +354,31 @@
     e.preventDefault();
     if (!validate()) return;
 
+    const btn = document.getElementById('proceed-btn');
+    btn.textContent = 'Saving…';
+    btn.disabled = true;
+
+    // Submit to Zoho CRM silently via fetch
+    const form = document.getElementById('details-form');
+    const formData = new FormData(form);
+
+    // Merge service + notes into Description
+    const service = document.getElementById('d-service').value;
+    const notes   = document.getElementById('d-notes').value.trim();
+    const desc    = [service ? 'Service: ' + service : '', notes].filter(Boolean).join(' | ');
+    formData.set('Description', desc);
+
+    fetch('https://crm.zoho.com/crm/WebToLeadForm', {
+      method: 'POST',
+      body: formData,
+      mode: 'no-cors'
+    }).catch(() => {}); // silent — no-cors always resolves
+
     // Transition to step 2
     document.getElementById('step1').style.display = 'none';
     document.getElementById('step2').style.display = 'block';
 
-    // Init Zoho embed (only once)
+    // Init Zoho Bookings embed (only once)
     if (!window._zohoEmbedLoaded) {
       window._zohoEmbedLoaded = true;
       Bookings.inlineEmbed({
@@ -385,5 +415,6 @@
   });
 </script>
 
+<script id="wf_anal" src="https://crm.zohopublic.com/crm/WebFormAnalyticsServeServlet?rid=2286414973eb4652ef27bb8127952649378f05be599a50448c4793386b3a835215c24f1eea1dab7977ed309129acef38gid1bb146078625578a4d0c5ab0fcba17fe85c7470d090a65702ff393da75bc2cc9gidd0943ae9dd9706aad8020e04361e9c96e1204be682e63f985e25a5b0d9e825a4gide9f857de812a299f2ccfe63acc921e561e03949ac5cb3c778e2d6f0238b42933&tw=5f0f78fb5849b2d029894924365be672bc62c6320da488d938adc05fb91a5878"></script>
 </body>
 </html>
